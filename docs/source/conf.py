@@ -21,7 +21,6 @@ project = 'DeepThoughtHPC - Compute Usage Documentation'
 copyright = '2020, DeepThoughtHPC'
 author = 'DeepThoughtHPC'
 
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -37,6 +36,12 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
+
+# The suffix(es) of source filenames.
+# You can specify multiple suffix as a list of string:
+#
+# source_suffix = ['.rst', '.md']
+source_suffix = '.rst'
 
 # Define master / default document
 master_doc = 'index'
