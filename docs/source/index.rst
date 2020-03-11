@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to DeepThoughtHPC - Compute Usage Documentation!
-===============================================
+========================================================
 
 This site contains the documentation to get you started with using an DeepThoughtHPC Compute research environment. It provides details for accessing the research environment, exploring the various features of the research environment and examples of common workflows with the research environment.
 
