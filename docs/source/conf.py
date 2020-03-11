@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'DeepThoughtHPC-docs'
+project = 'DeepThoughtHPC - Compute Usage Documentation'
 copyright = '2020, DeepThoughtHPC'
 author = 'DeepThoughtHPC'
 

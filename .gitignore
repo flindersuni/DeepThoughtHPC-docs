@@ -1,0 +1,9 @@
+# Files Built by Sphinx
+docs/build
+
+# Files Build by RstPreviewer
+docs/source/_build
+
+# Files used by Visual Code
+.vscode/settings.json
+*.code-workspace
