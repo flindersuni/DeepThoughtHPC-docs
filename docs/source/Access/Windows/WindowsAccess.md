@@ -35,6 +35,6 @@ These are the same credentails you use to login to OKTA.
 ## Success
 Upon a sucessful login, you should get a screen similar to this: 
 
-#### -- IMAGE TBA --
+![Alt HPC SSH Login Screen](../../_static/loginOkImage.png)
 
 If so, you are now connected and ready to start using the HPC!

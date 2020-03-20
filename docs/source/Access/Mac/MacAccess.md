@@ -1,3 +1,3 @@
 # MacOS Access
 
-Access Guide for MacOS
+MacOS / MacOSX Is a Unix/BSD Based system. Head on over to [Unix/Linux](../Unix/UnixAccess.md) Guide.
