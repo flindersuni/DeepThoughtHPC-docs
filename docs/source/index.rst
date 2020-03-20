@@ -3,10 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to DeepThoughtHPC - Compute Usage Documentation!
-========================================================
+Welcome to DeepThoughtHPC - Compute Usage Documentation
+=======================================================
 
-This site contains the documentation to get you started with using an DeepThoughtHPC Compute research environment. It provides details for accessing the research environment, exploring the various features of the research environment and examples of common workflows with the research environment.
+The new Flinders High Performance Computing (HPC) solution is called Deep Thought.  Comprising of high-end DELL hardware and services, Deep Thought delivers a core enterprise HPC service, where moderate usage is delivered at no cost to researchers or colleges.
 
 Acknowledgements
 ----------------
@@ -24,6 +24,7 @@ Table of Contents
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   Access/GettingAccess.md
 
 Indices and tables
 ==================
