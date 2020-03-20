@@ -7,14 +7,14 @@ To connect to Deep Thought a SSH application such as PuTTy is required. Below is
 
 ## Client Options
 
-- [Putty]('https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html')
-- [KiTTY]('http://www.9bis.net/kitty/#!pages/download.md')
+- [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+- [KiTTY](http://www.9bis.net/kitty/#!pages/download.md)
 
 ## Getting Connected 
 
 Open PuTTy, and you are presented with this screen: 
 
-![Alt Putty Connection Screen](/docs/source/_static/puttyAccessImage.png)
+![Alt Putty Connection Screen](../../_static/puttyAccessImage.png)
 
 - Fill in the hostname to be: deepthought.flinders.edu.au,
 - Change the Connection Type to SSH 
@@ -25,7 +25,7 @@ Open PuTTy, and you are presented with this screen:
 
 If all has gone well, you will be presented with this screen: 
 
-![Alt HPC SSH Login Screen](/docs/source/_static/puttyLoginImage.png)
+![Alt HPC SSH Login Screen](../../_static/puttyLoginImage.png)
 
 - Your Username is your FAN
 - Your Password is your FAN Password. 
