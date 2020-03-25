@@ -2,7 +2,7 @@
 
 Transferring files to the HPC will change depending upon your OS. Thankfully, there are some excellent tools that take this from 'potentially-scary' to 'click a button or two'.
 
-## Before we Get Started
+## Before we get started
 
 The HPC is a little different that your desktop at home when it comes to storage (not just computing power!). It's a shared resource, so we cant store everybody's data for all time - there just isn't enough space!
 
@@ -17,7 +17,7 @@ Your 'home' directories. This is a small amount of storage to store your small b
 
 At a command promp, your home directory usually gets shortened to ~/ - we will cover this more in the Linux Guide.
 
-#### What to Store in /home
+#### What to store in /home
 
 Here is a rough guide as to what should live in your /home/$FAN directory. In general, you want small, little things is here.
 
@@ -31,7 +31,7 @@ Scratch is your working space. Whenever you are running a job, it should be runn
 
 It's also much, much larger than your /home area. Some of the working data-sets we have seen on Deep Thought have gotten out to Multiple Terabytes! Thankfully, /scratch can handle this, however /home would not.
 
-#### What to Store in /scratch
+#### What to store in /scratch
 
 Here is a rough guide as to what should live in your /scratch/$FAN directory. In general, anything large, bulky and only needed for a little while should go here.
 

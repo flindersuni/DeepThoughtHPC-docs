@@ -4,11 +4,11 @@ This page will guide you on the steps to get access and then connect to the HPC 
 
 ## Flinders Staff / HDR Students
 
-1. ) Fire of an Assyst Ticket asking for Access to the HPC
+1. Fire of an Assyst Ticket asking for Access to the HPC
 
-2. ) Pick your Operating System
+2. Pick your Operating System
 
-3. ) Follow the more detailed guides for either:
+3. Follow the more detailed guides for either:
 
 ### MacOS
 
