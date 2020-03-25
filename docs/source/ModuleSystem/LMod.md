@@ -1,38 +1,64 @@
 # The Module System
 
-The system uses the [lmod](https://lmod.readthedocs.io/en/latest/) (Load MODules) system to load/unload applications in the command line. Any modules you use frequently can be loaded on login using your .bash_profile file; modules required for a job should be automated in your slurm script.
-Checking what modules are available
+The system uses the [lmod](https://lmod.readthedocs.io/en/latest/) (Load MODules) system to load/unload applications in the command line. Any modules you use frequently can be loaded on login using your .bash_profile file; modules required for a job should be automated in your SLURM script.
+
+Best way to think of Module is a Singular Program Version + all of its associated dependencies to run correctly.
 
 ## Module Format
 
-As Software requirements for reserach can be very specific, the modules follow suit as well. Newer modules will have the following syntax: 
+As Software requirements for research can be very specific, the modules follow suit as well. Newer modules will have the following syntax:
 
-- 
+- Program/Version-Toolchain-Version-Interpreter-Version
 
-This uses the 'avail' option of the module command.
+To break that down into its individual parts for BioPerl/1.7.2-GCCcore-8.2.0-Perl-5.28.1.
 
-In the command line type: module avail
-Checking what modules are loaded
+### Program-Version
 
-This uses the 'list' option of the module command.
+This is program that was installed — in this case it's BioPerl, version 1.7.2
 
-In the command line type: module list
-Loading modules
+### Toolchains-Version
 
-This uses the 'add' option of the module command, followed by the software package you wish to load.
+The Compiler Toolchain that was used to compiler the program — in this case it's GCCcore, version 8.2.0.
 
-In the command line type: module add python2
-Unloading modules
+### Interpreter-Version
 
-This uses the 'load' option of the module command, followed by the software package you wish to unload.
+Some programs have a dependence on another interpreter, like Perl or Python. In this case it's Perl, version 5.28.1.
 
-In the command line type: module unload python2
-Installing additional modules & applications
+## Useful Commands
 
-If you do not see a module listed for the application that you wish to run, (and  it will be used by other people besides you), please contact Digital Research Services to have it installed for all users via an Assyst request.
+Below are some common module commands to load, unload and reset your module system.
 
-If the application is just for you, you can install applications to your home directory following the install instructions of that application.
+### Available Modules
 
-Please note, the software must in all cases be appropriately licensed.  
+    module avail
 
-If there are issues installing software then an Assyst request can be assigned to DRS, who will assist on a best effort basis.
+### Loaded Modules
+
+    module list
+
+### Loading Modueles
+
+There are three main ways to load a module. For most of the time, they are functionally equivalent. For more information, head on over to [LMod Loading Types]() and read up on how they differ.
+
+- A good tip! Typing out a partial name and double-tapping 'tab' will attempt to complete the name of what you are typing. This means you don't have to worry about typing the very-long name of a module.
+
+#### Module Load
+
+    module load BioPerl/1.7.2-GCCcore-8.2.0-Perl-5.28.1.
+
+There is also a nice shortcut, that you can use:
+
+    ml BioPerl/1.7.2-GCCcore-8.2.0-Perl-5.28.1.
+
+## Additional Software
+
+We can install nearly anything onto the HPC, but we don't always need to go thorough the effort to install things 'globally' for everybody.
+
+1. Are people other than just me going to use this ticket?
+2. If yes, Assyst Ticket, and Digital Research Services will get it installed on a Best-Effort basis
+
+Otherwise, there is nothing stopping you installing the program locally for yourself! If you tun into issues installing software then open an Assysts ticket and again, Digital Research Services will help on a best-effort basis.
+
+### An Important Note
+
+The software must in all cases be appropriately licensed.

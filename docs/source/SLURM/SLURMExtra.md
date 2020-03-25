@@ -1,5 +1,4 @@
-
-Good job script examples
+# SLURM: Extras
 
 Researchers have found the way the scripts are commented pretty clear and easy to follow.
 Slurm batch scripting https://hpc-uit.readthedocs.io/en/latest/jobs/examples.html

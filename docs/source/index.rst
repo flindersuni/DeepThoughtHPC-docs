@@ -28,6 +28,8 @@ Table of Contents
    Access/GettingAccess.md
    FileTransfers/FileTransfersIntro.md
    LinuxCommands/LinuxIntro.md 
+   ModuleSystem/LMod.md
+   SLURM/SLURMIntro.md
 
 Indices and tables
 ==================
