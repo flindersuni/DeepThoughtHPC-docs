@@ -23,9 +23,11 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Table of Contents:
    
    Access/GettingAccess.md
+   FileTransfers/FileTransfersIntro.md
+   LinuxCommands/LinuxIntro.md 
 
 Indices and tables
 ==================

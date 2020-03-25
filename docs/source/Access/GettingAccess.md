@@ -1,22 +1,27 @@
 # Getting Access to DeepThought
-This page will guide you on the steps to get access and then connect to the HPC on your operating system of choice. 
 
-## 3 Easy Steps
+This page will guide you on the steps to get access and then connect to the HPC on your operating system of choice.
 
-1. ) Fire of an Assyst Ticket asking for Access. 
+## Flinders Staff / HDR Students
 
-2. ) Pick your Operating System 
+1. ) Fire of an Assyst Ticket asking for Access to the HPC
 
-3. ) Follow the more detailed guides for either: 
+2. ) Pick your Operating System
 
-#### MacOS
+3. ) Follow the more detailed guides for either:
+
+### MacOS
 
 [Link](Mac/MacAccess.md) to MacOS page
 
-#### Unix/Linux
+### Unix/Linux
 
 [Link](Unix/UnixAccess.md) to unix page
 
-#### Windows
+### Windows
 
 [Link](Windows/WindowsAccess.md) to Windows page
+
+## For External Users
+
+Sorry, but we aren't open for external users just yet. Check back soon!
