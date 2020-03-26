@@ -10,4 +10,3 @@ Besides useful commands and ideas, this FAQ http://www.ceci-hpc.be/slurm_faq.htm
 Job submission
 
 An excellent guide to submitting jobs. https://support.ceci-hpc.be/doc/_contents/QuickStart/SubmittingJobs/SlurmTutorial.html
-

@@ -50,14 +50,16 @@ There is also a nice shortcut, that you can use:
 
     ml BioPerl/1.7.2-GCCcore-8.2.0-Perl-5.28.1.
 
+'ml' is just short for 'module load'. Handy!
+
 ## Additional Software
 
 We can install nearly anything onto the HPC, but we don't always need to go thorough the effort to install things 'globally' for everybody.
 
-1. Are people other than just me going to use this ticket?
-2. If yes, Assyst Ticket, and Digital Research Services will get it installed on a Best-Effort basis
+1. Are people other than just me going to use this software?
+2. If yes, create an Assyst Ticket, and Digital Research Services will get it installed on a Best-Effort basis
 
-Otherwise, there is nothing stopping you installing the program locally for yourself! If you tun into issues installing software then open an Assysts ticket and again, Digital Research Services will help on a best-effort basis.
+Otherwise, there is nothing stopping you installing the program locally for yourself! If you run into issues installing software then open an Assysts ticket and again, Digital Research Services will help on a best-effort basis.
 
 ### An Important Note
 
