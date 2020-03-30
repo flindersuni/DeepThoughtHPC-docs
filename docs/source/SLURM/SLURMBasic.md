@@ -14,7 +14,7 @@ To test your job use:
 
     sbatch --test-only <name of script>.sh
 
-(NOTE: this does not actually submit anything)
+This does not actually submit anything. Useful for testing new scripts for errors.
 
 ## Job information
 
@@ -37,10 +37,6 @@ List all current jobs in the shared partition for a user:
 List detailed information for a job (useful for troubleshooting):
 
     scontrol show jobid -dd <jobid>
-
-List priority order of jobs for the current user (you) in a given partition:
-
-    showq-slurm -o -u -q <partition>
 
 ## Cancelling a job
 

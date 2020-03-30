@@ -1,8 +1,12 @@
 # The Module System
 
-The system uses the [lmod](https://lmod.readthedocs.io/en/latest/) (Load MODules) system to load/unload applications in the command line. Any modules you use frequently can be loaded on login using your .bash_profile file; modules required for a job should be automated in your SLURM script.
+The system uses the [LMod](https://lmod.readthedocs.io/en/latest/) (Load MODules) system to load/unload applications in the command line. Any modules you use frequently can be loaded on login using your .bash_profile file; modules required for a job should be automated in your SLURM script.
 
 Best way to think of Module is a Singular Program Version + all of its associated dependencies to run correctly.
+
+## Writing Your Own Modules
+
+You can [write your own module files](https://lmod.readthedocs.io/en/latest/015_writing_modules.html#) if you want! This is supported ona best-effort basis by the HPC team.
 
 ## Module Format
 
@@ -16,13 +20,13 @@ To break that down into its individual parts for BioPerl/1.7.2-GCCcore-8.2.0-Per
 
 This is program that was installed — in this case it's BioPerl, version 1.7.2
 
-### Toolchains-Version
+### Toolchain-Version
 
-The Compiler Toolchain that was used to compiler the program — in this case it's GCCcore, version 8.2.0.
+The Compiler Toolchain that was used to compile the program — in this case it's GCCcore, version 8.2.0.
 
 ### Interpreter-Version
 
-Some programs have a dependence on another interpreter, like Perl or Python. In this case it's Perl, version 5.28.1.
+Some programs have a dependence on another interpreter, like Perl or Python. In this case it's Perl, version 5.28.1. This means, it will also load the module for Perl, Version 5.28.1.
 
 ## Useful Commands
 
@@ -32,13 +36,21 @@ Below are some common module commands to load, unload and reset your module syst
 
     module avail
 
+Will get you a list of something similar to this - a list of every single available module on the HPC. You can scroll by your 'Up' and 'Down' arrows and 'q' will exit the scroll if you don't want to scroll all the way to then end.
+
+![Alt Module Avail ](../_static/moduleAvailExampleList.png)
+
 ### Loaded Modules
 
     module list
 
-### Loading Modueles
+Will get you a list of your current modules.
 
-There are three main ways to load a module. For most of the time, they are functionally equivalent. For more information, head on over to [LMod Loading Types]() and read up on how they differ.
+![Alt Module List Loaded](../_static/moduleListExample.png)
+
+### Loading Modules
+
+There are three main ways to load a module. For most of the time, they are functionally equivalent. For more information, head on over to [LMod Loading Types](https://lmod.readthedocs.io/en/latest/010_user.html#users-can-only-have-one-version-active-the-one-name-rule) and read up on how they differ.
 
 - A good tip! Typing out a partial name and double-tapping 'tab' will attempt to complete the name of what you are typing. This means you don't have to worry about typing the very-long name of a module.
 
@@ -64,3 +76,19 @@ Otherwise, there is nothing stopping you installing the program locally for your
 ### An Important Note
 
 The software must in all cases be appropriately licensed.
+
+## Currently Installed Modules
+
+Be warned, that this is a _long_ list. It's updated on best effort basis to help you see what is already present, but the latest list is always available by running the ```module list``` command on the HPC. Its broken into several segments, as there are several tools used to facilitate the installation and management of software used on the HPC. 
+
+### Manually Installed Software / Default Available
+
+This is the list of software that has been 'hand rolled' as it contains either things that at that time, did not have an automated way of installation, or rather esoteric software that required extensive modification to work correctly on the HPC. It is available [here](ManuallyInstalled.md)
+
+### EasyBuild Modules
+
+You can opt-in to [EasyBuild](https://easybuild.readthedocs.io/en/latest/#) Managed modules - these are the ones with the strict versioning of all aspects of the install. A brief warning and the list of modules is available [here](EasyBuildModules.md).
+
+### Spack Modules
+
+You can also opt-int to the experimental [Spack](https://spack.io/) modules. These modules are here for testing, but you are free to use them a your own risk! We are running tests to see how we can allow you more power to 'get on with it' and install you own software - Spack is a contender for one of the tools we may use. The list and another warning is over [here](SpackModules.md)

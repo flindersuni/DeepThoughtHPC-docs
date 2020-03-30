@@ -1,0 +1,6 @@
+@import url("css/theme.css");
+
+.wy-nav-content {
+    height: 100vh !important;
+    max-width: 100% !important;  
+}
