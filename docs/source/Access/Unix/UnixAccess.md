@@ -20,6 +20,6 @@ If all is OK it will ask for your password. Enter the same password you use to l
 
 Upon a sucessful login, you should get a screen similar to this:
 
-![](../../_static/loginOkImage.png)
+![](../../_static/loginOKImage.png)
 
 If so, you are now connected and ready to start using the HPC!
