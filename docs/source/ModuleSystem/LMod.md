@@ -75,7 +75,7 @@ We can install nearly anything onto the HPC, but we don't always need to go thor
 1. Are people other than just me going to use this software?
 2. If yes, create an Assyst Ticket, and Digital Research Services will get it installed on a Best-Effort basis
 
-Otherwise, there is nothing stopping you installing the program locally for yourself! If you run into issues installing software then open an Assysts ticket and again, Digital Research Services will help on a best-effort basis.
+Otherwise, there is nothing stopping you installing the program locally for yourself! If you run into issues installing software then open an Assyst ticket and again, Digital Research Services will help on a best-effort basis.
 
 ### An Important Note
 

@@ -34,7 +34,7 @@ The command will take this form:
 
 #### Transfer By IP Address
 
-If you don't know your compuer IP, then the commands of:
+If you don't know your computer IP, then the commands of:
 
 - ip addr
 - ifconfig

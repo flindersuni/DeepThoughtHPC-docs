@@ -4,7 +4,7 @@ Unix and Linux systems have native support for the SSH Protocol, used to connect
 
 ## The Windows Sub-System for Linux
 
-The windows Subsystem for Linux (WSL) allows you to run a Linux Distribution as a sub-system in windows. When follwoing these instructions, a 'terminal' is the same as starting your WSL Distribution.
+The windows Subsystem for Linux (WSL) allows you to run a Linux Distribution as a sub-system in windows. When following these instructions, a 'terminal' is the same as starting your WSL Distribution.
 
 ## Getting Connected
 
@@ -18,7 +18,7 @@ If all is OK it will ask for your password. Enter the same password you use to l
 
 ## Success
 
-Upon a sucessful login, you should get a screen similar to this:
+Upon a successful login, you should get a screen similar to this:
 
 ![](../../_static/loginOKImage.png)
 

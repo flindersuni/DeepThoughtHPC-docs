@@ -31,11 +31,11 @@ If all has gone well, you will be presented with this screen:
 - Your Username is your FAN
 - Your Password is your FAN Password.
 
-These are the same credentails you use to login to OKTA.
+These are the same credentials you use to login to OKTA.
 
 ## Success
 
-Upon a sucessful login, you should get a screen similar to this:
+Upon a successful login, you should get a screen similar to this:
 
 ![](../../_static/loginOKImage.png)
 
