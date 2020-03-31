@@ -26,7 +26,7 @@ Open PuTTy, and you are presented with this screen:
 
 If all has gone well, you will be presented with this screen:
 
-![Alt HPC SSH Login Screen](../../_static/puttyLoginImage.png)
+![](../../_static/puttyLoginImage.png)
 
 - Your Username is your FAN
 - Your Password is your FAN Password.
@@ -37,6 +37,6 @@ These are the same credentails you use to login to OKTA.
 
 Upon a sucessful login, you should get a screen similar to this:
 
-![Alt HPC SSH Login Screen](../../_static/loginOkImage.png)
+![](../../_static/loginOKImage.png)
 
 If so, you are now connected and ready to start using the HPC!

@@ -14,12 +14,12 @@ The simplest manner is to open up a terminal window and type in the following, s
 
 If all is OK it will ask for your password. Enter the same password you use to login to OKTA.
 
-![Alt HPC SSH Login Screen](../../_static/shellPasswordPromtImage.png)
+![](../../_static/shellPasswordPromtImage.png)
 
 ## Success
 
 Upon a sucessful login, you should get a screen similar to this:
 
-![Alt HPC SSH Login Screen](../../_static/loginOkImage.png)
+![](../../_static/loginOkImage.png)
 
 If so, you are now connected and ready to start using the HPC!

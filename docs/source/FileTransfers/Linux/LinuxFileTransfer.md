@@ -15,7 +15,7 @@ To upload documents to Deep Thought, the simplest method is to open a Terminal w
 Substitute your filename, FAN and Password, type scp FILENAME FAN@deepthought.flinders.edu.au:/home/FAN then hit enter.
 Enter your password when prompted. This will put the file in your home directory on Deep Thought. It looks (when substituted accordingly) similar to:
 
-![Alt SCP Example Command](../../_static/SCPExampleImage.png)
+![](../../_static/SCPExampleImage.png)
 
 ### The Longer Version
 
@@ -30,7 +30,7 @@ If you know the hostname of the computer, you can substitute this to transfer fi
 
 The command will take this form:
 
-![Alt SCP Transfer By Hostname](../../_static/SCPByHostname.png)
+![](../../_static/SCPByHostname.png)
 
 #### Transfer By IP Address
 
@@ -41,4 +41,4 @@ If you don't know your compuer IP, then the commands of:
 
 Will be your friend to figure out what it is. Just like above, we slightly change the command, and sub-in an IP instead of a host-name.
 
-![Alt SCP Transfer By IP](../../_static/SCPByIp.png)
+![](../../_static/SCPByIp.png)

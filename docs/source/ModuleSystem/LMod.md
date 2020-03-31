@@ -14,7 +14,11 @@ As Software requirements for research can be very specific, the modules follow s
 
 - Program/Version-Toolchain-Version-Interpreter-Version
 
-To break that down into its individual parts for BioPerl/1.7.2-GCCcore-8.2.0-Perl-5.28.1.
+To break that down into its individual parts for BioPerl/1.7.2-GCCcore-8.2.0-Perl-5.28.1 in the following sections. 
+
+Manually installed software will always be a shorter format of:
+
+- Program/Version
 
 ### Program-Version
 
@@ -36,7 +40,7 @@ Below are some common module commands to load, unload and reset your module syst
 
     module avail
 
-Will get you a list of something similar to this - a list of every single available module on the HPC. You can scroll by your 'Up' and 'Down' arrows and 'q' will exit the scroll if you don't want to scroll all the way to then end.
+Will get you a list of something similar to this - a list of every single available module on the HPC. You can scroll by your 'Up' and 'Down' arrows and 'q' will exit the scroll if you don't want to scroll all the way to then end. The screenshot below is not an exhaustive list of all modules, just an example!
 
 ![Alt Module Avail ](../_static/moduleAvailExampleList.png)
 
@@ -79,7 +83,7 @@ The software must in all cases be appropriately licensed.
 
 ## Currently Installed Modules
 
-Be warned, that this is a _long_ list. It's updated on best effort basis to help you see what is already present, but the latest list is always available by running the ```module list``` command on the HPC. Its broken into several segments, as there are several tools used to facilitate the installation and management of software used on the HPC. 
+Be warned, that this is a _long_ list. It's updated on best effort basis to help you see what is already present, but the latest list is always available by running the `module list` command on the HPC. Its broken into several segments, as there are several tools used to facilitate the installation and management of software used on the HPC.
 
 ### Manually Installed Software / Default Available
 

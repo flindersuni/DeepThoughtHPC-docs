@@ -1,3 +1,3 @@
 # Mac File Transfers
 
-Blah
+Head on over to the [Linux](../Linux/LinuxFileTransfer.md) Guide!
