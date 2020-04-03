@@ -10,6 +10,7 @@ If you are using the Windows SubSystem for Linux (WSL), then go ahead and read t
 
 - [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 - [KiTTY](http://www.9bis.net/kitty/#!pages/download.md)
+- [BitVise Client](https://www.bitvise.com/download-area)
 
 ## Getting Connected
 
