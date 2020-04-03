@@ -10,11 +10,9 @@ This page will guide you on the steps to get access and then connect to the HPC 
 
 3. Follow the more detailed guides for either:
 
-### MacOS
+### Unix/Linux/MacOS
 
-[Link](Mac/MacAccess.md) to MacOS page
-
-### Unix/Linux
+MacOS / MacOSX shares a similar procedure to Unix/BSD Based system.
 
 [Link](Unix/UnixAccess.md) to unix page
 
