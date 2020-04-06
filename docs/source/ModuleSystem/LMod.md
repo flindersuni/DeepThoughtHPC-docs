@@ -2,7 +2,7 @@
 
 The system uses the [LMod](https://lmod.readthedocs.io/en/latest/) (Load MODules) system to load/unload applications in the command line. Any modules you use frequently can be loaded on login using your .bash_profile file; modules required for a job should be automated in your SLURM script.
 
-Best way to think of Module is a Singular Program Version + all of its associated dependencies to run correctly.
+Best way to think of Module is a singular program version + all of its associated dependencies to run correctly.
 
 ## Writing Your Own Modules
 
@@ -42,7 +42,7 @@ Below are some common module commands to load, unload and reset your module syst
 
 Will get you a list of something similar to this - a list of every single available module on the HPC. You can scroll by your 'Up' and 'Down' arrows and 'q' will exit the scroll if you don't want to scroll all the way to then end. The screenshot below is not an exhaustive list of all modules, just an example!
 
-![Alt Module Avail ](../_static/moduleAvailExampleList.png)
+![](../_static/moduleAvailExampleList.png)
 
 ### Loaded Modules
 
@@ -50,11 +50,11 @@ Will get you a list of something similar to this - a list of every single availa
 
 Will get you a list of your current modules.
 
-![Alt Module List Loaded](../_static/moduleListExample.png)
+![](../_static/moduleListExample.png)
 
 ### Loading Modules
 
-There are three main ways to load a module. For most of the time, they are functionally equivalent. For more information, head on over to [LMod Loading Types](https://lmod.readthedocs.io/en/latest/010_user.html#users-can-only-have-one-version-active-the-one-name-rule) and read up on how they differ.
+There are three main ways to load a module. For most of the time, they are functionally equivalent. For more information, head on over to [LMod Loading Types](https://lmod.readthedocs.io/en/latest/010_user.html) and read up on how they differ.
 
 - A good tip! Typing out a partial name and double-tapping 'tab' will attempt to complete the name of what you are typing. This means you don't have to worry about typing the very-long name of a module.
 

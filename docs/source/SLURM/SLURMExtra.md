@@ -1,12 +1,11 @@
 # SLURM: Extras
 
-Researchers have found the way the scripts are commented pretty clear and easy to follow.
-Slurm batch scripting https://hpc-uit.readthedocs.io/en/latest/jobs/examples.html
+Here is an assortment of resources that have been passed on to the Support Team as 'Useful to me'. Your mileage may vary on how useful you find
 
-This is a very good video explaining the contents of the batch script.
-Tasks, jobs & parallel scripting https://www.youtube.com/watch?v=LRJMQO7Ercw
+[Slurm batch scripting](https://hpc-uit.readthedocs.io/en/latest/jobs/examples.html)
 
-Besides useful commands and ideas, this FAQ http://www.ceci-hpc.be/slurm_faq.html#Q01 has been the best explanation of 'going parallel' and the different types of parallel jobs, as well as a clear definition for what is considered a task.
-Job submission
+[Tasks, jobs & parallel scripting](https://www.youtube.com/watch?v=LRJMQO7Ercw)
 
-An excellent guide to submitting jobs. https://support.ceci-hpc.be/doc/_contents/QuickStart/SubmittingJobs/SlurmTutorial.html
+Besides useful commands and ideas, this [FAQ](http://www.ceci-hpc.be/slurm_faq.html#Q01) has been the best explanation of 'going parallel' and the different types of parallel jobs, as well as a clear definition for what is considered a task.
+
+An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_contents/QuickStart/SubmittingJobs/SlurmTutorial.html).

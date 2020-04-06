@@ -1,8 +1,8 @@
 # SLURM: The Basics
 
-These are some of the basic commands. The Slurm quick start guide is also very helpful to acquaint yourself with the most used commands.
+These are some of the basic commands. The Slurm [Quick-Start](https://slurm.schedmd.com/quickstart.html) guide is also very helpful to acquaint yourself with the most used commands.
 
-Slurm has also produced the [Rosetta Stone](../../_static/SLURMRosettaStone.pdf) - a document that shows equivalents between several workload managers.
+Slurm has also produced the [Rosetta Stone](../_static/SLURMRosettaStone.pdf) - a document that shows equivalents between several workload managers.
 
 ## Job submission
 

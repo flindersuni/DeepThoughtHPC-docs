@@ -2,189 +2,109 @@
 # SLURM: Example Script
 
     #!/bin/bash
-
-    ##################################################################
-
     # Please note that you need to adapt this script to your job
-
     # Submitting as is will fail cause the job to fail 
-
+    # The keyword command for SLURM is #SBATCH --option
+    # Anything starting with a # is a comment and will be ignored
+    # ##SBATCH is a commented-out #SBATCH command
     ##################################################################
-
     # Change FAN to your fan account name
-
     # Change JOBNAME to what you want to call the job
-
+    # This is what is shows when attmepting to Monitor / interrogate the job,
+    # So make sure it is something pertinent!
     #
-
     #SBATCH --job-name=FAN_JOBNAME
-
     #
-
     ##################################################################
-
-    # This section is optional delete if not required
-
-    #
-
+    # If you want email updates form SLURM for your job.
     # Change MYEMAIL to your email address
-
     #SBATCH --mail-user=MYEMAIL@flinders.edu.au
-
     #SBATCH --mail-type=ALL
-
-    #     (ALL = BEGIN, END, FAIL, REQUEUE)
-
-    #
-
+    # 
+    # Valid 'points of notification are': 
+    # BEGIN, END, FAIL, REQUEUE. 
+    # ALL means all of these
     ##################################################################
-
-    # Change JOBNAME to the name of the job, this will put the job log
-
-    # in your home directory
-
-    #SBATCH --output=~/JOBNAME-log.txt
-
-    #
-
-    # Change PARTITIONNAME to the partition you have been granted 
-
-    # access too run the job on. 
-
-    # Valid partitions 's are hpc_cmph, hpc_cse, hpc_other, and 
-
-    # hpc_melfeu
-
-    #
-
+    # Tell SLURM where to put the Job 'Output Log' text file. 
+    # This will aid you in debugging crashed or stalled jobs.
+    #SBATCH --output=/home/$FAN/JOBNAME-log.txt
+    ##################################################################
+    # For now, you must select a partition for jobs to run on. 
+    #  Valid partitions 's are hpc_cmph, hpc_cse, hpc_other and hpc_melfeu
     #SBATCH --partition=PARTITIONNAME
-
-    #
-
     ##################################################################
-
-    # This section is optional delete if not required
-
+    # Tell SLURM how long your job should run for, at most. 
+    # SLURM will kill/stop the job if it goes over this amount of time. 
+    # Currently, this is unlimited - however, due to the upcoming 
+    # implementation of Fairshare Score, you do not want to run a job
+    # for too long.
+    # The command format is as follows: #SBATCH --time=DAYS-HOURS
+    #SBATCH --time=14=0
     #
-
-    # Change DAYS and HOURS to how long you want the job to run for
-
-    #
-
-    #SBATCH --time=DAYS-HOURS
-
-    #
-
     ##################################################################
-
-    # Change ntasks to the number of tasks the script will run
-
+    # How many tasks is your job going to run? 
+    # Unless you are running something that is Parallel / Modular or
+    # pipelined, leave this as 1.
+    #
     #SBATCH --ntasks=1
-
-    #
-
-    # Change the cpus-per-task to the number of CPU's to be used
-
+    # If each task will need more that a single CPU, then alter this 
+    # value. Remeber, this is multiplicative, so if you sk for 
+    # 4 TASK and 4 CPUS per Task, you will be allocated 16 CPU;s 
     #SBATCH --cpus-per-task=1
-
-    #
-
     ##################################################################
-
-    # This section is optional delete if not required
-
-    #
-
     # Set the memory requirements for the job in MB. Your job will be
-
     # allocated exclusive access to that amount of RAM. In the case it
-
     # overuses that amount, Slurm will kill it. The default value is 
-
     # around 2GB per core.
-
-    #
-
     # Note that the lower the requested memory, the higher the
-
     # chances to get scheduled to 'fill in the gaps' between other
-
     # jobs. 
-
-    #
-
-    #SBATCH --mem-per-cpu=128
-
-    #
-
+    #SBATCH --mem-per-cpu=256MB
     ##################################################################
-
-    # This section is optional delete if not required
-
+    # Change the number of GPU's required and the most GPU's that can be 
+    # requested is 2. As there are limited GPU slots, they are heavily 
+    # weighted against for Fairshare Score calculations. 
+    # This line reqeuests 0 GPU's by default.
     #
-
-    # Change the number of GPU's required
-
-    # If no GPU's are required leave at 0
-
-    # The most GPU's that can be requested is 2
-
-    #
-
     #SBATCH --gres="gpu:0"
+    ##################################################################
+    # Load any modules that are required. This is exactly the same as 
+    # loading them manually, with a space-seperated list, or you can 
+    # write multiple lines.
+    # You will need to uncomment these.
+    #module add miniconda/3.0 cuda10.0/toolkit/10.0.130 
+    #module add miniconda/3.0 
+    #module add cuda10.0/toolkit/10.0.130 
+    ##################################################################
+    # If you have not already transferred you data-sets to your /scratch 
+    # directory, then you can do so as a part of you job.
+    # Change the FAN and JOBNAME as needed.
+    # REMOVE the data from /home when you do not need it, as /home space is
+    # limited.
+    
+    # Copy Data to /scratch
+    cp -r /home/$FAN/??DataDirectory?? /scratch/user/FAN/JOBNAME
 
-    #
+    # Remove from /home
+    rm -rf /home/$FAN/??DataDirectory??
 
     ##################################################################
-
-    # This section is optional delete if not required
-
-    #
-
-    # Load any modules that are required
-
-    module add python36
-
-    #
-
-    ##################################################################
-
-    # This section is optional delete if not required
-
-    #
-
-    # If required copy your data to the scratch location for 
-
-    # processing, change FAN and JOBNAME
-
-    cp /???/???? /scratch/user/FAN/JOBNAME
-
-    #
-
-    ##################################################################
-
-    # Enter required steps below the job will run
-
-    #
+    # Enter the command-line arguments that you job needs to run. 
 
     python36 Generator.py
-
-    #
-
+    
     ##################################################################
+    # Once you job has finished its processing, copy back your results 
+    # and ONLY the results from /scratch. 
 
-    # This section is optional delete if not required
+    cp /scratch/user/FAN/JOBNAME/??ResultsOutput.txt?? ~/JOBNAME/
 
-    #
-
-    # If required copy your data from the scratch location,  
-
-    # change FAN and JOBNAME
-
-    #
-
-    cp -avr /scratch/user/FAN/JOBNAME/ ~/JOBNAME/
-
-    #
-
+    # Now, cleanup your /scratch directoryu of the extra data you have. 
+    # If you need to keep the data-set for later usage, then utilise
+    # your preffered method to get it OFF the HPC, and into your
+    # local storage.
+    rm -rf /scrach/user/FAN/JOBNAME
     ##################################################################
+    # Print out the 'Job Efficency' - this is how well your job used the
+    # resources you asked for. The higher the better!
+    seff $SLURM_JOBID
