@@ -1,12 +1,12 @@
 # EasyBuild Modules
 
-These are the modules that are not-quite-the-default yet. EasyBuild enforces nice, strict versioning. Compilers/toolchains are programs and have their own bugs. **THESE MODULES ARE NOT USABLE BY DEFAULT**.
+These are the modules that are not-quite-the-default yet. EasyBuild enforces a nice, strict versioning. Compilers/toolchains are programs and have their own bugs. **THESE MODULES ARE NOT USABLE BY DEFAULT**.
 
 Just to make that nice and clear.
 
 **YOU WILL NOT SEE THESE MODULES BY DEFAULT**.
 
-You can, however, opt-in to use them. Issue the below on the command line for a once off(gone when you logout), or add the same line to your ~/.bashrc file so it applies when you login.
+You can, however, opt-in to use them. Issue the below on the command line for a once off (gone when you logout), or add the same line to your ~/.bashrc file so it applies automatically everytime you log in.
 
 `module use /cm/shared/apps/easybuild/modules/all`
 
