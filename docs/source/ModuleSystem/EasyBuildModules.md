@@ -8,7 +8,9 @@ You can, however, opt-in to use them. Issue the below on the command line for a 
 
 `module use /cm/shared/apps/easybuild/modules/all`
 
-|                                                   |                                                   |                                           |
+As this documentation was written, following scientific software is avaiable:
+
+| | | |
 |---------------------------------------------------|--------------------------------------------------|-------------------------------------------|
 |  ANSYS/2019.R1-foss-2019a                         | OpenMPI/3.1.3-GCC-8.2.0-2.31.1                  | foss/2019a|
 |  ANSYS/2019.R1-intel-2020.00                      | OpenMPI/3.1.3-gcccuda-2019a                     | foss/2019b                               (D)|
