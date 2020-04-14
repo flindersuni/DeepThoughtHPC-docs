@@ -1,8 +1,8 @@
 # EasyBuild Modules
 
-Given the size and diversity of scientific software out there, we also provide additional collection of scientific modules to capture the community needs. Please note: **THESE MODULES ARE NOT USABLE BY DEFAULT**.
-
 **YOU WILL NOT SEE THESE MODULES BY DEFAULT**.
+
+Given the size and diversity of scientific software out there, we also provide additional collection of scientific modules to capture the community needs. Please note: **THESE MODULES ARE NOT USABLE BY DEFAULT**.
 
 You can, however, opt-in to use them. Issue the below on the command line for a once off (gone when you logout), or add the same line to your ~/.bashrc file so it applies automatically everytime you log in.
 
