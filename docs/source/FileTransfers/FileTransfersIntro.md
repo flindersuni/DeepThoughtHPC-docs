@@ -42,13 +42,12 @@ Here is a rough guide as to what should live in your /scratch/$FAN directory. In
 
 All file-transfers are done via Secure File Transfer Protocol (SFTP). As was the same with the 'Getting Access', pick your platform:
 
-### MacOS
 
-[Link](Mac/MacFileTransfer.md) to MacOS page
-
-### Unix/Linux
+### Unix/Linux/MacOS
 
 [Link](Linux/LinuxFileTransfer.md) to unix page
+
+MacOS / MacOSX shares a similar procedure to Linux/Unix Based system
 
 ### Windows
 
