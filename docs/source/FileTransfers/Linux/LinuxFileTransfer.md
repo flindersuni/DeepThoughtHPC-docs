@@ -1,25 +1,25 @@
 # Linux/Unix File Transfers
 
-Linux / Unix based system shave native support for the SFTP Protocol, and can also use the Secure Copy Protocol - which can sometimes be quicker.
+Linux / Unix based systems share native support for the SFTP Protocol. The Secure Copy Protocol (SCP) is also widely accepted, which can sometimes offer an edge in transfer speed.
 
 ## The Windows Sub-System for Linux
 
-The windows Subsystem for Linux (WSL) allows you to run a Linux Distribution as a sub-system in windows. When following these instructions, a 'terminal' is the same as starting your WSL Distribution.
+Since Windows 10 and Windows Server 2019, the windows Subsystem for Linux (WSL) allows you to run a Linux Distribution as a sub-system in windows. When following these instructions, a 'terminal' is the same as starting your WSL Distribution.
 
 ## Transferring Files to the HPC
 
-To upload documents to Deep Thought, the simplest method is to open a Terminal window.
+To upload files to DeepThought, the simplest method is to open a Terminal window.
 
 ### The Quick Version
 
 Substitute your filename, FAN and Password, type scp FILENAME FAN@deepthought.flinders.edu.au:/home/FAN then hit enter.
-Enter your password when prompted. This will put the file in your home directory on Deep Thought. It looks (when substituted accordingly) similar to:
+Enter your password when prompted. This will put the file in your home directory on DeepThought. It looks (when substituted accordingly) similar to:
 
 ![](../../_static/SCPExampleImage.png)
 
 ### The Longer Version
 
-To transfer files off Deep Thought, you simply need to invert that command to point to either:
+To download files from DeepThought, you simply need to invert that command to point to either:
 
 - A name of a Computer that Deepthough 'knows' about.
 - An IP Address that Deepthought can reach.
