@@ -2,6 +2,9 @@
 
 Linux / Unix based systems share native support for the SFTP Protocol. The Secure Copy Protocol (SCP) is also widely accepted, which can sometimes offer an edge in transfer speed.
 
+## MacOS
+MacOS / MacOSX shares a similar procedure to Linux/Unix Based system.
+
 ## The Windows Sub-System for Linux
 
 Since Windows 10 and Windows Server 2019, the windows Subsystem for Linux (WSL) allows you to run a Linux Distribution as a sub-system in windows. When following these instructions, a 'terminal' is the same as starting your WSL Distribution.
