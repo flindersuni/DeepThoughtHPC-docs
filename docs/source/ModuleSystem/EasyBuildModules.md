@@ -1,8 +1,6 @@
 # EasyBuild Modules
 
-These are the modules that are not-quite-the-default yet. EasyBuild enforces a nice, strict versioning. Compilers/toolchains are programs and have their own bugs. **THESE MODULES ARE NOT USABLE BY DEFAULT**.
-
-Just to make that nice and clear.
+Given the size and diversity of scientific software out there, we also provide additional collection of scientific modules to capture the community needs. Please note: **THESE MODULES ARE NOT USABLE BY DEFAULT**.
 
 **YOU WILL NOT SEE THESE MODULES BY DEFAULT**.
 
