@@ -18,9 +18,6 @@ License
 
 This documentation is released under the `Creative-Commons: Attribution-ShareAlike 4.0 International <http://creativecommons.org/licenses/by-sa/4.0/>`_ license.
 
-Table of Contents
-=================
-
 .. toctree::
    :maxdepth: 3
    :caption: Table of Contents:
