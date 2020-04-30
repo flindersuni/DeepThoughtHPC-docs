@@ -59,7 +59,7 @@
     # Note that the lower the requested memory, the higher the
     # chances to get scheduled to 'fill in the gaps' between other
     # jobs. 
-    #SBATCH --mem-per-cpu=256MB
+    #SBATCH --mem-per-cpu=4080MB
     ##################################################################
     # Change the number of GPU's required and the most GPU's that can be 
     # requested is 2. As there are limited GPU slots, they are heavily 
