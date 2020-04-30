@@ -2,7 +2,7 @@
 
 ## Job Arrays
 
-Using job arrays allows a user to deal with large numbers of jobs. For more information, see SLURM job arrays.
+Job arrays is a popular strategy to process large numbers of a same workflow repetitively in one go, often reduce analytical time significantly. Job arrays are also often refereed as embarrassingly/pleasingly parallel processes. For more information, see SLURM job arrays.
 
 To cancel an indexed job in a job array:
 
