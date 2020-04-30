@@ -91,10 +91,5 @@ Be warned, that this is a _long_ list. It's updated on best effort basis to help
 
 This is the list of software that has been 'hand rolled' as it contains either things that at that time, did not have an automated way of installation, or rather esoteric software that required extensive modification to work correctly on the HPC. It is available [here](ManuallyInstalled.md)
 
-### EasyBuild Modules
-
-You can opt-in to [EasyBuild](https://easybuild.readthedocs.io/en/latest/#) Managed modules - these are the ones with the strict versioning of all aspects of the install. A brief warning and the list of modules is available [here](EasyBuildModules.md).
-
-### Spack Modules
-
-You can also opt-int to the experimental [Spack](https://spack.io/) modules. These modules are here for testing, but you are free to use them at your own risk! We are running tests to see how we can allow you more power to 'get on with it' and install you own software - Spack is a contender for one of the tools we may use. The list and another warning is over [here](SpackModules.md)
+### Additional Software
+There are additional software collections will be made available in a near future. 
