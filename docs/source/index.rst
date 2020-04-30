@@ -26,7 +26,6 @@ This documentation is released under the `Creative-Commons: Attribution-ShareAli
    FileTransfers/FileTransfersIntro.md
    LinuxCommands/LinuxIntro.md 
    ModuleSystem/LMod.md
-   ModuleSystem/ManuallyInstalled.md
    SLURM/SLURMIntro.md
 
 Indices and tables
