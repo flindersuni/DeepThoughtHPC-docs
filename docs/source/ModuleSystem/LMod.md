@@ -1,12 +1,14 @@
 # The Module System
 
-The system uses the [LMod](https://lmod.readthedocs.io/en/latest/) (Load MODules) system to load/unload applications in the command line. Any modules you use frequently can be loaded on login using your .bash_profile file; modules required for a job should be automated in your SLURM script.
+In mordern time, almost all HPC systems are multiuser systems and consequently, this brings many challenges. One of such challenges is effectively managing a complex and large volume of software application cohort. 
+
+DeepThought HPC uses the [LMod](https://lmod.readthedocs.io/en/latest/) (Load MODules) system to load/unload applications in the command line. Any modules you use frequently can be loaded on login using your .bash_profile file; modules required for a job should be automated in your SLURM script.
 
 Best way to think of Module is a singular program version + all of its associated dependencies to run correctly.
 
 ## Writing Your Own Modules
 
-You can [write your own module files](https://lmod.readthedocs.io/en/latest/015_writing_modules.html#) if you want! This is supported ona best-effort basis by the HPC team.
+You can [write your own module files](https://lmod.readthedocs.io/en/latest/015_writing_modules.html#) if you want! This is supported on a best-effort basis by the HPC support team.
 
 ## Module Format
 
@@ -70,7 +72,7 @@ There is also a nice shortcut, that you can use:
 
 ## Additional Software
 
-We can install nearly anything onto the HPC, but we don't always need to go thorough the effort to install things 'globally' for everybody.
+Generally speaking, we can install almost all Linux/CentOS bounded software/applications on HPC, but we don't always need to go thorough the effort to install things 'globally' for everybody.
 
 1. Are people other than just me going to use this software?
 2. If yes, create an Assyst Ticket, and Digital Research Services will get it installed on a Best-Effort basis
@@ -95,4 +97,4 @@ You can opt-in to [EasyBuild](https://easybuild.readthedocs.io/en/latest/#) Mana
 
 ### Spack Modules
 
-You can also opt-int to the experimental [Spack](https://spack.io/) modules. These modules are here for testing, but you are free to use them a your own risk! We are running tests to see how we can allow you more power to 'get on with it' and install you own software - Spack is a contender for one of the tools we may use. The list and another warning is over [here](SpackModules.md)
+You can also opt-int to the experimental [Spack](https://spack.io/) modules. These modules are here for testing, but you are free to use them at your own risk! We are running tests to see how we can allow you more power to 'get on with it' and install you own software - Spack is a contender for one of the tools we may use. The list and another warning is over [here](SpackModules.md)
