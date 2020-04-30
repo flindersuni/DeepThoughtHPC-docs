@@ -1,6 +1,6 @@
 # Default Available Modules
 
-You can use these modules by default, and are listed under the `/cm/shared/modulefiles/` directory.
+At time of this document has been written, following modules are available to load by default.
 
 |                                       |                                               |                                     |
 |----------------------------------------|----------------------------------------------|------------------------------------|
