@@ -8,6 +8,11 @@ Welcome to DeepThoughtHPC - Compute Usage Documentation
 
 The new Flinders High Performance Computing (HPC) solution is called Deep Thought.  Comprising of high-end DELL hardware and services, Deep Thought delivers a core enterprise HPC service, where moderate usage is delivered at no cost to researchers or colleges.
 
+.. attention::
+    This documentation is under active development, meaning that it can
+    change over time as we improve it. Please email deepthought@flinders.edu.au if
+    you require assistance.
+
 Acknowledgements
 ----------------
 
