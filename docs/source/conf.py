@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'DeepThought HPC - Compute Usage Documentation'
-copyright = '2020, DeepThought HPC'
-author = 'DeepThought HPC'
+copyright = '2020, Flinders University'
+author = 'Flinders University'
 
 # -- General configuration ---------------------------------------------------
 
