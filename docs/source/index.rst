@@ -13,6 +13,24 @@ The new Flinders High Performance Computing (HPC) solution is called Deep Though
     change over time as we improve it. Please email deepthought@flinders.edu.au if
     you require assistance.
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Table of Contents:
+   
+   Access/GettingAccess.md
+   FileTransfers/FileTransfersIntro.md
+   LinuxCommands/LinuxIntro.md 
+   ModuleSystem/LMod.md
+   SLURM/SLURMIntro.md
+   system/deepthoughspecifications.md
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
 Acknowledgements
 ----------------
 
@@ -22,20 +40,3 @@ License
 ^^^^^^^
 
 This documentation is released under the `Creative-Commons: Attribution-ShareAlike 4.0 International <http://creativecommons.org/licenses/by-sa/4.0/>`_ license.
-
-.. toctree::
-   :maxdepth: 3
-   :caption: Table of Contents:
-   
-   Access/GettingAccess.md
-   FileTransfers/FileTransfersIntro.md
-   LinuxCommands/LinuxIntro.md 
-   ModuleSystem/LMod.md
-   SLURM/SLURMIntro.md
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

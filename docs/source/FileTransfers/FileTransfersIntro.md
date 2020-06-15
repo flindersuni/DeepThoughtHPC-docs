@@ -43,12 +43,80 @@ Here is a rough guide as to what should live in your /scratch/$FAN directory. In
 All file-transfers are done via Secure File Transfer Protocol (SFTP). As was the same with the 'Getting Access', pick your platform:
 
 
-### Unix/Linux/MacOS
+### Linux/Unix File Transfers
 
-[Link](Linux/LinuxFileTransfer.md) to unix page
+Linux / Unix based systems share native support for the SFTP Protocol. The Secure Copy Protocol (SCP) is also widely accepted, which can sometimes offer an edge in transfer speed.
 
-MacOS / MacOSX shares a similar procedure to Linux/Unix Based system
+#### The Windows Sub-System for Linux
+
+Since Windows 10 and Windows Server 2019, the windows Subsystem for Linux (WSL) allows you to run a Linux Distribution as a sub-system in windows. When following these instructions, a 'terminal' is the same as starting your WSL Distribution.
+
+#### Transferring Files to the HPC
+
+To upload files to DeepThought, the simplest method is to open a Terminal window.
+
+#### The Quick Version
+
+Substitute your filename, FAN and Password, type scp FILENAME FAN@deepthought.flinders.edu.au:/home/FAN then hit enter.
+Enter your password when prompted. This will put the file in your home directory on DeepThought. It looks (when substituted accordingly) similar to:
+
+![](../../_static/SCPExampleImage.png)
+
+#### The Longer Version
+
+To download files from DeepThought, you simply need to invert that command to point to either:
+
+- A name of a Computer that Deepthough 'knows' about.
+- An IP Address that Deepthought can reach.
+
+#### Transfers By Computer Name
+
+If you know the hostname of the computer, you can substitute this to transfer files back to your machine. The command stays the same, mostly. You still follow the same idea, we just change where we are pointing it. This one assumed you are transferring it to a Linux/Unix based machine.
+
+The command will take this form:
+
+![](../../_static/SCPByHostname.png)
+
+#### Transfer By IP Address
+
+If you don't know your computer IP, then the commands of:
+
+- ip addr
+- ifconfig
+
+Will be your friend to figure out what it is. Just like above, we slightly change the command, and sub-in an IP instead of a host-name.
+
+![](../../_static/SCPByIp.png)
+
 
 ### Windows
 
-[Link](Windows/WindowsFileTransfer.md) to Windows page
+
+Windows doesn't support the SFTP protocol in a native way. Thankfully, there are lots of clients written to do just this for us.
+
+#### Sub-System for Linux
+
+You can use the WSL for this - head on over to the [Linux](../Linux/LinuxFileTransfer.md) Guide.
+
+#### Potential Client List
+
+This is not an exhaustive list - feel free to use whatever you wish that supports the SFTP protocol.
+
+- [WinSCP](https://winscp.net/eng/index.php)
+- [FileZilla](https://filezilla-project.org/?AFFILIATE=6732&__c=1)
+
+This guide will focus on WinSCP.
+
+#### Getting Connected
+
+Open WinSCP, enter deepthought.flinders.edu.au as the host to connect to, and click Login. You should have a screen that looks like this.
+
+![](../../_static/WinSCPImage.png)
+
+The first time you connect up you will get a warning - this is fine, just click YES to continue on.
+
+![](../../_static/WinSCPSSHKeyNotice.png)
+
+A connection to Deep Thought will then be created - login using your FAN and password. If all goes well, you will be treated to this screen:
+
+![](../../_static/WinSCPConnected.png)
