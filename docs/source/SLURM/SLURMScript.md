@@ -10,7 +10,7 @@
     ##################################################################
     # Change FAN to your fan account name
     # Change JOBNAME to what you want to call the job
-    # This is what is shows when attmepting to Monitor / interrogate the job,
+    # This is what is shows when attempting to Monitor / interrogate the job,
     # So make sure it is something pertinent!
     #
     #SBATCH --job-name=FAN_JOBNAME
@@ -27,17 +27,20 @@
     ##################################################################
     # Tell SLURM where to put the Job 'Output Log' text file. 
     # This will aid you in debugging crashed or stalled jobs.
-    #SBATCH --output=/home/$FAN/JOBNAME-log.txt
+    # You can capture both Standard Error and Standard Out
+    # %j will append the 'Job ID' from SLURM. 
+    # %x will append the 'Job Name' from SLURM 
+    #SBATCH --output=/home/$FAN/%x-%j.out.txt
+    #SBATCH --error=/home/$FAN/%x-%j.err.txt
     ##################################################################
-    # For now, you must select a partition for jobs to run on. 
-    #  Valid partitions 's are hpc_cmph, hpc_cse, hpc_other and hpc_melfeu
-    #SBATCH --partition=PARTITIONNAME
+    # You can leave this commented out, or submit to hpc_general
+    #  Valid partitions are hpc_general and hpc_melfeu
+    ##SBATCH --partition=PARTITIONNAME
     ##################################################################
     # Tell SLURM how long your job should run for, at most. 
     # SLURM will kill/stop the job if it goes over this amount of time. 
-    # Currently, this is unlimited - however, due to the upcoming 
-    # implementation of Fairshare Score, you do not want to run a job
-    # for too long.
+    # Currently, this is unlimited - however, but the longer your job 
+    # runs, the worse your Fairshare score becomes!
     # The command format is as follows: #SBATCH --time=DAYS-HOURS
     #SBATCH --time=14=0
     #
@@ -48,28 +51,31 @@
     #
     #SBATCH --ntasks=1
     # If each task will need more that a single CPU, then alter this 
-    # value. Remeber, this is multiplicative, so if you sk for 
-    # 4 TASK and 4 CPUS per Task, you will be allocated 16 CPU;s 
+    # value. Remeber, this is multiplicative, so if you ask for 
+    # 4 Tasks and 4 CPU's per Task, you will be allocated 16 CPU's 
     #SBATCH --cpus-per-task=1
     ##################################################################
     # Set the memory requirements for the job in MB. Your job will be
     # allocated exclusive access to that amount of RAM. In the case it
     # overuses that amount, Slurm will kill it. The default value is 
-    # around 2GB per core.
+    # around 2GB per CPU you ask for.
     # Note that the lower the requested memory, the higher the
     # chances to get scheduled to 'fill in the gaps' between other
-    # jobs. 
-    #SBATCH --mem-per-cpu=4080MB
+    # jobs. Pick ONE of the below options. They are Mutually Exclusive.
+    # You can ask for X Amount of RAM per CPU (MB by default)
+    #SBATCH --mem-per-cpu=4000
+    # Or, you can ask for a 'total amount of RAM' 
+    ##SBATCH --mem=12G
     ##################################################################
     # Change the number of GPU's required and the most GPU's that can be 
     # requested is 2. As there are limited GPU slots, they are heavily 
     # weighted against for Fairshare Score calculations. 
-    # This line reqeuests 0 GPU's by default.
+    # This line requests 0 GPU's by default.
     #
     #SBATCH --gres="gpu:0"
     ##################################################################
     # Load any modules that are required. This is exactly the same as 
-    # loading them manually, with a space-seperated list, or you can 
+    # loading them manually, with a space-separated list, or you can 
     # write multiple lines.
     # You will need to uncomment these.
     #module add miniconda/3.0 cuda10.0/toolkit/10.0.130 
@@ -85,12 +91,9 @@
     # Copy Data to /scratch
     cp -r /home/$FAN/??DataDirectory?? /scratch/user/FAN/JOBNAME
 
-    # Remove from /home
-    rm -rf /home/$FAN/??DataDirectory??
-
     ##################################################################
     # Enter the command-line arguments that you job needs to run. 
-
+    cd /scratch/user/$FAN/
     python36 Generator.py
     
     ##################################################################

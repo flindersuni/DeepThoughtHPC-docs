@@ -1,4 +1,4 @@
-# Transferring Files to the HPC
+# Transferring Files to Deepthought
 
 Transferring files to the HPC will change depending upon your OS. Thankfully, there are some excellent tools that take this from 'potentially-scary' to 'click a button or two'.
 
@@ -42,7 +42,6 @@ Here is a rough guide as to what should live in your /scratch/$FAN directory. In
 
 All file-transfers are done via Secure File Transfer Protocol (SFTP). As was the same with the 'Getting Access', pick your platform:
 
-
 ### Linux/Unix File Transfers
 
 Linux / Unix based systems share native support for the SFTP Protocol. The Secure Copy Protocol (SCP) is also widely accepted, which can sometimes offer an edge in transfer speed.
@@ -60,7 +59,7 @@ To upload files to DeepThought, the simplest method is to open a Terminal window
 Substitute your filename, FAN and Password, type scp FILENAME FAN@deepthought.flinders.edu.au:/home/FAN then hit enter.
 Enter your password when prompted. This will put the file in your home directory on DeepThought. It looks (when substituted accordingly) similar to:
 
-![](../../_static/SCPExampleImage.png)
+![SCPExample](../../_static/SCPExampleImage.png)
 
 #### The Longer Version
 
@@ -75,7 +74,7 @@ If you know the hostname of the computer, you can substitute this to transfer fi
 
 The command will take this form:
 
-![](../../_static/SCPByHostname.png)
+![SCPByHostname](../../_static/SCPByHostname.png)
 
 #### Transfer By IP Address
 
@@ -86,11 +85,9 @@ If you don't know your computer IP, then the commands of:
 
 Will be your friend to figure out what it is. Just like above, we slightly change the command, and sub-in an IP instead of a host-name.
 
-![](../../_static/SCPByIp.png)
-
+![SCPByIp](../../_static/SCPByIp.png)
 
 ### Windows
-
 
 Windows doesn't support the SFTP protocol in a native way. Thankfully, there are lots of clients written to do just this for us.
 
@@ -111,12 +108,12 @@ This guide will focus on WinSCP.
 
 Open WinSCP, enter deepthought.flinders.edu.au as the host to connect to, and click Login. You should have a screen that looks like this.
 
-![](../../_static/WinSCPImage.png)
+![WinSCPConnect](../../_static/WinSCPImage.png)
 
 The first time you connect up you will get a warning - this is fine, just click YES to continue on.
 
-![](../../_static/WinSCPSSHKeyNotice.png)
+![WinSCPSSHKeyNotice](../../_static/WinSCPSSHKeyNotice.png)
 
 A connection to Deep Thought will then be created - login using your FAN and password. If all goes well, you will be treated to this screen:
 
-![](../../_static/WinSCPConnected.png)
+![WinSCPConnected](../../_static/WinSCPConnected.png)
