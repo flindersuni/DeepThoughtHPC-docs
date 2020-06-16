@@ -32,7 +32,7 @@ At any point, you can check the 'live' priority scores of user accounts via the 
 
 Which will print something resembling this table:
 
-![SprioImage](../_static/SPRIOExampleImage.png)
+![](../_static/SPRIOExampleImage.png)
 
 If you want to interrogate even more data, you can explore the command:
 
@@ -40,7 +40,7 @@ If you want to interrogate even more data, you can explore the command:
 
 Which will allow for greater details of how your score was calculated.
 
-![SShareImage](../_static/SSHAREExampleImage.png)
+![](../_static/SSHAREExampleImage.png)
 
 ### Calculating Priority
 

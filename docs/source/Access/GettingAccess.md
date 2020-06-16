@@ -26,13 +26,13 @@ The simplest manner is to open up a terminal window and type in the following, s
 
 If all is OK it will ask for your password. Enter the same password you use to login to OKTA.
 
-![SSHPasswordPrompt](../../_static/shellPasswordPromtImage.png)
+![](../_static/shellPasswordPromtImage.png)
 
 ##### Success
 
 Upon a successful login, you should get a screen similar to this:
 
-![LoginOK](../../_static/loginOKImage.png)
+![](../_static/loginOKImage.png)
 
 If so, you are now connected and ready to start using the HPC!
 
@@ -44,7 +44,7 @@ If you wish to setup password-less login via SSH Keys, you may do so.
 
 To connect to Deep Thought a SSH application such as PuTTy is required. Below is a short list of the possible programs you can use as a client to connect to the HPC. This guide will focus on Putty - but will be equally applicable to the other programs.
 
-#### The Windows Sub-System for Linux
+#### The Windows Sub-System for Linux (WSL)
 
 If you are using the Windows SubSystem for Linux (WSL), then go ahead and read the [Unix/Linux](#unix-linux-macos) instructions instead.
 
@@ -54,7 +54,7 @@ If you are using the Windows SubSystem for Linux (WSL), then go ahead and read t
 - [KiTTY](http://www.9bis.net/kitty/#!pages/download.md)
 - [BitVise Client](https://www.bitvise.com/download-area)
 
-#### Getting Connected
+#### Getting Connected on Windows
 
 Open PuTTy, and you are presented with this screen:
 
@@ -76,7 +76,7 @@ If all has gone well, you will be presented with this screen:
 
 These are the same credentials you use to login to OKTA.
 
-#### Success
+#### Successful Login
 
 Upon a successful login, you should get a screen similar to this:
 
@@ -84,6 +84,6 @@ Upon a successful login, you should get a screen similar to this:
 
 If so, you are now connected and ready to start using the HPC!
 
-#### SSH Keys 
+#### SSH Keys on Windows
 
-As with the Unix/Linux/MacOS system, you may also setup SSH Keys for password-less logins. Be sure to follow the specific instructions for your client, as they will differ! 
+As with the Unix/Linux/MacOS system, you may also setup SSH Keys for password-less logins. Be sure to follow the specific instructions for your client, as they will differ!

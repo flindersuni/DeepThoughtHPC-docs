@@ -70,7 +70,7 @@ There is also a nice shortcut, that you can use:
 
 'ml' is just short for 'module load'. Handy!
 
-## Additional Software
+## Additional Software & Modules
 
 Generally speaking, we can install almost all Linux/CentOS bounded software/applications on HPC, but we don't always need to go thorough the effort to install things 'globally' for everybody.
 
@@ -92,4 +92,5 @@ Be warned, that this is a _long_ list. It's updated on best effort basis to help
 This is the list of software that has been 'hand rolled' as it contains either things that at that time, did not have an automated way of installation, or rather esoteric software that required extensive modification to work correctly on the HPC. It is available [here](ManuallyInstalled.md)
 
 ### Additional Software
-There are additional software collections will be made available in a near future. 
+
+There are additional software collections will be made available in a near future.
