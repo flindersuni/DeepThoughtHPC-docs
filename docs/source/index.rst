@@ -3,10 +3,34 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to DeepThoughtHPC - Compute Usage Documentation!
-========================================================
+Welcome to the Deep Thought Documentation
+=========================================
 
-This site contains the documentation to get you started with using an DeepThoughtHPC Compute research environment. It provides details for accessing the research environment, exploring the various features of the research environment and examples of common workflows with the research environment.
+The new Flinders High Performance Computing (HPC) solution is called Deep Thought.  Comprising of high-end DELL hardware and services, Deep Thought delivers a core enterprise HPC service, where moderate usage is delivered at no cost to researchers or colleges.
+
+.. attention::
+    This documentation is under active development, meaning that it can
+    change over time as we improve it. Please email deepthought@flinders.edu.au if
+    you require assistance.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Table of Contents:
+   
+   Access/GettingAccess.md
+   FileTransfers/FileTransfersIntro.md
+   LinuxCommands/LinuxIntro.md 
+   SLURM/SLURMIntro.md
+   ModuleSystem/LMod.md
+   system/deepthoughspecifications.md
+   FAQ/faqandissues.rst
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
 
 Acknowledgements
 ----------------
@@ -17,17 +41,3 @@ License
 ^^^^^^^
 
 This documentation is released under the `Creative-Commons: Attribution-ShareAlike 4.0 International <http://creativecommons.org/licenses/by-sa/4.0/>`_ license.
-
-Table of Contents
-=================
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
