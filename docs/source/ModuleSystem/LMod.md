@@ -75,9 +75,9 @@ There is also a nice shortcut, that you can use:
 Generally speaking, we can install almost all Linux/CentOS bounded software/applications on HPC, but we don't always need to go thorough the effort to install things 'globally' for everybody.
 
 1. Are people other than just me going to use this software?
-2. If yes, create an Assyst Ticket, and Digital Research Services will get it installed on a Best-Effort basis
+2. If yes, create an ServiceOne Ticket, and Digital Research Services will get it installed on a Best-Effort basis
 
-Otherwise, there is nothing stopping you installing the program locally for yourself! If you run into issues installing software then open an Assyst ticket and again, Digital Research Services will help on a best-effort basis.
+Otherwise, there is nothing stopping you installing the program locally for yourself! If you run into issues installing software then open an ServiceOne ticket and again, Digital Research Services will help on a best-effort basis.
 
 ### An Important Note
 
