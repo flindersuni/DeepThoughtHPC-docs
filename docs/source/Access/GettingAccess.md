@@ -8,7 +8,7 @@ This page will guide you on the steps to get access and then connect to the HPC 
 
 2. Pick your Operating System ([Unix/Linux/MacOS](#unix-linux-macos) or [Windows](#windows) )
 
-3. Read up on some basic [SLURM]()
+3. Read up on some basic [SLURM](../SLURM/SLURMIntro.md)
 
 ### Unix/Linux/MacOS
 
@@ -26,17 +26,17 @@ The simplest manner is to open up a terminal window and type in the following, s
 
 If all is OK it will ask for your password. Enter the same password you use to login to OKTA.
 
-![](../../_static/shellPasswordPromtImage.png)
+![SSHPasswordPrompt](../../_static/shellPasswordPromtImage.png)
 
 ##### Success
 
 Upon a successful login, you should get a screen similar to this:
 
-![](../../_static/loginOKImage.png)
+![LoginOK](../../_static/loginOKImage.png)
 
 If so, you are now connected and ready to start using the HPC!
 
-#### SSH Keys 
+#### SSH Keys
 
 If you wish to setup password-less login via SSH Keys, you may do so.
 
