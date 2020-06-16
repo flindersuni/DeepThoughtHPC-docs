@@ -23,6 +23,7 @@ The new Flinders High Performance Computing (HPC) solution is called Deep Though
    SLURM/SLURMIntro.md
    ModuleSystem/LMod.md
    system/deepthoughspecifications.md
+   FAQ/faqandissues.rst
 
 Indices and tables
 ==================
