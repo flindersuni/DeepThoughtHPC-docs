@@ -59,7 +59,7 @@ To upload files to DeepThought, the simplest method is to open a Terminal window
 Substitute your filename, FAN and Password, type scp FILENAME FAN@deepthought.flinders.edu.au:/home/FAN then hit enter.
 Enter your password when prompted. This will put the file in your home directory on DeepThought. It looks (when substituted accordingly) similar to:
 
-![SCPExample](../../_static/SCPExampleImage.png)
+![](../_static/SCPExampleImage.png)
 
 #### The Longer Version
 
@@ -74,7 +74,7 @@ If you know the hostname of the computer, you can substitute this to transfer fi
 
 The command will take this form:
 
-![SCPByHostname](../../_static/SCPByHostname.png)
+![](../_static/SCPByHostname.png)
 
 #### Transfer By IP Address
 
@@ -85,7 +85,7 @@ If you don't know your computer IP, then the commands of:
 
 Will be your friend to figure out what it is. Just like above, we slightly change the command, and sub-in an IP instead of a host-name.
 
-![SCPByIp](../../_static/SCPByIp.png)
+![](../_static/SCPByIp.png)
 
 ### Windows
 
@@ -108,12 +108,12 @@ This guide will focus on WinSCP.
 
 Open WinSCP, enter deepthought.flinders.edu.au as the host to connect to, and click Login. You should have a screen that looks like this.
 
-![WinSCPConnect](../../_static/WinSCPImage.png)
+![](../../_static/WinSCPImage.png)
 
 The first time you connect up you will get a warning - this is fine, just click YES to continue on.
 
-![WinSCPSSHKeyNotice](../../_static/WinSCPSSHKeyNotice.png)
+![](../_static/WinSCPSSHKeyNotice.png)
 
 A connection to Deep Thought will then be created - login using your FAN and password. If all goes well, you will be treated to this screen:
 
-![WinSCPConnected](../../_static/WinSCPConnected.png)
+![](../_static/WinSCPConnected.png)
