@@ -8,9 +8,9 @@ As a cluster workload manager, Slurm has three key functions. First, it allocate
 
 ## System Specifications
 
-If you want to know the system specifications for Deepthought, head on over to [here](../system/deepthoughspecifications.md)
+If you want to know the system specifications for DeepThought, head on over to [here](../system/deepthoughspecifications.md)
 
-## SLURM on Deepthought
+## SLURM on DeepThought
 
 SLURM on DeepThought uses the 'Fairshare' work allocation algorithm. This works by tracking how many resource your job takes and adjusting your position in queue depending upon your usage. The following sections will break down a quick overview of how we calculate things, what some of the cool-off periods are and how it all slots together.
 
@@ -77,7 +77,7 @@ To give you an idea of the _initial_ score you would get for consuming an entire
 
 **Total**: `‭65,600,000`‬
 
-So, its stacks up very quickly, and you really want to write your job to ask for what it needs, and not much more!
+So, its stacks up very quickly, and you really want to write your job to ask for what it needs, and not much more! This is not the number you see and should only be taken as an example.  If you want to read up on exactly how Fairshare works, then head on over to [here](https://slurm.schedmd.com/priority_multifactor.html).
 
 ## SLURM: The Basics
 
@@ -199,9 +199,6 @@ The following varaibles are set per job, and can be access from your SLURM Scrip
 |$SLURM_SUBMIT_HOST           |   Host on which job was submitted.|
 |$SLURM_PROC_ID               |   The process (task) ID within the job. This will start from zero and go up to $SLURM_NTASKS-1.|
 
-### Example SLURM Job Script
-
-[Here](SLURMScript.md)
 
 ## SLURM: Extras
 
@@ -214,3 +211,125 @@ Here is an assortment of resources that have been passed on to the Support Team 
 Besides useful commands and ideas, this [FAQ](http://www.ceci-hpc.be/slurm_faq.html#Q01) has been the best explanation of 'going parallel' and the different types of parallel jobs, as well as a clear definition for what is considered a task.
 
 An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_contents/QuickStart/SubmittingJobs/SlurmTutorial.html).
+
+
+## SLURM: Script Template 
+
+    #!/bin/bash
+    # Please note that you need to adapt this script to your job
+    # Submitting as is will fail cause the job to fail 
+    # The keyword command for SLURM is #SBATCH --option
+    # Anything starting with a # is a comment and will be ignored
+    # ##SBATCH is a commented-out #SBATCH command
+    ##################################################################
+    # Change FAN to your fan account name
+    # Change JOBNAME to what you want to call the job
+    # This is what is shows when attempting to Monitor / interrogate the job,
+    # So make sure it is something pertinent!
+    #
+    #SBATCH --job-name=FAN_JOBNAME
+    #
+    ##################################################################
+    # If you want email updates form SLURM for your job.
+    # Change MYEMAIL to your email address
+    #SBATCH --mail-user=MYEMAIL@flinders.edu.au
+    #SBATCH --mail-type=ALL
+    # 
+    # Valid 'points of notification are': 
+    # BEGIN, END, FAIL, REQUEUE. 
+    # ALL means all of these
+    ##################################################################
+    # Tell SLURM where to put the Job 'Output Log' text file. 
+    # This will aid you in debugging crashed or stalled jobs.
+    # You can capture both Standard Error and Standard Out
+    # %j will append the 'Job ID' from SLURM. 
+    # %x will append the 'Job Name' from SLURM 
+    #SBATCH --output=/home/$FAN/%x-%j.out.txt
+    #SBATCH --error=/home/$FAN/%x-%j.err.txt
+    ##################################################################
+    # You can leave this commented out, or submit to hpc_general
+    # Valid partitions are hpc_general and hpc_melfeu
+    ##SBATCH --partition=PARTITIONNAME
+    #
+    ##################################################################
+    # Tell SLURM how long your job should run for, at most. 
+    # SLURM will kill/stop the job if it goes over this amount of time. 
+    # Currently, this is unlimited - however, but the longer your job 
+    # runs, the worse your Fairshare score becomes! 
+    # 
+    # In the future this will have a limit, so best to get used to 
+    # setting it now. 
+    #
+    # The command format is as follows: #SBATCH --time=DAYS-HOURS
+    #SBATCH --time=14=0
+    #
+    ##################################################################
+    # How many tasks is your job going to run? 
+    # Unless you are running something that is Parallel / Modular or
+    # pipelined, leave this as 1. Think of each task as a 'bucket of
+    # resources' that stand alone. Without MPI / IPC you cant talk to 
+    # another bucket!
+    #
+    #SBATCH --ntasks=1
+    # If each task will need more that a single CPU, then alter this 
+    # value. Remeber, this is multiplicative, so if you ask for 
+    # 4 Tasks and 4 CPU's per Task, you will be allocated 16 CPU's 
+    #SBATCH --cpus-per-task=1
+    ##################################################################
+    # Set the memory requirements for the job in MB. Your job will be
+    # allocated exclusive access to that amount of RAM. In the case it
+    # overuses that amount, Slurm will kill it. The default value is 
+    # around 2GB per CPU you ask for.
+    # Note that the lower the requested memory, the higher the
+    # chances to get scheduled to 'fill in the gaps' between other
+    # jobs. Pick ONE of the below options. They are Mutually Exclusive.
+    # You can ask for X Amount of RAM per CPU (MB by default)
+    #SBATCH --mem-per-cpu=4000
+    # Or, you can ask for a 'total amount of RAM'
+    ##SBATCH --mem=12G
+    ##################################################################
+    # Change the number of GPU's required and the most GPU's that can be 
+    # requested is 2 per node. As there are limited GPU slots, they are heavily 
+    # weighted against for Fairshare Score calculations. 
+    # This line requests 0 GPU's by default.
+    #
+    #SBATCH --gres="gpu:0"
+    ##################################################################
+    # Load any modules that are required. This is exactly the same as 
+    # loading them manually, with a space-separated list, or you can 
+    # write multiple lines.
+    # You will need to uncomment these.
+    #module add miniconda/3.0 cuda10.0/toolkit/10.0.130 
+    #module add miniconda/3.0 
+    #module add cuda10.0/toolkit/10.0.130 
+
+    ##################################################################
+    # If you have not already transferred you data-sets to your /scratch 
+    # directory, then you can do so as a part of you job.
+    # Change the FAN and JOBNAME as needed.
+    # REMOVE the data from /home when you do not need it, as /home space is
+    # limited.
+
+    # Copy Data to /scratch
+    cp -r /home/$FAN/??DataDirectory?? /scratch/user/FAN/JOBNAME
+
+    ##################################################################
+    # Enter the command-line arguments that you job needs to run. 
+    cd /scratch/user/$FAN/
+    python36 Generator.py
+
+    ##################################################################
+    # Once you job has finished its processing, copy back your results 
+    # and ONLY the results from /scratch. 
+
+    cp /scratch/user/FAN/JOBNAME/??ResultsOutput.txt?? ~/JOBNAME/
+
+    # Now, cleanup your /scratch directory of the extra data you have. 
+    # If you need to keep the data-set for later usage, then utilise
+    # your prefered method to get it OFF the HPC, and into your
+    # local storage.
+    rm -rf /scratch/user/FAN/JOBNAME
+    ##################################################################
+    # Print out the 'Job Efficiency' - this is how well your job used the
+    # resources you asked for. The higher the better!
+    seff $SLURM_JOBID

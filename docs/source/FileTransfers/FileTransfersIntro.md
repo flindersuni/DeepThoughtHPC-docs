@@ -93,7 +93,7 @@ Windows doesn't support the SFTP protocol in a native way. Thankfully, there are
 
 #### Sub-System for Linux
 
-You can use the WSL for this - head on over to the [Linux](../Linux/LinuxFileTransfer.md) Guide.
+You can use the WSL for this - head on over to the [Linux](#TransferringFiles) Guide.
 
 #### Potential Client List
 

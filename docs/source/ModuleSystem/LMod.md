@@ -85,7 +85,7 @@ The software must in all cases be appropriately licensed.
 
 ## Currently Installed Modules
 
-Be warned, that this is a _long_ list. It's updated on best effort basis to help you see what is already present, but the latest list is always available by running the `module list` command on the HPC. Its broken into several segments, as there are several tools used to facilitate the installation and management of software used on the HPC.
+Be warned, that this is a _long_ list. It's updated on best effort basis to help you see what is already present, but the latest list is always available by running the `module avail` command on the HPC. Its broken into several segments, as there are several tools used to facilitate the installation and management of software used on the HPC.
 
 ### Manually Installed Software / Default Available
 
@@ -93,4 +93,4 @@ This is the list of software that has been 'hand rolled' as it contains either t
 
 ### Additional Software
 
-There are additional software collections will be made available in a near future.
+There are additional software collections will be made available in a near future. 
