@@ -44,7 +44,7 @@ Which will allow for greater details of how your score was calculated.
 
 ### Calculating Priority
 
-SLURM tracks 'Resources'. This can be nearly anything on the HPC - CPU's, Power, GPU's, Memory, Storage, Licenses, anything that people share adn could use really.
+SLURM tracks 'Resources'. This can be nearly anything on the HPC - CPU's, Power, GPU's, Memory, Storage, Licenses, anything that people share and could use really.
 
 The basic premise is - you have:
 
