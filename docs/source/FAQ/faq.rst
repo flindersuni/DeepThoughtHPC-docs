@@ -9,7 +9,7 @@ What are the SLURM Partitions?
 There are just two (for now): 
 
 * hpc_general 
-* hpc_melfue 
+* hpc_melfeu 
 
 You can omit the 
 
@@ -30,7 +30,7 @@ When asking SLURM for resources, when you ask for N Tasks, you will get N tasks 
 
 * -N12 --cpus-per-task=10 --mem-per-cpu=2G
 
-Will get you a combined *total* of 24 CPUs and 48GB of RAM *spread across 12 individual little instances*.
+Will get you a combined *total* of 120 CPUs and 240GB of RAM *spread across 12 individual little instances*.
 
 Running the Job
 ----------------
@@ -60,7 +60,7 @@ The steps below will:
 Conda/Python Environment
 --------------------------
 Only thing you will need to decide is 'where you want to store my environment' you can store it in your /home directory if you like or in /scratch. Just put it someplace that is easy to remember.
-To get you up and running (anywhere is says FAN, please substitute yours):
+To get you up and running (anywhere it says FAN, please substitute yours):
 
 * module load miniconda/3.0
 * conda create -p /home/FAN/isoseq3 python=3.7

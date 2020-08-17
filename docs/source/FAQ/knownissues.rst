@@ -20,5 +20,4 @@ EBPUB Version
 Web / ReadTheDocs / Online Version 
 ====================================
 
-* Occasionally, the Sidebar Mis-behaves when updating the Table of Contents 
 * Some builds seem to have magic-ed away the images and they no longer display correctly. 
