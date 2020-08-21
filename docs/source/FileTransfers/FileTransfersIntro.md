@@ -85,7 +85,7 @@ If you don't know your computer IP, then the commands of:
 
 Will be your friend to figure out what it is. Just like above, we slightly change the command, and sub-in an IP instead of a host-name.
 
-![](../_static/SCPByIp.png)
+![](../_static/SCPByIP.png)
 
 ### Windows
 
