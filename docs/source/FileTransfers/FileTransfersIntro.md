@@ -93,7 +93,7 @@ Windows doesn't support the SFTP protocol in a native way. Thankfully, there are
 
 #### Sub-System for Linux
 
-You can use the WSL for this - head on over to the [Linux](../Linux/LinuxFileTransfer.md) Guide.
+You can use the WSL for this - head on over to the [Linux](#TransferringFiles) Guide.
 
 #### Potential Client List
 
@@ -108,7 +108,7 @@ This guide will focus on WinSCP.
 
 Open WinSCP, enter deepthought.flinders.edu.au as the host to connect to, and click Login. You should have a screen that looks like this.
 
-![](../../_static/WinSCPImage.png)
+![](../_static/WinSCPImage.png)
 
 The first time you connect up you will get a warning - this is fine, just click YES to continue on.
 

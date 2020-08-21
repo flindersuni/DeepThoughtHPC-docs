@@ -2,10 +2,21 @@
 
 Deepthought is the brand new HPC for Flinders University SA, and available for Flinders Colleges to utilise. The following details the system specifications and node types that are present within the HPC.
 
+## Partition Layout
+
+The SLURM Scheduler as the notion of 'Job Queue' or 'Partitions'.  These manage resource allocations and job scheduling independent from on-another. At this time, there is a single job-queue for general usage. As resource usage patterns are identified, this may change.
+
+|Partition Name |   Number of Nodes |   Usage / Purpose                    | Max Runtime    |
+|---------------|   -------         |   ------                             | -----          |
+|hpc_general    |   13              | General Usage Pool                   | UNLIMITED      |
+|hpc_melfeu     |   2               | Molecular Biology Lab private Nodes. | UNLIMITED      |  
+
+
 ## Node Breakdown
 
 - 17 Compute Nodes, totalling 1376 Cores and 6.28TB of RAM combined.
 - 2 Login Nodes, with High-Availability Failover
+- 4 V100 Nvidia TESLA GPU's with 32GB VRAM
 
 ### General Nodes
 
@@ -54,11 +65,3 @@ The Flinders University Molecular Biology lab maintains two nodes for their excl
 - RAM:
   - 2TB (1.8TB) DDR4 @ 3200Mhz
 
-## Partition Layout
-
-The SLURM Scheduler as the notion of 'Job Queue' or 'Partitions'.  These manage resource allocations and job scheduling independent from on-another. At this time, there is a single job-queue for general usage. As resource usage patterns are identified, this may change.
-
-|Partition Name |   Number of Nodes |   Usage / Purpose                    | Max Runtime    |
-|---------------|   -------         |   ------                             | -----          |
-|hpc-general    |   13              | General Usage Pool                   | UNLIMITED      |
-|hpc-melfeu     |   2               | Molecular Biology Lab private Nodes. | UNLIMITED      |  
