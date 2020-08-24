@@ -15,22 +15,27 @@ The new Flinders High Performance Computing (HPC) solution is called Deep Though
 
 .. toctree::
    :maxdepth: 2
-   :caption: Table of Contents:
-   
+   :caption: User Documentation
+
    Access/GettingAccess.md
    FileTransfers/FileTransfersIntro.md
    LinuxCommands/LinuxIntro.md 
    SLURM/SLURMIntro.md
    ModuleSystem/LMod.md
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Technical Specifications
+
    system/deepthoughspecifications.md
-   FAQ/faqandissues.rst
 
-Indices and tables
-==================
+.. toctree::
+   :maxdepth: 2
+   :caption: FAQ & Known Issues
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   FAQ/faq.rst
+   FAQ/knownissues.rst
+
 
 Acknowledgements
 ----------------
