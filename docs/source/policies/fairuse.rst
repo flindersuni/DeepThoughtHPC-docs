@@ -12,8 +12,8 @@ the best possible outcomes.
   * 10 % for General
 
 
-.. _Getting Access: ../Access/GettingAccess.md
-.. _Module System: ../ModuleSystem/LMod.md
+.. _Getting Access: ../Access/GettingAccess.html
+.. _Module System: ../ModuleSystem/LMod.html
 
 Storage Usage Guidelines
 ============================
