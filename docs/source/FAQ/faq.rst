@@ -75,7 +75,7 @@ When all goes well, your prompt should read something similar to
     
 Notice the (/home/ande0548/isoseq3)? Thats a marker to tell you which Python/Conda Environment you have active at this point. 
 
-BX-Python 
+BX Python 
 ----------
 The given bx-python version in the wiki doesn't install correctly, and if it *does* work, then it will fail on run. To get a working version, run the following.
 
@@ -109,3 +109,24 @@ Right at the start of your script, add the following lines:
 * conda activate /path/to/conda/environment
 
 This will load conda, initialises (all of your) conda environment(s), force a shell refresh and load that new configuration, then finally load up your environment. Your job can now run without strange conda-based initialisation errors.
+
+
+BX-Python 
+=========
+The given bx-python is a problematic module that appears in many of the BioScience packages in Conda, below will get you a working, Python 3 version.
+These steps are the same as the installation for IsoSeq3, but given how often this particular python package gives the support team issues, it gets its own section!
+
+* conda install -c conda-forge -c bioconda bx-python
+
+
+What can I do on the Head Node? 
+================================
+The head nodes are for small, 'Less than 10 minutes' (as a rough guide), small jobs. 
+Things like: 
+
+* Compiling software
+* Copying / Decompressing Files 
+* Preparing Scripts
+
+As a good rule, if it takes more than 10-15 minutes or > 2GB RAM, it should be run a SLURM Job, not on the head nodes. 
+Anything that uses too many resources on the head nodes will be *Terminated* **WITHOUT WARNING**.

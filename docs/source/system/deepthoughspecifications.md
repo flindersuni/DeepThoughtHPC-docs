@@ -11,6 +11,9 @@ The SLURM Scheduler as the notion of 'Job Queue' or 'Partitions'.  These manage 
 |hpc_general    |   13              | General Usage Pool                   | UNLIMITED      |
 |hpc_melfeu     |   2               | Molecular Biology Lab private Nodes. | UNLIMITED      |  
 
+## Storage Layout
+
+Scratch: ~80TB of scratch disk, mounted on all nodes
 
 ## Node Breakdown
 
