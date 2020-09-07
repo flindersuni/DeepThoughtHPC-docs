@@ -105,11 +105,11 @@ Scripting Languages
 Interpreters like Python & R (Perl, Ruby, Scala, Lua etc.) are complex things and have their own entire ecosystems of packages, versioning and tools. 
 These Scripting Interfaces (The technical term is 'Interpreters') are all managed as their own standalone aspect to the HPC. 
 
-Using Python as an exmaple you have: 
+Using Python as an example you have: 
 
 * The interpreter 'Python' 
 * The package manager 'Pip'
-* The Meta-Manger 'Conda'/'Mini-Conda'
+* The Meta-Manager 'Conda'/'Mini-Conda'
 * The Virtual Environments Manager 'venv'
 
 Each interacting in slightly different ways and causing other issues. To ensure that the HPC team can support a core set of modules the interpreters are only updated when: 
