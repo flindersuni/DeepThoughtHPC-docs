@@ -37,6 +37,13 @@ The new Flinders High Performance Computing (HPC) solution is called Deep Though
    FAQ/knownissues.rst
 
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Software & Support Policies 
+
+   policies/fairuse.rst 
+
+
 Acknowledgements
 ----------------
 
