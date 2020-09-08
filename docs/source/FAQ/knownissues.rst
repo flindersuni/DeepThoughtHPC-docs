@@ -20,4 +20,4 @@ EBPUB Version
 Web / ReadTheDocs / Online Version 
 ====================================
 
-* Some builds seem to have magic-ed away the images and they no longer display correctly. 
+None at the moment.
