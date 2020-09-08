@@ -9,11 +9,9 @@ Head / Login / Management Nodes
 
 1) The Head / Login / Management Nodes are to be used for light, single-threaded tasks only.
 
-
 2) If it takes more than 5-10 minutes or > 2-3GB of RAM, do NOT run it on the head node.
 
-
-3) Some acceptable tasks include: 
+3) Some acceptable tasks include:
     * Compiling software for your own use
     * Transferring / Decompressing Files 
     * Light Pre/Post Processing 
