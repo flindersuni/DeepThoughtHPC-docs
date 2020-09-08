@@ -82,5 +82,5 @@ If you break these rules the HPC Team may take any or all of these actions:
 * Cancellation of Tasks
 * Removal problematic files and/or programs
 * Warning of expected behavior
-* Killing of identified problematic processes
+* Termination of identified problematic processes
 * Revocation of HPC Access
