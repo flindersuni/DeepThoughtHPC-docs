@@ -3,14 +3,17 @@ Fair Usage Guidelines
 
 The Deepthought HPC provides moderate use at no charge to Flinders University Colleges. 
 This is enforced by the Fairshare System and is under constant tweaking and monitoring to ensure 
-the best possible outcomes.
+the best possible outcomes. The current split of resources between colleges is:
 
-* The current split between colleges is:
+* 45 % for CSE 
+* 45 % for CMPH 
+* 10 % for General
 
-  * 45 % for CSE 
-  * 45 % for CMPH 
-  * 10 % for General
+For example, if the HPC had 1000 'shares' that represent its resources, the following would be demonstrative of how they are allocated: 
 
+* 450 'shares' for CSE 
+* 450 'shares' for CMPH 
+* 100 'shares' for General 
 
 .. _Getting Access: ../Access/GettingAccess.html
 .. _Module System: ../ModuleSystem/LMod.html
