@@ -6,9 +6,29 @@ DeepThought HPC uses the [LMod](https://lmod.readthedocs.io/en/latest/) (Load MO
 
 Best way to think of Module is a singular program version + all of its associated dependencies to run correctly.
 
-## Writing Your Own Modules
+## How Do I Install Software? 
+There are multiple ways to install software on the HPC. Below is an expansion on some of the common ones. The short and sweet version is that, if you compile/install it yourself to your /home or a Virtual Environment of some kind, you are free to do whatever you want! 
 
-You can [write your own module files](https://lmod.readthedocs.io/en/latest/015_writing_modules.html#) if you want! This is supported on a best-effort basis by the HPC support team.
+The HPC support team will need to action your request if you need something big and complicated like ANSYS, GNU Octave, a new version of R or other similar large and complicated programs. 
+
+### Python / Conda
+The HPC Team allows you to install your own packages by using the inbuilt package manager tools, like Pythons 'pip', or Conda. 
+
+As an example, you can create a Conda Virtual Environment - this is under your complete control and you may install, remove or alter it as you wish. This is also the same for Pythons 'venv', which functions in much the same way.  
+
+The Conda Guide is located at: [Conda Guide](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-envs)
+
+The Python Guide is located at: [Python Guide](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment)
+
+### Compile Your Own 
+The HPC uses the FOSS Toolchain, as detailed in the [Fair Usage](../policies/fairuse.html#toolchains) Policy.  Should you wish to compile and use your own software, simply load the associated module (eg, foss-2020a) which will load up the associated GCC Toolchains and libraries. 
+
+#### My Toolchain isn't Listed
+Should you require a different Toolchain, like LLVM or Go and it is not listed under the `module avail` list, you can either: 
+
+1.) Bootstrap the compiler + libraries yourself in your /home directory, managing it and any programs yourself
+
+2.) Contact the HPC Support Team, either via [Email](mailto:deepthought@flinders.edu.au) or ServiceOne
 
 ## Module Format
 
@@ -79,9 +99,12 @@ Generally speaking, we can install almost all Linux/CentOS bounded software/appl
 
 Otherwise, there is nothing stopping you installing the program locally for yourself! If you run into issues installing software then open an ServiceOne ticket and again, Digital Research Services will help on a best-effort basis.
 
+___
+
 ### An Important Note
 
 The software must in all cases be appropriately licensed.
+___
 
 ## Currently Installed Modules
 
@@ -94,3 +117,7 @@ This is the list of software that has been 'hand rolled' as it contains either t
 ### Additional Software
 
 There are additional software collections will be made available in a near future. 
+
+## Writing Your Own Modules
+
+You can [write your own module files](https://lmod.readthedocs.io/en/latest/015_writing_modules.html#) if you want! This is supported on a best-effort basis by the HPC support team.

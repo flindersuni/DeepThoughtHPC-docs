@@ -11,7 +11,8 @@ Head / Login / Management Nodes
 
 2) If it takes more than 5-10 minutes or > 2-3GB of RAM, do NOT run it on the head node.
 
-3) Some acceptable tasks include:
+3) Some acceptable tasks include
+    
     * Compiling software for your own use
     * Transferring / Decompressing Files 
     * Light Pre/Post Processing 
@@ -31,7 +32,6 @@ General Cluster Rules
 
 5) Do not access the compute nodes directly.
 
-6) Utlise /local on the compute nodes for your data sets if possible.
 
 
 Permissions & Access Levels 
