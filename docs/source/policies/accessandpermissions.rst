@@ -32,7 +32,6 @@ General Cluster Rules
 
 5) Do not access the compute nodes directly.
 
-6) Utlise /local on the compute nodes for your data sets if possible.
 
 
 Permissions & Access Levels 

@@ -6,9 +6,10 @@ Below are some of the common steps that the team has been asked to resolve more 
 
 What are the SLURM Partitions? 
 ===============================
-There are just two (for now): 
+There are three at this point: 
 
 * hpc_general 
+* hpc_gpu
 * hpc_melfeu 
 
 You can omit the 
