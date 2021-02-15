@@ -17,7 +17,7 @@ Scratch: ~80TB of scratch disk, mounted on all nodes
 
 ## Node Breakdown
 
-- 17 Compute Nodes, with ~180 Cores and ~10TB of RAM total
+- 17 Compute Nodes, with ~1800 Cores and ~10TB of RAM total
 - 2 Login Nodes, with High-Availability Failover
 - 4 V100 Nvidia TESLA GPU's with 32GB VRAM per GPU
 
