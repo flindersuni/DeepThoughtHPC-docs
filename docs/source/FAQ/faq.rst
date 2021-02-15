@@ -6,9 +6,10 @@ Below are some of the common steps that the team has been asked to resolve more 
 
 What are the SLURM Partitions? 
 ===============================
-There are just two (for now): 
+There are three at this point: 
 
 * hpc_general 
+* hpc_gpu
 * hpc_melfeu 
 
 You can omit the 
@@ -16,7 +17,7 @@ You can omit the
 * #SBATCH partition=<name> directive
     
 
-as the sane-default for you is the hpc_general partition. 
+as the sane-default for you is the hpc_general partition. If you need access to the GPU's you **must** user the hpc_gpu queue.
 
 SLURM - Tasks & OpenMPI/MPI
 ===========================
@@ -130,3 +131,10 @@ Things like:
 
 As a good rule, if it takes more than 10-15 minutes or > 2GB RAM, it should be run a SLURM Job, not on the head nodes. 
 Anything that uses too many resources on the head nodes will be *Terminated* **WITHOUT WARNING**.
+
+
+My Mount Point at /r_drive or /mnt is missing! 
+===============================================
+Anything under those directories above are set to transparent auto-mount. 
+Try and move to a directory or touch a file, and the operating system will mount and surface the locations for you 
+automatically. 

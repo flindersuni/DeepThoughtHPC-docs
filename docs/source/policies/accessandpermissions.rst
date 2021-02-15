@@ -32,7 +32,6 @@ General Cluster Rules
 
 5) Do not access the compute nodes directly.
 
-6) Utlise /local on the compute nodes for your data sets if possible.
 
 
 Permissions & Access Levels 
@@ -73,7 +72,9 @@ and, while the Support Team is asked for these permissions quite often, the pote
 
 3) Elevated Access to the HPC System 
 
-4) Access to Managerial Systems 
+4) Access to the Cluster Management System
+
+5) Access to the Storage Analytics 
 
 
 If You Break These Rules 

@@ -6,10 +6,17 @@ Transferring files to the HPC will change depending upon your OS. Thankfully, th
 
 The HPC is a little different that your desktop at home when it comes to storage (not just computing power!). It's a shared resource, so we cant store everybody's data for all time - there just isn't enough space!
 
-So, we have two main storage locations we use; Linux Guru's some of this is old hat - please keep reading, it'll get to new things soon!
+So, we have two main storage locations we use which are:
 
 - /home/$FAN
 - /scratch/$FAN
+
+There are also two location that treated specially: 
+
+- /mnt/
+- /r_drive/ 
+
+Both of these locations will surface research specific mount points on request. If you have access to these locations, they auto-mount **on usage**. That is, simply try and touch or access the correct location that you have access to, and it will be handled automatically for you.
 
 ### /Home
 
