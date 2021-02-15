@@ -8,7 +8,7 @@ The SLURM Scheduler as the notion of 'Job Queue' or 'Partitions'.  These manage 
 
 |Partition Name |   Number of Nodes |   Usage / Purpose                    | Max Runtime    |
 |---------------|   -------         |   ------                             | -----          |
-|hpc_general    |   13              | General Usage Pool                   | UNLIMITED      |
+|hpc_general    |   15              | General Usage Pool                   | UNLIMITED      |
 |hpc_melfeu     |   2               | Molecular Biology Lab private Nodes. | UNLIMITED      |  
 
 ## Storage Layout
@@ -17,9 +17,9 @@ Scratch: ~80TB of scratch disk, mounted on all nodes
 
 ## Node Breakdown
 
-- 17 Compute Nodes, totalling 1376 Cores and 6.28TB of RAM combined.
+- 17 Compute Nodes, with ~180 Cores and ~10TB of RAM total
 - 2 Login Nodes, with High-Availability Failover
-- 4 V100 Nvidia TESLA GPU's with 32GB VRAM
+- 4 V100 Nvidia TESLA GPU's with 32GB VRAM per GPU
 
 ### General Nodes
 
@@ -43,7 +43,7 @@ There are 2 dedicated GPU nodes, each with:
 
 ### High Capacity Node
 
-There is a single High-Capacity node with:
+There is are 3 High-Capacity nodes with:
 
 - CPU:
   - 2 x AMD EPYC 7742 @2.25Ghz with 64 Cores / 128 Threads 
