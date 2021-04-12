@@ -14,7 +14,7 @@ The SLURM Scheduler as the notion of 'Job Queue' or 'Partitions'.  These manage 
 
 ## Storage Layout
 
-Scratch: ~120TB of scratch disk, mounted on all nodes
+Scratch: ~240TB of scratch disk, mounted on all nodes
 
 Per node /local: ~400GB to 1.5TB, depending on node layout
 
