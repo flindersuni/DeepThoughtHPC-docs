@@ -4,7 +4,7 @@ This page will guide you on the steps to get access and then connect to the HPC 
 
 ## Flinders Staff / HDR Students
 
-1. Fire of a ServiceOne Ticket asking for Access to the HPC
+1. Create a ServiceOne Ticket asking for Access to the HPC. 
 
 2. Pick your Operating System ([Unix/Linux/MacOS](#unix-linux-macos) or [Windows](#windows) )
 
@@ -53,12 +53,13 @@ If you are using the Windows SubSystem for Linux (WSL), then go ahead and read t
 - [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 - [KiTTY](http://www.9bis.net/kitty/#!pages/download.md)
 - [BitVise Client](https://www.bitvise.com/download-area)
+- [MobaXterm](https://mobaxterm.mobatek.net/)
 
 #### Getting Connected on Windows
 
 Open PuTTy, and you are presented with this screen:
 
-![](../../_static/puttyAccessImage.png)
+![](../_static/puttyAccessImage.png)
 
 - Fill in the hostname to be: deepthought.flinders.edu.au,
 - Change the Connection Type to SSH
@@ -69,7 +70,7 @@ Open PuTTy, and you are presented with this screen:
 
 If all has gone well, you will be presented with this screen:
 
-![](../../_static/puttyLoginImage.png)
+![](../_static/puttyLoginImage.png)
 
 - Your Username is your FAN
 - Your Password is your FAN Password.
@@ -80,10 +81,10 @@ These are the same credentials you use to login to OKTA.
 
 Upon a successful login, you should get a screen similar to this:
 
-![](../../_static/loginOKImage.png)
+![](../_static/loginOKImage.png)
 
-If so, you are now connected and ready to start using the HPC!
+If so, you are now connected and ready to start using the HPC.
 
 #### SSH Keys on Windows
 
-As with the Unix/Linux/MacOS system, you may also setup SSH Keys for password-less logins. Be sure to follow the specific instructions for your client, as they will differ!
+As with the Unix/Linux/MacOS system, you may also setup SSH Keys for password-less logins. Be sure to follow the specific instructions for your client, as they will differ.

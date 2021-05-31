@@ -4,9 +4,11 @@ Transferring files to the HPC will change depending upon your OS. Thankfully, th
 
 ## Before we get started
 
-The HPC is a little different that your desktop at home when it comes to storage (not just computing power!). It's a shared resource, so we cant store everybody's data for all time - there just isn't enough space!
+The HPC is a little different that your desktop at home when it comes to storage, not just computing power. It's a shared resource, so we cant store everybody's data for all time - there just isn't enough space. 
 
-So, we have two main storage locations we use which are:
+On Deepthought, are two main storage tiers. Firstly our bulk storage (approx 250TB) is the 'Scratch' area - and is slower, spinning Hard-Disk Drives (HDD's). The smaller, hyper-fast NVMe Solid-State Drives are located at /local and is approx 400GB on the 'standard' nodes and 1.5TB on the 'high-capacity' nodes. 
+
+There is a critical difference between these two locations. The /scratch area is a common storage area. You can access it from all of the login, managment and compute nodes on the HPC. This is not the same as /local, which is only avaialble on each compute node.  That is - if you job is running on Node001, the /local only exists on that particular node - you cannot access it anaywhere else on the HPC. 
 
 - /home/$FAN
 - /scratch/$FAN
