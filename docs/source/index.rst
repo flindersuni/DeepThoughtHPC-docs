@@ -11,13 +11,15 @@ The new Flinders High Performance Computing (HPC) solution is called Deep Though
 .. attention::
     This documentation is under active development, meaning that it can
     change over time as we improve it. Please email deepthought@flinders.edu.au if
-    you require assistance.
+    you require assistance. We also welcome user contributions  to this documentation 
+    - contact the same email above so we can grant you access.
 
 .. toctree::
    :maxdepth: 2
    :caption: User Documentation
 
    Access/GettingAccess.md
+   Storage/storageusage.rst
    FileTransfers/FileTransfersIntro.md
    LinuxCommands/LinuxIntro.md 
    SLURM/SLURMIntro.md
