@@ -111,7 +111,7 @@ This is not an exhaustive list - feel free to use whatever you wish that support
 
 This guide will focus on WinSCP.
 
-#### Getting Connected
+#### Getting Connected with WinSCP
 
 Open WinSCP, enter deepthought.flinders.edu.au as the host to connect to, and click Login. You should have a screen that looks like this.
 

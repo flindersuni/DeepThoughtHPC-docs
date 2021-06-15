@@ -16,7 +16,7 @@ MacOS / MacOSX shares a similar procedure to Unix/BSD Based system. Unix/Linux &
 
 #### The Windows Sub-System for Linux
 
-The windows Subsystem for Linux (WSL) allows you to run a Linux Distribution as a sub-system in windows. When following these instructions, a 'terminal' is the same as starting your WSL Distribution.
+The windows Subsystem for Linux (WSL) allows you to run a Linux Distribution as a sub-system in windows. When following these instructions, a 'terminal' is the same as starting your WSL Distribution. Generally, if you are using the WSL, then following the Unix/Linux instructions.
 
 #### Getting Connected
 
@@ -43,10 +43,6 @@ If you wish to setup password-less login via SSH Keys, you may do so.
 ### Windows
 
 To connect to Deep Thought a SSH application such as PuTTy is required. Below is a short list of the possible programs you can use as a client to connect to the HPC. This guide will focus on Putty - but will be equally applicable to the other programs.
-
-#### The Windows Sub-System for Linux (WSL)
-
-If you are using the Windows SubSystem for Linux (WSL), then go ahead and read the [Unix/Linux](#unix-linux-macos) instructions instead.
 
 #### Client Options
 
@@ -85,6 +81,6 @@ Upon a successful login, you should get a screen similar to this:
 
 If so, you are now connected and ready to start using the HPC.
 
-#### SSH Keys on Windows
+#### SSH Keys
 
 As with the Unix/Linux/MacOS system, you may also setup SSH Keys for password-less logins. Be sure to follow the specific instructions for your client, as they will differ.
