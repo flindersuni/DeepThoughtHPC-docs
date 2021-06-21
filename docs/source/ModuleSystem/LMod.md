@@ -4,9 +4,18 @@ One of such challenges of running a HPC is effectively managing a complex suite 
 
 Best way to think of Module is a singular program version and all of its associated dependencies to run correctly.
 
+## Additional Software & Modules
+
+Generally speaking, we can install almost all Linux/CentOS bounded software/applications on HPC, but we don't always need to go thorough the effort to install things 'globally' for everybody.
+
+1. Are people other than just me going to use this software?
+2. If yes, create an ServiceOne Ticket, and the HPC Support Team will assess the request
+
+Otherwise, there is nothing stopping you installing the program locally for yourself! If you run into issues installing software then open an ServiceOne, or contact the HPC Support team at their [email](mailto:deepthought@flinders.edu.au).
+
 ## How Do I Install Software?
 
-There are multiple ways to install software on the HPC. Below is an expansion on some of the common ones. The short and sweet version is that, if you compile/install it yourself to your /home or a Virtual Environment of some kind, you are free to do whatever you want!
+There are multiple ways to install software on the HPC. Below is an expansion on some of the common ones. The short and sweet version is that, if you compile/install it yourself to your /home or a Virtual Environment of some kind, you are free to do whatever you want! Jus tbe mindful of space, and if its a common tool that your whole research lab will be using, consider putting in a support request so the HPC Team can make it a global module, instead of everybody having their own copy.
 
 You may also utilise the same tooling as the HPC Support Team - EasyBuild.  EasyBuild is a management tool allowing for repeatable installation of a specific piece of software to aid in reproducibility of results. You can load this the same way as any other module on the HPC. By default, this tool will install to your home directory, and more information can be [read here](https://docs.easybuild.io/en/latest/).
 
@@ -14,7 +23,7 @@ The HPC support team will need to action your request if you need something big 
 
 ### Python / Conda
 
-The HPC Team allows you to install your own packages by using the inbuilt package manager tools, like Pythons 'pip', or Conda. 
+The HPC Team allows you to install your own packages by using the inbuilt package manager tools, like Pythons 'pip', or Conda.
 
 As an example, you can create a Conda Virtual Environment - this is under your complete control and you may install, remove or alter it as you wish. This is also the same for Pythons 'venv', which functions in much the same way.  
 
@@ -22,17 +31,21 @@ The Conda Guide is located at: [Conda Guide](https://docs.conda.io/projects/cond
 
 The Python Guide is located at: [Python Guide](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment)
 
+### EasyBuild
+
+The HPC Support Team use [EasyBuild](https://easybuild.io/) to manage most of the software on the HPC (Not all, things like ANSYS and MATLAB are too complicated for such a tool). It is also open for users to self install software using the same tooling. As with all things HPC, it can get complicated - the [documentation is situated here](https://docs.easybuild.io/en/latest/).
+
 ### Compile Your Own
 
-The HPC uses the FOSS Toolchain, as detailed in the [Fair Usage](../policies/fairuse.html#toolchains) Policy.  Should you wish to compile and use your own software, simply load the associated module (eg, foss-2020a) which will load up the associated GCC Toolchains and libraries. 
+The HPC uses the FOSS Toolchain, as detailed in the [Fair Usage](../policies/fairuse.html#toolchains) Policy.  Should you wish to compile and use your own software, simply load the associated module (eg, foss-2020a) which will load up the associated tools and libraries.
 
 #### My Toolchain isn't Listed
 
-Should you require a different Toolchain, like LLVM or Go and it is not listed under the `module avail` list, you can either: 
+Should you require a different Toolchain, like LLVM or Go and it is not listed under the `module avail` list, you can either:
 
-1.) Bootstrap the compiler + libraries yourself in your /home directory, managing it and any programs yourself
+1.) Bootstrap the compiler + libraries yourself in your /home directory
 
-2.) Contact the HPC Support Team, either via [Email](mailto:deepthought@flinders.edu.au) or ServiceOne
+2.) Contact the HPC Support Team, either via [Email](mailto:deepthought@flinders.edu.au) or [ServiceOne](https://flindersuni.service-now.com/csp)
 
 ## Module Format
 
@@ -40,9 +53,13 @@ As Software requirements for research can be very specific, the modules follow s
 
 - Program/Version-Toolchain-Version-Interpreter-Version
 
+An example EasyBuild module is: `BioPerl/1.7.2-GCCcore-8.2.0-Perl-5.28.1`.
+
 Manually installed software will always be a shorter format of:
 
 - Program/Version
+
+An example of a manual module is: matlab/r2020b
 
 The following sections will break down the longer string of `BioPerl/1.7.2-GCCcore-8.2.0-Perl-5.28.1`.
 
@@ -74,7 +91,7 @@ Will get you a list of something similar to this - a list of every single availa
 
     module list
 
-Will get you a list of your current modules.
+Will get you a list of your currently loaded modules.
 
 ![](../_static/moduleListExample.png)
 
@@ -92,16 +109,7 @@ There is also a nice shortcut, that you can use:
 
     ml BioPerl/1.7.2-GCCcore-8.2.0-Perl-5.28.1.
 
-'ml' is just short for 'module load'. You can also use it as shorthand for `module` commands.
-
-## Additional Software & Modules
-
-Generally speaking, we can install almost all Linux/CentOS bounded software/applications on HPC, but we don't always need to go thorough the effort to install things 'globally' for everybody.
-
-1. Are people other than just me going to use this software?
-2. If yes, create an ServiceOne Ticket, and the HPC Support Team will assess your request.
-
-Otherwise, there is nothing stopping you installing the program locally for yourself! If you run into issues installing software then open an ServiceOne ticket and again, the HPC Support Team will do our best to help you.
+'ml' is just short for 'module load'. You can also use it as shorthand for `module` commands, like `ml spider bioperl`.
 
 ___
 
@@ -116,4 +124,4 @@ The latest list is always available by running the `module avail` command on the
 
 ### Writing Your Own Modules
 
-You can [write your own module files](https://lmod.readthedocs.io/en/latest/015_writing_modules.html#) if you want, although this should be a last resort. Its far less error prone to use a Python/Conda environment to bypass the need for modules entirely or the EasyBuild tool to handle this for you.
+You can [write your own module files](https://lmod.readthedocs.io/en/latest/015_writing_modules.html#) if you want, although this should be a last resort. It is far less error prone to use a Python/Conda environment to bypass the need for modules entirely or the EasyBuild tool to handle this for you.

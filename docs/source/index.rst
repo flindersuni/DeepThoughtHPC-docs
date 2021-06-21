@@ -20,8 +20,10 @@ The new Flinders High Performance Computing (HPC) solution is called Deep Though
 
    Access/GettingAccess.md
    Storage/storageusage.rst
+   dataflow/hpcresearchdataflow.rst 
    FileTransfers/FileTransfersIntro.md
    LinuxCommands/LinuxIntro.md 
+   dataflow/hpcjobdataflow.rst
    SLURM/SLURMIntro.md
    ModuleSystem/LMod.md
 
