@@ -4,7 +4,7 @@ This page will guide you on the steps to get access and then connect to the HPC 
 
 ## Flinders Staff / HDR Students
 
-1. Fire off a ServiceOne Ticket asking for [Access to the HPC](https://flindersuni.service-now.com/csp?id=sc_cat_item&sys_id=88cf5f37dbe5d4503c2b7b53f39619c7&sysparm_category=96e2e348db555490c8e096888a961974)
+1. Fire off a ServiceOne Ticket asking for [Access to the HPC](https://flindersuni.service-now.com/csp?id=sc_cat_item&sys_id=d95a633cdbf87810062472f5f39619f5)
 
 2. Pick your Operating System ([Unix/Linux/MacOS](#unix-linux-macos) or [Windows](#windows) )
 
