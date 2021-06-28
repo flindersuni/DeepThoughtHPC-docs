@@ -9,13 +9,13 @@ Best way to think of Module is a singular program version and all of its associa
 Generally speaking, we can install almost all Linux/CentOS bounded software/applications on HPC, but we don't always need to go thorough the effort to install things 'globally' for everybody.
 
 1. Are people other than just me going to use this software?
-2. If yes, create an ServiceOne Ticket, and the HPC Support Team will assess the request
+2. If yes, create a [ServiceOne](https://flindersuni.service-now.com) Ticket, and the HPC Support Team will assess the request.
 
-Otherwise, there is nothing stopping you installing the program locally for yourself! If you run into issues installing software then open an ServiceOne, or contact the HPC Support team at their [email](mailto:deepthought@flinders.edu.au).
+Otherwise, there is nothing stopping you installing the program locally for yourself! If you run into issues installing software then open [ServiceOne](https://flindersuni.service-now.com) ticket, or contact the HPC Support team at their [email](mailto:deepthought@flinders.edu.au).
 
 ## How Do I Install Software?
 
-There are multiple ways to install software on the HPC. Below is an expansion on some of the common ones. The short and sweet version is that, if you compile/install it yourself to your /home or a Virtual Environment of some kind, you are free to do whatever you want! Jus tbe mindful of space, and if its a common tool that your whole research lab will be using, consider putting in a support request so the HPC Team can make it a global module, instead of everybody having their own copy.
+There are multiple ways to install software on the HPC. Below is an expansion on some of the common ones. The short and sweet version is that, if you compile/install it yourself to your /home or a Virtual Environment of some kind, you are free to do whatever you want! Just be mindful of disk space. If its a common tool that your whole research lab will be using, consider putting in a support request so the HPC Team can make it a global module instead of everybody having their own copy.
 
 You may also utilise the same tooling as the HPC Support Team - EasyBuild.  EasyBuild is a management tool allowing for repeatable installation of a specific piece of software to aid in reproducibility of results. You can load this the same way as any other module on the HPC. By default, this tool will install to your home directory, and more information can be [read here](https://docs.easybuild.io/en/latest/).
 
@@ -23,7 +23,7 @@ The HPC support team will need to action your request if you need something big 
 
 ### Python / Conda
 
-The HPC Team allows you to install your own packages by using the inbuilt package manager tools, like Pythons 'pip', or Conda.
+The HPC Team allows you to install your own packages by using the inbuilt package manager tools, like Pythons 'pip', or Conda when using a virtual environment - you cannot install modules globally on the HPC using these tools.
 
 As an example, you can create a Conda Virtual Environment - this is under your complete control and you may install, remove or alter it as you wish. This is also the same for Pythons 'venv', which functions in much the same way.  
 
@@ -104,7 +104,7 @@ There are three main ways to load a module. For most of the time, they are funct
 #### Module Load
 
     module load BioPerl/1.7.2-GCCcore-8.2.0-Perl-5.28.1.
-
+s
 There is also a nice shortcut, that you can use:
 
     ml BioPerl/1.7.2-GCCcore-8.2.0-Perl-5.28.1.
