@@ -10,6 +10,10 @@ This page will guide you on the steps to get access and then connect to the HPC 
 
 3. Read up on some basic [SLURM](../SLURM/SLURMIntro.md)
 
+## Undergraduates
+
+Currently, the HPC is not open to Undergraduates on a general basis. Exceptions are made on a case-by-case basis - please talk to your project supervisor first and then contact the HPC Support Team via [email](mailto:deepthought@flinders.edu.au).
+
 ### Unix/Linux/MacOS
 
 MacOS / MacOSX shares a similar procedure to Unix/BSD Based system. Unix/Linux & MacOS systems have native support for the SSH Protocol, used to connect to the HPC.
