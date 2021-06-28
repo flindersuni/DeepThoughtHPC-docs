@@ -83,7 +83,7 @@ So, its stacks up very quickly, and you really want to write your job to ask for
 
 These are some of the basic commands. The Slurm [Quick-Start](https://slurm.schedmd.com/quickstart.html) guide is also very helpful to acquaint yourself with the most used commands.
 
-Slurm has also produced the [Rosetta Stone](../_static/SLURMRosettaStone.pdf) - a document that shows equivalents between several workload managers.
+Slurm has also produced the [Rosetta Stone](_static/SLURMRosettaStone.pdf) - a document that shows equivalents between several workload managers.
 
 ### Job submission
 
@@ -200,6 +200,26 @@ The following varaibles are set per job, and can be access from your SLURM Scrip
 |$SLURM_PROC_ID               |   The process (task) ID within the job. This will start from zero and go up to $SLURM_NTASKS-1.|
 
 
+### Filename Patterns 
+
+Some commands will take a filename.  THe following modifiers will allow you to generate files that are substituted with different variables controlled by SLURM.
+
+| Symbol            | Substitution |
+|-|-|
+| \\\\ |  Do not process any of the replacement symbols. |
+|%%| The character "%". |
+|%A|Job array's master job allocation number. |
+|%a|Job array ID (index) number. |
+|%J|Jobid.stepid of the running job. (e.g. "128.0") |
+|%j|Jobid of the running job. |
+|%N| Short hostname. This will create a separate IO file per node. |
+|%n|Node identifier relative to current job (e.g. "0" is the first node of the running job) This will create a separate IO file per node. |
+|%s|Stepid of the running job. |
+|%t|Task identifier (rank) relative to current job. This will create a separate IO file per task. |
+|%u|User name. |
+|%x|Job name. |
+
+
 ## SLURM: Extras
 
 Here is an assortment of resources that have been passed on to the Support Team as 'Useful to me'. Your mileage may vary on how useful you find
@@ -244,6 +264,7 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
     # You can capture both Standard Error and Standard Out
     # %j will append the 'Job ID' from SLURM. 
     # %x will append the 'Job Name' from SLURM 
+    # %
     #SBATCH --output=/home/$FAN/%x-%j.out.txt
     #SBATCH --error=/home/$FAN/%x-%j.err.txt
     ##################################################################
@@ -304,32 +325,27 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
     #module add cuda10.0/toolkit/10.0.130 
 
     ##################################################################
-    # If you have not already transferred you data-sets to your /scratch 
-    # directory, then you can do so as a part of you job.
-    # Change the FAN and JOBNAME as needed.
-    # REMOVE the data from /home when you do not need it, as /home space is
-    # limited.
-
-    # Copy Data to /scratch
-    cp -r /home/$FAN/??DataDirectory?? /scratch/user/FAN/JOBNAME
+    # This example script assumes that you have already moved your 
+    # dataset to /scratch as part of your HPC Pre-Job preparations. 
+    
+    # Move your dataset to /local 
+    cd /local 
+    mkdir -p /local/$SLURM_JOBID/$SLURM_ARRAY_TASK_ID/
+    cd /local/$SLURM_JOBID/$SLURM_ARRAY_TASK_ID/
+    cp /scratch/user/<FAN>/dataset ./
 
     ##################################################################
     # Enter the command-line arguments that you job needs to run. 
-    cd /scratch/user/$FAN/
-    python36 Generator.py
+    
 
     ##################################################################
     # Once you job has finished its processing, copy back your results 
-    # and ONLY the results from /scratch. 
+    # and ONLY the results to /scratch, then cleanup the temporary 
+    # working directory
 
-    cp /scratch/user/FAN/JOBNAME/??ResultsOutput.txt?? ~/JOBNAME/
+    cp /local/$SLURM_JOBID/$SLURM_ARRAY_TASK_ID/results/ /scratch/user/<FAN>/???
 
-    # Now, cleanup your /scratch directory of the extra data you have. 
-    # If you need to keep the data-set for later usage, then utilise
-    # your prefered method to get it OFF the HPC, and into your
-    # local storage.
-    rm -rf /scratch/user/FAN/JOBNAME
+    rm -rf /local/$SLURM_JOBID/
+
     ##################################################################
-    # Print out the 'Job Efficiency' - this is how well your job used the
-    # resources you asked for. The higher the better!
-    seff $SLURM_JOBID
+    

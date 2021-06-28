@@ -8,6 +8,53 @@ Before we start, ensure that you have read the [Storage Overview & Usage Guideli
 
 All file-transfers are done via Secure File Transfer Protocol (SFTP), or Secure Copy Protocol (SCP). Other options, like the tool RSync are also usable. This guide will focus upon the GUI based tools, using SFTP.
 
+## Before we get started
+
+The HPC is a little different that your desktop at home when it comes to storage, not just computing power. It's a shared resource, so we cant store everybody's data for all time - there just isn't enough space. 
+
+On DeepThought, are two main storage tiers, with a smaller pool for your documents and scripts. Firstly our bulk storage (approx 250TB) is the 'Scratch' area (located at /scratch/user/<fan>) - and is slower, spinning Hard-Disk Drives (HDD's). The smaller, hyper-fast NVMe Solid-State Drives (located at /local) are roughly 400GB on the 'standard' nodes (1-16) and 1.5TB on the 'high-capacity' nodes (19-21).
+
+There is a critical difference between these two locations. The /scratch area is a common storage area. You can access it from all of the login, management and compute nodes on the HPC. This is not the same as /local, which is only available on each compute node.  That is - if you job is running on Node001, the /local only exists on that particular node - you cannot access it anywhere else on the HPC. 
+
+- /home/$FAN
+- /scratch/$FAN
+
+There are also two location that treated specially: 
+
+- /mnt/
+- /r_drive/ 
+
+Both of these locations will surface research specific mount points on request. If you have access to these locations, they auto-mount **on usage**. That is, simply try and touch or access the correct location that you have access to, and it will be handled automatically for you. For example, if you have access to a mount point called 'molecular_data', then the following command with surface that mount point to you - `cd /r_drive/molecular_data/`. 
+
+### /Home
+
+Your 'home' directories. This is a small amount of storage (~11TB total) to store your small bits and pieces. This is the analogous to the Windows 'Documents' folder.
+
+At a command promp, your home directory usually gets shortened to ~/. 
+
+#### What to store in /home
+
+Here is a rough guide as to what should live in your /home/$FAN directory. In general, you want small, little things is here.
+
+- SLURM Scripts
+- Results from Jobs.
+- 'Small' Data-Sets (<5GB)
+
+### /Scratch
+
+Scratch is your working space. Depending upon your dataset, you may need to run your job here - this is not optimal and will be much slower than running it from /local. Scratch is still not an area to store your data permanently - there are no backups in place for the HPC, so ensure you follow the [HPC Research Data Flow ]() and the [HPC Job Data Flow]().
+
+#### What to store in /scratch
+
+Here is a rough guide as to what should live in your /scratch/$FAN directory. In general, anything large, bulky and only needed for a little while should go here.
+
+- Job Working Data-sets
+- Intermediate files
+
+## Transferring Files
+
+All file-transfers are done via Secure File Transfer Protocol (SFTP) or Secure Copy Protocol (SCP). As was the same with the 'Getting Access', pick your platform:
+
 ### Linux/Unix File Transfers
 
 Linux / Unix based systems share native support for the SFTP Protocol. The Secure Copy Protocol (SCP) is also widely accepted, which can sometimes offer an edge in transfer speed.
@@ -70,7 +117,7 @@ This is not an exhaustive list - feel free to use whatever you wish that support
 
 This guide will focus on WinSCP.
 
-#### Getting Connected
+#### Getting Connected with WinSCP
 
 Open WinSCP, enter deepthought.flinders.edu.au as the host to connect to, and click Login. You should have a screen that looks like this.
 
