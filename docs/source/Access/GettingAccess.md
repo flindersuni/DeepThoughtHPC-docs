@@ -4,7 +4,7 @@ This page will guide you on the steps to get access and then connect to the HPC 
 
 ## Flinders Staff / HDR Students
 
-1. Create a [ServiceOne](https://flindersuni.service-now.com) Ticket asking for Access to the HPC. Currently the request is under the following path: Research Services -> Undertake Research -> Access to DeepThought HPC.
+1. Create a [ServiceOne](https://flindersuni.service-now.com/csp?id=sc_cat_item&sys_id=d95a633cdbf87810062472f5f39619f5) Ticket asking for Access to the HPC. Currently the request is under the following path: Research Services -> Undertake Research -> Access to DeepThought HPC.
 
 2. Pick your Operating System ([Unix/Linux/MacOS](#unix-linux-macos) or [Windows](#windows) )
 
