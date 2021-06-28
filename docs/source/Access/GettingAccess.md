@@ -4,11 +4,15 @@ This page will guide you on the steps to get access and then connect to the HPC 
 
 ## Flinders Staff / HDR Students
 
-1. Fire off a ServiceOne Ticket asking for [Access to the HPC](https://flindersuni.service-now.com/csp?id=sc_cat_item&sys_id=d95a633cdbf87810062472f5f39619f5)
+1. Create a [ServiceOne](https://flindersuni.service-now.com/csp?id=sc_cat_item&sys_id=d95a633cdbf87810062472f5f39619f5) Ticket asking for Access to the HPC. Currently the request is under the following path: Research Services -> Undertake Research -> Access to DeepThought HPC.
 
 2. Pick your Operating System ([Unix/Linux/MacOS](#unix-linux-macos) or [Windows](#windows) )
 
 3. Read up on some basic [SLURM](../SLURM/SLURMIntro.md)
+
+## Undergraduates
+
+Currently, the HPC is not open to Undergraduates on a general basis. Exceptions are made on a case-by-case basis - please talk to your project supervisor first and then contact the HPC Support Team via [email](mailto:deepthought@flinders.edu.au).
 
 ### Unix/Linux/MacOS
 
@@ -16,7 +20,7 @@ MacOS / MacOSX shares a similar procedure to Unix/BSD Based system. Unix/Linux &
 
 #### The Windows Sub-System for Linux
 
-The windows Subsystem for Linux (WSL) allows you to run a Linux Distribution as a sub-system in windows. When following these instructions, a 'terminal' is the same as starting your WSL Distribution.
+The windows Subsystem for Linux (WSL) allows you to run a Linux Distribution as a sub-system in windows. When following these instructions, a 'terminal' is the same as starting your WSL Distribution. Generally, if you are using the WSL, then following the Unix/Linux instructions.
 
 #### Getting Connected
 
@@ -44,21 +48,18 @@ If you wish to setup password-less login via SSH Keys, you may do so.
 
 To connect to Deep Thought a SSH application such as PuTTy is required. Below is a short list of the possible programs you can use as a client to connect to the HPC. This guide will focus on Putty - but will be equally applicable to the other programs.
 
-#### The Windows Sub-System for Linux (WSL)
-
-If you are using the Windows SubSystem for Linux (WSL), then go ahead and read the [Unix/Linux](#unix-linux-macos) instructions instead.
-
 #### Client Options
 
 - [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 - [KiTTY](http://www.9bis.net/kitty/#!pages/download.md)
 - [BitVise Client](https://www.bitvise.com/download-area)
+- [MobaXterm](https://mobaxterm.mobatek.net/)
 
 #### Getting Connected on Windows
 
 Open PuTTy, and you are presented with this screen:
 
-![](../../_static/puttyAccessImage.png)
+![](../_static/puttyAccessImage.png)
 
 - Fill in the hostname to be: deepthought.flinders.edu.au,
 - Change the Connection Type to SSH
@@ -69,7 +70,7 @@ Open PuTTy, and you are presented with this screen:
 
 If all has gone well, you will be presented with this screen:
 
-![](../../_static/puttyLoginImage.png)
+![](../_static/puttyLoginImage.png)
 
 - Your Username is your FAN
 - Your Password is your FAN Password.
@@ -80,10 +81,10 @@ These are the same credentials you use to login to OKTA.
 
 Upon a successful login, you should get a screen similar to this:
 
-![](../../_static/loginOKImage.png)
+![](../_static/loginOKImage.png)
 
-If so, you are now connected and ready to start using the HPC!
+If so, you are now connected and ready to start using the HPC.
 
-#### SSH Keys on Windows
+#### SSH Keys
 
-As with the Unix/Linux/MacOS system, you may also setup SSH Keys for password-less logins. Be sure to follow the specific instructions for your client, as they will differ!
+As with the Unix/Linux/MacOS system, you may also setup SSH Keys for password-less logins. Be sure to follow the specific instructions for your client, as they will differ.

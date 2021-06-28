@@ -17,8 +17,8 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Deep Thought Documentation'
-copyright = '2020, Flinders University'
+project = 'DeepThought Documentation'
+copyright = '2021, Flinders University'
 author = 'Flinders University'
 
 # -- General configuration ---------------------------------------------------

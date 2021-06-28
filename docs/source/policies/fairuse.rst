@@ -11,21 +11,22 @@ the best possible outcomes. The current split of resources between colleges is:
 
 For example, if the HPC had 1000 'shares' that represent its resources, the following would be demonstrative of how they are allocated: 
 
+
 * 450 'shares' for CSE 
 * 450 'shares' for CMPH 
 * 100 'shares' for General 
 
-.. _Getting Access: ../Access/GettingAccess.html
+
+.. _StorageGuidelines: ../Storage/storageusage.html
 .. _Module System: ../ModuleSystem/LMod.html
 
 Storage Usage Guidelines
 ============================
-As explained in `Getting Access`_ , /scratch and /home have different targets. Some guidelines to follow : 
+See the page at: `StorageGuidelines`_, for details on what storage is present and other details. A general reminder for HPC Storage: 
 
-* Assume that anything on the HPC is *volatile* storage, and take appropriate backups
-* Cleanup /scratch when you are done 
-* The HPC Team will either notify users directly, or en-mass if disk-space approaches a cutoff point 
-
+- All storage is *volatile* and no backup systems are in place
+- Cleanup you /home and /scratch regularly 
+- Cleanup and /local storage you used at the end of each job
 
 
 Software Support Guidelines

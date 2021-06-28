@@ -8,27 +8,32 @@ The SLURM Scheduler as the notion of 'Job Queue' or 'Partitions'.  These manage 
 
 |Partition Name |   Number of Nodes |   Usage / Purpose                    | Max Runtime    |
 |---------------|   -------         |   ------                             | -----          |
-|hpc_general    |   15              | General Usage Pool                   | UNLIMITED      |
-|hpc_melfeu     |   2               | Molecular Biology Lab private Nodes. | UNLIMITED      |  
+|hpc_general    |   17              | General Usage Pool                   | 14 Days      |
+|hpc_gpu  |2| GPU Access Pool | 14 Days
+|hpc_melfeu     |   2               | Molecular Biology Lab private nodes | 14 Days      |  
 
 ## Storage Layout
 
-Scratch: ~80TB of scratch disk, mounted on all nodes
+Scratch: ~240TB of scratch disk, mounted on all nodes
+
+Per node /local: ~400GB to 1.5TB, depending on node layout
 
 ## Node Breakdown
 
-- 17 Compute Nodes, with ~1800 Cores and ~10TB of RAM total
+- 19 Compute Nodes, with ~1800 Cores and ~10TB of RAM total
 - 2 Login Nodes, with High-Availability Failover
 - 4 V100 Nvidia TESLA GPU's with 32GB VRAM per GPU
 
 ### General Nodes
 
-There are 14 General Purpose nodes, each with:
+There are 17 General Purpose nodes, each with:
 
 - CPU:
   - 1 x AMD EPYC 7551 @2.55Ghz with 32 Cores / 64 Threads
 - RAM:
   - 256GB DDR4 @ 2666Mhz
+- Local Storage 
+  - ~400GB of NVMe SSD's
 
 ### GPU Nodes
 
@@ -40,6 +45,8 @@ There are 2 dedicated GPU nodes, each with:
   - 256GB DDR4 @ 2666Mhz
 - GPU:
   - 2 x TESLA V100 w/ 32GB VRAM
+- Local Storage
+  - ~400GB of NVMe SSD's
 
 ### High Capacity Node
 
@@ -49,6 +56,8 @@ There is are 3 High-Capacity nodes with:
   - 2 x AMD EPYC 7742 @2.25Ghz with 64 Cores / 128 Threads 
 - RAM:
   - 2TB (1.8TB) DDR4 @ 3200Mhz
+- Local Storage
+  - 1.5TB of NVMe SSD's
 
 ### Private Nodes
 

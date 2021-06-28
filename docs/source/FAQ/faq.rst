@@ -118,23 +118,3 @@ The given bx-python is a problematic module that appears in many of the BioScien
 These steps are the same as the installation for IsoSeq3, but given how often this particular python package gives the support team issues, it gets its own section!
 
 * conda install -c conda-forge -c bioconda bx-python
-
-
-What can I do on the Head Node? 
-================================
-The head nodes are for small, 'Less than 10 minutes' (as a rough guide), small jobs. 
-Things like: 
-
-* Compiling software
-* Copying / Decompressing Files 
-* Preparing Scripts
-
-As a good rule, if it takes more than 10-15 minutes or > 2GB RAM, it should be run a SLURM Job, not on the head nodes. 
-Anything that uses too many resources on the head nodes will be *Terminated* **WITHOUT WARNING**.
-
-
-My Mount Point at /r_drive or /mnt is missing! 
-===============================================
-Anything under those directories above are set to transparent auto-mount. 
-Try and move to a directory or touch a file, and the operating system will mount and surface the locations for you 
-automatically. 

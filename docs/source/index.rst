@@ -3,23 +3,28 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to the Deep Thought Documentation
+Welcome to the DeepThought Documentation
 =========================================
 
-The new Flinders High Performance Computing (HPC) solution is called Deep Thought.  Comprising of high-end DELL hardware and services, Deep Thought delivers a core enterprise HPC service, where moderate usage is delivered at no cost to researchers or colleges.
+The new Flinders High Performance Computing (HPC) solution is called Deep Thought.  
+Comprising of high-end DELL hardware and services, DeepThought delivers a core enterprise HPC service, where moderate usage is delivered at no cost to researchers or colleges.
 
 .. attention::
     This documentation is under active development, meaning that it can
     change over time as we improve it. Please email deepthought@flinders.edu.au if
-    you require assistance.
+    you require assistance. We also welcome user contributions  to this documentation 
+    - contact the same email above so we can grant you access.
 
 .. toctree::
    :maxdepth: 2
    :caption: User Documentation
 
    Access/GettingAccess.md
+   Storage/storageusage.rst
+   dataflow/hpcresearchdataflow.rst 
    FileTransfers/FileTransfersIntro.md
    LinuxCommands/LinuxIntro.md 
+   dataflow/hpcjobdataflow.rst
    SLURM/SLURMIntro.md
    ModuleSystem/LMod.md
 
