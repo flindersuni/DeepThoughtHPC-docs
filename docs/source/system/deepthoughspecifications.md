@@ -10,7 +10,7 @@ The SLURM Scheduler as the notion of 'Job Queue' or 'Partitions'.  These manage 
 |---------------|   -------         |   ------                             | -----          |
 |hpc_general    |   17              | General Usage Pool                   | 14 Days      |
 |hpc_gpu  |2| GPU Access Pool | 14 Days
-|hpc_melfeu     |   2               | Molecular Biology Lab private Nodes. | 14 Days      |  
+|hpc_melfeu     |   2               | Molecular Biology Lab private nodes | 14 Days      |  
 
 ## Storage Layout
 
