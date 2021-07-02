@@ -52,12 +52,12 @@ Comprising of high-end DELL hardware and services, DeepThought delivers a core e
 Citing DeepThoughtHPC
 ----------------------
 
-To cite DeepThoughtHPC service, please use following or download `BibTex`_/`EndNote`_. Your citation will demonstrate the research impact that DeepThoughtHPC service brings and support ongoing funding efforts for this service.
+To cite DeepThoughtHPC service, please use following or download `BibTex`_/`EndNote`_ file. Your citation will demonstrate the research impact that DeepThoughtHPC service brings and support ongoing funding efforts for this service.
 
 Flinders University (2021). DeepThought (HPC). Retrieved from https://doi.org/10.25957/FLINDERS.HPC.DEEPTHOUGHT
 
-.. _BibTex: https://github.com/flindersuni/DeepThoughtHPC-docs/docs/source/flindershpc2021-bibtex.bib
-.. _EndNote: https://github.com/flindersuni/DeepThoughtHPC-docs/docs/source/flindershpc2021-endnote.xml
+.. _BibTex: https://raw.githubusercontent.com/flindersuni/DeepThoughtHPC-docs/master/docs/source/flindershpc2021-bibtex.bib
+.. _EndNote: https://raw.githubusercontent.com/flindersuni/DeepThoughtHPC-docs/master/docs/source/flindershpc2021-endnote.xml
 
 Acknowledgements
 ----------------
