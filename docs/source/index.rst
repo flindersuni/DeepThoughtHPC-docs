@@ -56,8 +56,8 @@ To cite DeepThoughtHPC service, please use following or download `BibTex`_/`EndN
 
 Flinders University (2021). DeepThought (HPC). Retrieved from https://doi.org/10.25957/FLINDERS.HPC.DEEPTHOUGHT
 
-.. _BibTex: https://github.com/flindersuni/DeepThoughtHPC-docs/docs/sourceflindershpc2021-bibtex.bib
-.. _EndNote: https://github.com/flindersuni/DeepThoughtHPC-docs/docs/flindershpc2021-endnote.xml
+.. _BibTex: https://github.com/flindersuni/DeepThoughtHPC-docs/docs/source/flindershpc2021-bibtex.bib
+.. _EndNote: https://github.com/flindersuni/DeepThoughtHPC-docs/docs/source/flindershpc2021-endnote.xml
 
 Acknowledgements
 ----------------
