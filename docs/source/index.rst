@@ -49,6 +49,12 @@ Comprising of high-end DELL hardware and services, DeepThought delivers a core e
    policies/fairuse.rst 
    policies/accessandpermissions.rst
 
+Citing DeepThoughtHPC
+----------------------
+
+To cite DeepThoughtHPC service, please use below working or download [BibTex](flindershpc2021-bibtex.bib)/[EndNote](flindershpc2021-endnote.xml). Your citation will demonstrate research impact that DeepThoughtHPC service brings and support ongoing funding of this service.
+
+Flinders University (2021). DeepThought (HPC). Retrieved from https://doi.org/10.25957/FLINDERS.HPC.DEEPTHOUGHT
 
 Acknowledgements
 ----------------
