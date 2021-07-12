@@ -1,4 +1,4 @@
-# Linux Commands: HPC Style
+# Linux Command Line Interface
 
 We try not to re-invent the wheel, and there is already a wonderful guide for basic linux commands, written by the excellent people at Harvard. Head on over to [here](https://informatics.fas.harvard.edu/basic-unix-workshop.html) and have a read!
 

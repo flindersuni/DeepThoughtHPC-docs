@@ -14,15 +14,15 @@ This page will guide you on the steps to get access and then connect to the HPC 
 
 Currently, the HPC is not open to Undergraduates on a general basis. Exceptions are made on a case-by-case basis - please talk to your project supervisor first and then contact the HPC Support Team via [email](mailto:deepthought@flinders.edu.au).
 
-### Unix/Linux/MacOS
+## Unix/Linux/MacOS
 
 MacOS / MacOSX shares a similar procedure to Unix/BSD Based system. Unix/Linux & MacOS systems have native support for the SSH Protocol, used to connect to the HPC.
 
-#### The Windows Sub-System for Linux
+### The Windows Sub-System for Linux
 
 The windows Subsystem for Linux (WSL) allows you to run a Linux Distribution as a sub-system in windows. When following these instructions, a 'terminal' is the same as starting your WSL Distribution. Generally, if you are using the WSL, then following the Unix/Linux instructions.
 
-#### Getting Connected
+### Getting Connected
 
 The simplest manner is to open up a terminal window and type in the following, substituting FAN for your FAN as needed.
 
@@ -32,7 +32,7 @@ If all is OK it will ask for your password. Enter the same password you use to l
 
 ![](../_static/shellPasswordPromtImage.png)
 
-##### Success
+#### Success
 
 Upon a successful login, you should get a screen similar to this:
 
@@ -40,22 +40,22 @@ Upon a successful login, you should get a screen similar to this:
 
 If so, you are now connected and ready to start using the HPC!
 
-#### SSH Keys
+##### SSH Keys
 
 If you wish to setup password-less login via SSH Keys, you may do so.
 
-### Windows
+## Windows
 
 To connect to Deep Thought a SSH application such as PuTTy is required. Below is a short list of the possible programs you can use as a client to connect to the HPC. This guide will focus on Putty - but will be equally applicable to the other programs.
 
-#### Client Options
+### Client Options
 
 - [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 - [KiTTY](http://www.9bis.net/kitty/#!pages/download.md)
 - [BitVise Client](https://www.bitvise.com/download-area)
 - [MobaXterm](https://mobaxterm.mobatek.net/)
 
-#### Getting Connected on Windows
+### Getting Connected on Windows
 
 Open PuTTy, and you are presented with this screen:
 
@@ -66,7 +66,7 @@ Open PuTTy, and you are presented with this screen:
 - Set the Port Number to 22
 - Click Open
 
-#### Logging In
+### Logging In
 
 If all has gone well, you will be presented with this screen:
 
@@ -77,7 +77,7 @@ If all has gone well, you will be presented with this screen:
 
 These are the same credentials you use to login to OKTA.
 
-#### Successful Login
+### Successful Login
 
 Upon a successful login, you should get a screen similar to this:
 
@@ -85,6 +85,6 @@ Upon a successful login, you should get a screen similar to this:
 
 If so, you are now connected and ready to start using the HPC.
 
-#### SSH Keys
+#### Windows SSH Keys
 
 As with the Unix/Linux/MacOS system, you may also setup SSH Keys for password-less logins. Be sure to follow the specific instructions for your client, as they will differ.
