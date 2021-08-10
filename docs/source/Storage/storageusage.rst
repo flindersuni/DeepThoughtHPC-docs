@@ -31,7 +31,7 @@ As general guide, the following table presents the overall storage for the HPC.
 | /RDrive             |  Head Nodes              | Variable, Size of R-Drive Allocation|
 +---------------------+--------------------------+-------------------------------------+             
 
-.. attention:: /The r_drive/ location is NOT the University R:\\ Drive. It is a remnany from eRSA that is being phased out to the University R:\\ Drive. 
+.. attention:: /The r_drive/ location is NOT the University R:\\ Drive. It is a remnant from eRSA that is being phased out to the University R:\\ Drive. 
 
 The /r_drive/ locations are data mount points from the now defunct eRSA Project and are slowly being phased out. Any point under /r_drive/ will *auto mount on access*. Just attempt to touch or change to the correct directory under the /r_drive/ path and the HPC will handle this automatically for you. Until you do this, the directory **will be invisible**.
 
@@ -90,5 +90,5 @@ Only *transient files* should live on /local. Anything that your job is currentl
 
 All /RDrive mount points are only surfaced on the Head-Node. The /RDrive is not present on the compute nodes and you cannot use it as a part of your SLURM scripts. 
 
-The /RDrive is not a location to perform any computation on, and is limited in access speed. All data that forms part of dataset for calcualtions
+The /RDrive is not a location to perform any computation on, and is limited in access speed. All data that forms part of dataset for calculations
 must be copied to a HPC local mount before you commence work. 
