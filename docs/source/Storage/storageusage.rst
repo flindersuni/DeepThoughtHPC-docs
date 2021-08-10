@@ -6,7 +6,7 @@ The HPC is a little different that your desktop at home when it comes to storage
 So, before we start putting files onto the HPC, its best you know where to put them in the first place. 
 
 On DeepThought, are two main storage tiers. Firstly our bulk storage is the 'Scratch' area - and is slower, spinning Hard-Disk Drives (HDD's).
-The smaller, hyper-fast NVMe Solid-State Drives (SSD's) are located at /local and is much smaller. For the exact specifications and capacities, see the `System Specifications`_.
+The hyper-fast NVMe Solid-State Drives (SSD's) are located at /local and are much smaller. For the exact specifications and capacities, see the `System Specifications`_.
 
 There is a critical difference between these two locations. The /scratch area is a common storage area. You can access it from all of the login, management and compute nodes on the HPC. This is not the same as /local, which is only available on each compute node.  That is - if you job is running on Node001, the /local only exists on that particular node - you cannot access it anywhere else on the HPC.
 
@@ -17,19 +17,21 @@ Storage Accessibility Overview
 ################################
 As general guide, the following table presents the overall storage for the HPC.
 
-+---------------------+--------------------------+-----------------------+
-| Filesystem Location | Accessible From          | Capacity              |
-+=====================+==========================+=======================+
-| /scratch            |    All Nodes             | ~250TB                |
-+---------------------+--------------------------+-----------------------+
-| /home               | All Nodes                |    ~12TB              |
-+---------------------+--------------------------+-----------------------+
-| /local              | Individual Compute Nodes | ~400GB or ~1.5TB      |
-+---------------------+--------------------------+-----------------------+
-| /r_drive/\<folder>  |               Head Nodes | N/A                   |
-+---------------------+--------------------------+-----------------------+
++---------------------+--------------------------+-------------------------------------+
+| Filesystem Location | Accessible From          | Capacity                            |
++=====================+==========================+=====================================+
+| /scratch            |    All Nodes             | ~250TB                              |
++---------------------+--------------------------+-------------------------------------+
+| /home               | All Nodes                |    ~12TB                            |
++---------------------+--------------------------+-------------------------------------+
+| /local              | Individual Compute Nodes | ~400GB or ~1.5TB                    |
++---------------------+--------------------------+-------------------------------------+
+| /r_drive/\<folder>  |               Head Nodes | N/A                                 |
++---------------------+--------------------------+-------------------------------------+
+| /RDrive             |  Head Nodes              | Variable, Size of R-Drive Allocation|
++---------------------+--------------------------+-------------------------------------+             
 
-.. attention:: /The r_drive/ location is NOT the University R:\\ Drive - the ability to move data between R:\\ and the HPC is currently undergoing testing. 
+.. attention:: /The r_drive/ location is NOT the University R:\\ Drive. It is a remnany from eRSA that is being phased out to the University R:\\ Drive. 
 
 The /r_drive/ locations are data mount points from the now defunct eRSA Project and are slowly being phased out. Any point under /r_drive/ will *auto mount on access*. Just attempt to touch or change to the correct directory under the /r_drive/ path and the HPC will handle this automatically for you. Until you do this, the directory **will be invisible**.
 
@@ -78,4 +80,15 @@ Local is the per-node, high speed flash storage that is specific to each node. W
 What to Store in /local
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Only *transient files* should live on /local. Anything that your job is currently working on should be on /local. Once your job has finished with these files, they should be copied (or moved) to /scratch. The directory you were working in on /local should then cleaned, removing all files from your job.
+Only *transient files* should live on /local. Anything that your job is currently working on should be on /local. Once your job has finished with these files, they should be copied (or moved) to /scratch. The directory you were working in on /local should then cleaned, removing all files. 
+
+===========
+/RDrive
+===========
+
+/RDrive is the location for all RDrive allocations.  The HPC will discover and automatically display any RDrive Folders you have access to.
+
+All /RDrive mount points are only surfaced on the Head-Node. The /RDrive is not present on the compute nodes and you cannot use it as a part of your SLURM scripts. 
+
+The /RDrive is not a location to perform any computation on, and is limited in access speed. All data that forms part of dataset for calcualtions
+must be copied to a HPC local mount before you commence work. 
