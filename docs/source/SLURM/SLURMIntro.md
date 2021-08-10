@@ -183,6 +183,10 @@ The following is useful if your group has its own queue and you want to quickly 
 
 ### Environmental Variables
 
+There are environment variables set by both SLURM and the HPC to manipulate jobs and their execution.
+
+#### SLURM Specific Environment Variables
+
 The following varaibles are set per job, and can be access from your SLURM Scripts if needed.
 
 |Variable Name                |   Description|
@@ -199,10 +203,63 @@ The following varaibles are set per job, and can be access from your SLURM Scrip
 |$SLURM_SUBMIT_HOST           |   Host on which job was submitted.|
 |$SLURM_PROC_ID               |   The process (task) ID within the job. This will start from zero and go up to $SLURM_NTASKS-1.|
 
+#### DeepThought Set Environment Variables
 
-### Filename Patterns 
+The DeepThought HPC will set some additional environment variables to manipulate some of the  Operating system functions. These directories are set at job creation time and then are removed when a job completes, crashes or otherwise exists.
 
-Some commands will take a filename.  THe following modifiers will allow you to generate files that are substituted with different variables controlled by SLURM.
+This means that if you leave anything in /tmp it will be *removed when your job finishes*.
+
+To make that abundantly clear. If the Job creates `/local/jobs/$SLURM_USER/$SLURM_JOB_ID/` it will also **delete that entire directory when the job completes**. Ensure that your last step in any job creation is to _move any data you want to keep to /scratch or /home_.
+|Variable Name                |   Description                                 | Value |
+|-----------------------------|-----------------------------------------------|----------------------------|
+| $TMP                        | The Linux default 'Temp' file path.           | /local/$SLURM_USER/$SLURM_JOB_ID         |
+| $TMPDIR                     | An alias for $TMP| /local/$SLURM_USER/$SLURM_JOB_ID/ |
+| $TMP_DIR                    | An alias for $TMP| /local/$SLURM_USER/$SLURM_JOB_ID/ |
+| $TEMP                       | An alias for $TMP| /local/$SLURM_USER/$SLURM_JOB_ID/ |
+| $TEMPDIR                    | An alias for $TMP| /local/$SLURM_USER/$SLURM_JOB_ID/ |
+| $TEMP_DIR                   | An alias for $TMP| /local/$SLURM_USER/$SLURM_JOB_ID/ |
+| $SCRATCH_DIR                | A Per-Job Folder on the HPC /scratch mount  | /scratch/users/$SLURM_USER/$SLURM_JOB_ID/ |
+| $SHM_DIR                    | A Per-Job Folder on the Compute Node Shared-Memory / Tempfs Mount | /dev/shm/jobs/$USER/ |
+| $OMP_NUM_THREADS            | The OpenMPI CPU Count Environment Variable | $SLURM_CPUS_PER_TASK |
+
+#### $TMPDIR and SLURM Job-Arrays
+
+    [ande0548@hpcdev-head01 slurm]$ sbatch --array=0-5 tmpdir_increment.sh
+    Submitted batch job 502
+
+    [ande0548@hpcdev-head01 slurm]$ squeue
+    JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+    502_0   general tmpdir_.s ande0548  R       0:00      1 hpcdev-node001
+    502_1   general tmpdir_.s ande0548  R       0:00      1 hpcdev-node001
+    502_2   general tmpdir_.s ande0548  R       0:00      1 hpcdev-node001
+    502_3   general tmpdir_.s ande0548  R       0:00      1 hpcdev-node001
+    502_4   general tmpdir_.s ande0548  R       0:00      1 hpcdev-node002
+    502_5   general tmpdir_.s ande0548  R       0:00      1 hpcdev-node002
+                
+    [ande0548@hpcdev-head01 slurm]$ ls
+    slurm-502_0.out  slurm-502_1.out  slurm-502_2.out  slurm-502_3.out  slurm-502_4.out  slurm-502_5.out  tmpdir_increment.sh
+
+    [ande0548@hpcdev-head01 slurm]$ cat slurm-502_0.out
+    TMP: /local/jobs/ande0548/503
+    TMPDIR: /local/jobs/ande0548/503
+    JOB ID: 503
+    TASK ID: 0
+  
+    [ande0548@hpcdev-head01 slurm]$ cat slurm-502_1.out
+    TMP: /local/jobs/ande0548/504
+    TMPDIR: /local/jobs/ande0548/504
+    JOB ID: 504
+    TASK ID: 1
+
+    [ande0548@hpcdev-head01 slurm]$
+
+Notice that the $TMP directory are different for every step in the array? This ensures that each job will never collide with another jos $TMP, even if they are running on the same node.
+
+To reiterate the warning above - if you leave anything in the $TMP Directory, SLURM will delete it at the end of the job, so make sure you move any results out of the $TMP directory.
+
+### Filename Patterns
+
+Some commands will take a filename.  The following modifiers will allow you to generate files that are substituted with different variables controlled by SLURM.
 
 | Symbol            | Substitution |
 |-|-|
@@ -213,12 +270,11 @@ Some commands will take a filename.  THe following modifiers will allow you to g
 |%J|Jobid.stepid of the running job. (e.g. "128.0") |
 |%j|Jobid of the running job. |
 |%N| Short hostname. This will create a separate IO file per node. |
-|%n|Node identifier relative to current job (e.g. "0" is the first node of the running job) This will create a separate IO file per node. |
+|%n|Node identifier relative to current job (e.g. "0" is the first node of the running job) This will create a separate output file per node. |
 |%s|Stepid of the running job. |
-|%t|Task identifier (rank) relative to current job. This will create a separate IO file per task. |
+|%t|Task identifier (rank) relative to current job. This will create a separate output file per task. |
 |%u|User name. |
 |%x|Job name. |
-
 
 ## SLURM: Extras
 
@@ -232,8 +288,7 @@ Besides useful commands and ideas, this [FAQ](http://www.ceci-hpc.be/slurm_faq.h
 
 An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_contents/QuickStart/SubmittingJobs/SlurmTutorial.html).
 
-
-## SLURM: Script Template 
+## SLURM: Script Template
 
     #!/bin/bash
     # Please note that you need to adapt this script to your job
