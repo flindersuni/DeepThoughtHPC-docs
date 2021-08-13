@@ -6,7 +6,7 @@
 Welcome to the DeepThought Documentation
 =========================================
 
-The new Flinder HPC is is called DeepThought. This new HPC comprises of AMD EPYC based hardware and next-generation management software, allowing for a dynamic and agile HPC service. 
+The new Flinder HPC is called DeepThought. This new HPC comprises of AMD EPYC based hardware and next-generation management software, allowing for a dynamic and agile HPC service. 
 
 .. attention::
     This documentation is under active development, meaning that it can
