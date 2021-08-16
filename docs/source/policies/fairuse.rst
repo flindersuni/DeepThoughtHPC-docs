@@ -17,16 +17,16 @@ For example, if the HPC had 1000 'shares' that represent its resources, the foll
 * 100 'shares' for General 
 
 
-.. _StorageGuidelines: ../Storage/storageusage.html
+.. _Storage Guidelines: ../Storage/storageusage.html
 .. _Module System: ../ModuleSystem/LMod.html
 
 Storage Usage Guidelines
 ============================
-See the page at: `StorageGuidelines`_, for details on what storage is present and other details. A general reminder for HPC Storage: 
+See the page at: `Storage Guidelines`_, for details on what storage is present and other details. A general reminder for HPC Storage: 
 
 - All storage is *volatile* and no backup systems are in place
 - Cleanup you /home and /scratch regularly 
-- Cleanup and /local storage you used at the end of each job
+- Cleanup and /local storage you used at the end of each job. We attempt to do this automatically, but cannot catch everything.
 
 
 Software Support Guidelines
@@ -61,7 +61,7 @@ As an example, some of the most used program on the HPC are:
 * R 
 * Python 3.8 
 * RGDAL
-* CUDA 10.1 Toolkit
+* CUDA Toolkit
 
 While not an exhaustive list of the common software, it does allow the team to focus our efforts and provide more in-depth support for these programs. 
 This means they are usually first to be updated and have a wider range of tooling attached to them by default.
