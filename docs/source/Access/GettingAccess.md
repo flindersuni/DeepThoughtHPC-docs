@@ -12,7 +12,7 @@ This page will guide you on the steps to get access and then connect to the HPC 
 
 ## Undergraduates
 
-Currently, the HPC is not open to Undergraduates on a general basis. Exceptions are made on a case-by-case basis - please talk to your project supervisor first and then contact the HPC Support Team via [email](mailto:deepthought@flinders.edu.au).
+Currently, the HPC is not open to Undergraduates on a general basis. Exceptions are made on a case-by-case basis - please talk to your project supervisor or Topic Coordinator first and then contact the HPC Support Team via [email](mailto:deepthought@flinders.edu.au).
 
 ## Unix/Linux/MacOS
 
