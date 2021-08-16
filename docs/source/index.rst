@@ -61,14 +61,6 @@ Table of Contents
     dataflow/hpcjobdataflow.rst
     SLURM/SLURMIntro.md
     ModuleSystem/LMod.md
-.. toctree:: 
-    :maxdepth: 1 
-    :caption: Software Suites
-
-    software/ansys.rst
-    software/jupyter.rst
-    software/singularity.rst
-    
  
 .. toctree::
     :maxdepth: 1
@@ -90,7 +82,6 @@ Table of Contents
 
    policies/fairuse.rst
    policies/accessandpermissions.rst
-   upgrades/updatelog.rst
 
 Citing DeepThoughtHPC
 ----------------------

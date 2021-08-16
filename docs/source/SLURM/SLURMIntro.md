@@ -153,7 +153,7 @@ To requeue (cancel and rerun) a particular job:
 
 ### Job Arrays
 
-Job arrays is a popular strategy to process large numbers of the same workflow repetitively in one go, often reducing analytical time significantly. Job arrays are also often refereed as embarrassingly/pleasingly parallel processes. For more information, see [SLURM Job Arrays](https://slurm.schedmd.com/job_array.html).
+Job arrays is a popular strategy to process large numbers of a same workflow repetitively in one go, often reduce analytical time significantly. Job arrays are also often refereed as embarrassingly/pleasingly parallel processes. For more information, see SLURM job arrays.
 
 To cancel an indexed job in a job array:
 
@@ -183,11 +183,7 @@ The following is useful if your group has its own queue and you want to quickly 
 
 ### Environmental Variables
 
-There are environment variables set by both SLURM and the HPC to manipulate jobs and their execution.
-
-#### SLURM Specific Environment Variables
-
-The following variables are set per job, and can be access from your SLURM Scripts if needed.
+The following varaibles are set per job, and can be access from your SLURM Scripts if needed.
 
 |Variable Name                |   Description|
 |-----------------------------|----------------|
@@ -203,61 +199,10 @@ The following variables are set per job, and can be access from your SLURM Scrip
 |$SLURM_SUBMIT_HOST           |   Host on which job was submitted.|
 |$SLURM_PROC_ID               |   The process (task) ID within the job. This will start from zero and go up to $SLURM_NTASKS-1.|
 
-#### DeepThought Set Environment Variables
 
-The DeepThought HPC will set some additional environment variables to manipulate some of the  Operating system functions. These directories are set at job creation time and then are removed when a job completes, crashes or otherwise exists.
+### Filename Patterns 
 
-This means that if you leave anything in $TMP or $SHM directories it will be *removed when your job finishes*.
-
-To make that abundantly clear. If the Job creates `/local/jobs/$SLURM_USER/$SLURM_JOB_ID/` it will also **delete that entire directory when the job completes**. Ensure that your last step in any job creation is to _move any data you want to keep to /scratch or /home_.
-|Variable Name                |   Description                                 | Value |
-|-----------------------------|-----------------------------------------------|----------------------------|
-| $TMP                        | The Linux default 'Temp' file path.           | /local/$SLURM_USER/$SLURM_JOB_ID         |
-| $TMPDIR                     | An alias for $TMP| /local/$SLURM_USER/$SLURM_JOB_ID/ |
-| $TMP_DIR                    | An alias for $TMP| /local/$SLURM_USER/$SLURM_JOB_ID/ |
-| $TEMP                       | An alias for $TMP| /local/$SLURM_USER/$SLURM_JOB_ID/ |
-| $TEMPDIR                    | An alias for $TMP| /local/$SLURM_USER/$SLURM_JOB_ID/ |
-| $TEMP_DIR                   | An alias for $TMP| /local/$SLURM_USER/$SLURM_JOB_ID/ |
-| $SCRATCH_DIR                | A Per-Job Folder on the HPC /scratch mount  | /scratch/users/$SLURM_USER/$SLURM_JOB_ID/ |
-| $SHM_DIR                    | A Per-Job Folder on the Compute Node Shared-Memory / Tempfs Mount | /dev/shm/jobs/$USER/ |
-| $OMP_NUM_THREADS            | The OpenMPI CPU Count Environment Variable | $SLURM_CPUS_PER_TASK |
-
-#### $TMPDIR and SLURM Job-Arrays
-
-    [ande0548@hpcdev-head01 slurm]$ sbatch --array=0-5 tmpdir_increment.sh
-    Submitted batch job 502
-
-    [ande0548@hpcdev-head01 slurm]$ squeue
-    JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-    502_0   general tmpdir_.s ande0548  R       0:00      1 hpcdev-node001
-    502_1   general tmpdir_.s ande0548  R       0:00      1 hpcdev-node001
-    502_2   general tmpdir_.s ande0548  R       0:00      1 hpcdev-node001
-    502_3   general tmpdir_.s ande0548  R       0:00      1 hpcdev-node001
-    502_4   general tmpdir_.s ande0548  R       0:00      1 hpcdev-node002
-    502_5   general tmpdir_.s ande0548  R       0:00      1 hpcdev-node002
-                
-    [ande0548@hpcdev-head01 slurm]$ ls
-    slurm-502_0.out  slurm-502_1.out  slurm-502_2.out  slurm-502_3.out  slurm-502_4.out  slurm-502_5.out  tmpdir_increment.sh
-
-    [ande0548@hpcdev-head01 slurm]$ cat slurm-502_0.out
-    TMP: /local/jobs/ande0548/503
-    TMPDIR: /local/jobs/ande0548/503
-    JOB ID: 503
-    TASK ID: 0
-  
-    [ande0548@hpcdev-head01 slurm]$ cat slurm-502_1.out
-    TMP: /local/jobs/ande0548/504
-    TMPDIR: /local/jobs/ande0548/504
-    JOB ID: 504
-    TASK ID: 1
-
-Notice that the $TMP directories are different for every step in the array? This ensures that each job will never collide with another jobs $TMP, even if they are running on the same node.
-
-To reiterate the warning above - if you leave anything in the $TMP or $SHM Directories, SLURM will delete it at the end of the job, so make sure you move any results out to /scratch or /home.
-
-### Filename Patterns
-
-Some commands will take a filename.  The following modifiers will allow you to generate files that are substituted with different variables controlled by SLURM.
+Some commands will take a filename.  THe following modifiers will allow you to generate files that are substituted with different variables controlled by SLURM.
 
 | Symbol            | Substitution |
 |-|-|
@@ -268,15 +213,16 @@ Some commands will take a filename.  The following modifiers will allow you to g
 |%J|Jobid.stepid of the running job. (e.g. "128.0") |
 |%j|Jobid of the running job. |
 |%N| Short hostname. This will create a separate IO file per node. |
-|%n|Node identifier relative to current job (e.g. "0" is the first node of the running job) This will create a separate output file per node. |
+|%n|Node identifier relative to current job (e.g. "0" is the first node of the running job) This will create a separate IO file per node. |
 |%s|Stepid of the running job. |
-|%t|Task identifier (rank) relative to current job. This will create a separate output file per task. |
+|%t|Task identifier (rank) relative to current job. This will create a separate IO file per task. |
 |%u|User name. |
 |%x|Job name. |
 
+
 ## SLURM: Extras
 
-Here is an assortment of resources that have been passed on to the Support Team as 'Useful to me'. Your mileage may vary on how useful you find them.
+Here is an assortment of resources that have been passed on to the Support Team as 'Useful to me'. Your mileage may vary on how useful you find
 
 [Slurm batch scripting](https://hpc-uit.readthedocs.io/en/latest/jobs/examples.html)
 
@@ -286,7 +232,8 @@ Besides useful commands and ideas, this [FAQ](http://www.ceci-hpc.be/slurm_faq.h
 
 An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_contents/QuickStart/SubmittingJobs/SlurmTutorial.html).
 
-## SLURM: Script Template
+
+## SLURM: Script Template 
 
     #!/bin/bash
     # Please note that you need to adapt this script to your job
@@ -294,7 +241,6 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
     # The keyword command for SLURM is #SBATCH --option
     # Anything starting with a # is a comment and will be ignored
     # ##SBATCH is a commented-out #SBATCH command
-    # SBATCH and sbatch are identical, SLURM is not case-sensitive
     ##################################################################
     # Change FAN to your fan account name
     # Change JOBNAME to what you want to call the job
@@ -319,19 +265,21 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
     # %j will append the 'Job ID' from SLURM. 
     # %x will append the 'Job Name' from SLURM 
     # %
-    #SBATCH --output=/home/<FAN>/%x-%j.out.txt
-    #SBATCH --error=/home/<FAN>/%x-%j.err.txt
+    #SBATCH --output=/home/$FAN/%x-%j.out.txt
+    #SBATCH --error=/home/$FAN/%x-%j.err.txt
     ##################################################################
-    # The default partition is 'general'. 
-    # Valid partitions are general, gpu and melfu
+    # You can leave this commented out, or submit to hpc_general
+    # Valid partitions are hpc_general and hpc_melfeu
     ##SBATCH --partition=PARTITIONNAME
     #
     ##################################################################
-    # Tell SLURM how long your job should run for as a hard limit. 
-    # My setting a shorter time limit, it is more likely that your
-    # job will be scheduled when attempting to backfill jobs. 
+    # Tell SLURM how long your job should run for, at most. 
+    # SLURM will kill/stop the job if it goes over this amount of time. 
+    # Currently, this is unlimited - however, but the longer your job 
+    # runs, the worse your Fairshare score becomes! 
     # 
-    # The current cluster-wide limit is 14 Days from Start of Execution.
+    # In the future this will have a limit, so best to get used to 
+    # setting it now. 
     #
     # The command format is as follows: #SBATCH --time=DAYS-HOURS
     #SBATCH --time=14=0
@@ -358,17 +306,13 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
     # jobs. Pick ONE of the below options. They are Mutually Exclusive.
     # You can ask for X Amount of RAM per CPU (MB by default)
     #SBATCH --mem-per-cpu=4000
-    # Or, you can ask for a 'total amount of RAM'. If you have multiple 
-    # tasks and ask for a 'total amount' like below, then SLURM will 
-    # split the total amount to each task evenly for you.
+    # Or, you can ask for a 'total amount of RAM'
     ##SBATCH --mem=12G
     ##################################################################
     # Change the number of GPU's required and the most GPU's that can be 
     # requested is 2 per node. As there are limited GPU slots, they are heavily 
     # weighted against for Fairshare Score calculations. 
-    # You can request either a 'tesla:X' or a 'gpu:x'
-    # You can either request 0, or omit this line entirely if you 
-    # a GPU is not needed. 
+    # This line requests 0 GPU's by default.
     #
     #SBATCH --gres="gpu:0"
     ##################################################################
@@ -383,23 +327,12 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
     ##################################################################
     # This example script assumes that you have already moved your 
     # dataset to /scratch as part of your HPC Pre-Job preparations. 
-    # Its best to use the $TMP/$TMPDIR setup for you here
-    # to allow for the HPC to auto-clean anything you 
-    # leave behind by accident. 
-    # If you have a job-array and need a shared directory for 
-    # data on /local, you will need to manually cleanup that 
-    # directory as a part of your job script. 
-
-    # Example using the HPC Set $TMPDIR Variable 
-    cd $TMPDIR
+    
+    # Move your dataset to /local 
+    cd /local 
+    mkdir -p /local/$SLURM_JOBID/$SLURM_ARRAY_TASK_ID/
+    cd /local/$SLURM_JOBID/$SLURM_ARRAY_TASK_ID/
     cp /scratch/user/<FAN>/dataset ./
-
-    # A Manual 'Shared' Data-Set Directory
-    # DATADIR=/local/$SLURM_USER/dataset/
-    # mkdir -p $DATADIR
-    # cd $DATADIR 
-    # cp -r /scratch/users/$USER/dataset/ ./ 
-
 
     ##################################################################
     # Enter the command-line arguments that you job needs to run. 
@@ -410,10 +343,9 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
     # and ONLY the results to /scratch, then cleanup the temporary 
     # working directory
 
-    cp -r /$TMPDIR/<OUTPUT_FOLDER> /scratch/user/<FAN>/<JOB_RESULT_FOLDER>
+    cp /local/$SLURM_JOBID/$SLURM_ARRAY_TASK_ID/results/ /scratch/user/<FAN>/???
 
-    # Using the example above with a shared dataset directory, your final step 
-    # in the script should remove the directory folder 
-    # rm -rf $DATADIR
+    rm -rf /local/$SLURM_JOBID/
 
     ##################################################################
+    
