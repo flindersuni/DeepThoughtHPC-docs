@@ -17,12 +17,12 @@ For example, if the HPC had 1000 'shares' that represent its resources, the foll
 * 100 'shares' for General 
 
 
-.. _StorageGuidelines: ../Storage/storageusage.html
+.. _Storage Guidelines: ../Storage/storageusage.html
 .. _Module System: ../ModuleSystem/LMod.html
 
 Storage Usage Guidelines
 ============================
-See the page at: `StorageGuidelines`_, for details on what storage is present and other details. A general reminder for HPC Storage: 
+See the page at: `Storage Guidelines`_, for details on what storage is present and other details. A general reminder for HPC Storage: 
 
 - All storage is *volatile* and no backup systems are in place
 - Cleanup you /home and /scratch regularly 

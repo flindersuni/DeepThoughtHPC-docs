@@ -8,9 +8,7 @@ So, before we start putting files onto the HPC, its best you know where to put t
 On DeepThought, are two main storage tiers. Firstly our bulk storage is the 'Scratch' area - and is slower, spinning Hard-Disk Drives (HDD's).
 The hyper-fast NVMe Solid-State Drives (SSD's) are located at /local and are much smaller. For the exact specifications and capacities, see the `System Specifications`_.
 
-There is a critical difference between these two locations. The /scratch area is a common storage area. You can access it from all of the login, management and compute nodes on the HPC. This is not the same as /local, which is only available on each compute node.  That is - if you job is running on Node001, the /local only exists on that particular node - you cannot access it anywhere else on the HPC.
-
-.. attention:: The HPC Job & Data Workflow, along with links to the new Data-Workflow Management Portal are under construction and will be linked here when completed.
+There is a critical difference between these two locations. The /scratch area is a common storage area. You can access it from all of the login, management and compute nodes on the HPC. This is not the same as /local, which is only available on each compute node.  That is - if your job is running on Node001, the /local only exists on that particular node - you cannot access it anywhere else on the HPC.
 
 ################################
 Storage Accessibility Overview
@@ -49,11 +47,12 @@ Your 'home' directories. This is a small amount of storage to store your small b
 ^^^^^^^^^^^^^^^^^^^^^^^^
 What to store in /home
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Here is a rough guide as to what should live in your /home/$FAN directory. In general, you want small, little things is here.
+Here is a rough guide as to what should live in your /home/$FAN directory. In general, you want to store small miscellaneous files here. 
 
-* SLURM Scripts
-* Results from Jobs.
-* 'Small' Data-Sets (<5GB)
+1. SLURM Scripts
+2. Results from Jobs.
+3. 'Small' Data-Sets (<5GB)
+4. Self-Installed Programs or Libraries
 
 ==========
 /Scratch
@@ -66,14 +65,15 @@ What to store in /scratch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Here is a rough guide as to what should live in your /scratch/$FAN directory. In general, anything large, bulky and only needed for a little while should go here.
-
-* Job Working Data-sets
-* Large Intermediate Files
+  
+1. Job Working Data-sets
+2. Large Intermediate Files
 
 =========
 /Local
 =========
 
+.. _SLURM Temporary Directories: ../SLURM/SLURMIntro.html#tmpdir-and-slurm-job-arrays
 Local is the per-node, high speed flash storage that is specific to each node. When running a job, you want to run your data-sets on /local if at all possible - its the quickest storage location on the HPC. You MUST cleanup /local once you are done.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -81,6 +81,8 @@ What to Store in /local
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Only *transient files* should live on /local. Anything that your job is currently working on should be on /local. Once your job has finished with these files, they should be copied (or moved) to /scratch. The directory you were working in on /local should then cleaned, removing all files. 
+
+The HPC creates a /local directory for you per job that can be used in your SLURM scripts. This is covered in more detail in `SLURM Temporary Directories`_.
 
 ===========
 /RDrive

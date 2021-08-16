@@ -276,7 +276,7 @@ Some commands will take a filename.  The following modifiers will allow you to g
 
 ## SLURM: Extras
 
-Here is an assortment of resources that have been passed on to the Support Team as 'Useful to me'. Your mileage may vary on how useful you find
+Here is an assortment of resources that have been passed on to the Support Team as 'Useful to me'. Your mileage may vary on how useful you find them.
 
 [Slurm batch scripting](https://hpc-uit.readthedocs.io/en/latest/jobs/examples.html)
 
