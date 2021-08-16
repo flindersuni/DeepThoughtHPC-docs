@@ -9,8 +9,8 @@ The SLURM Scheduler as the notion of 'Job Queue' or 'Partitions'.  These manage 
 |Partition Name |   Number of Nodes |   Usage / Purpose                    | Max Runtime    |
 |---------------|   -------         |   ------                             | -----          |
 |hpc_general    |   17              | General Usage Pool                   | 14 Days      |
-|hpc_gpu        |   2               | GPU Access Pool                      | 14 Days      |
-|hpc_melfeu     |   2               | Molecular Biology Lab private nodes  | 14 Days      |  
+|hpc_gpu  |2| GPU Access Pool | 14 Days
+|hpc_melfeu     |   2               | Molecular Biology Lab private nodes | 14 Days      |  
 
 ## Storage Layout
 
@@ -32,7 +32,7 @@ There are 17 General Purpose nodes, each with:
   - 1 x AMD EPYC 7551 @2.55Ghz with 32 Cores / 64 Threads
 - RAM:
   - 256GB DDR4 @ 2666Mhz
-- Local Storage
+- Local Storage 
   - ~400GB of NVMe SSD's
 
 ### GPU Nodes
@@ -53,7 +53,7 @@ There are 2 dedicated GPU nodes, each with:
 There is are 3 High-Capacity nodes with:
 
 - CPU:
-  - 2 x AMD EPYC 7742 @2.25Ghz with 64 Cores / 128 Threads
+  - 2 x AMD EPYC 7742 @2.25Ghz with 64 Cores / 128 Threads 
 - RAM:
   - 2TB (1.8TB) DDR4 @ 3200Mhz
 - Local Storage
@@ -73,6 +73,7 @@ The Flinders University Molecular Biology lab maintains two nodes for their excl
 #### Melfu High-Capacity Node
 
 - CPU:
-  - 2 x AMD EPYC 7551 @2.55Gz with 64 Cores / 128 Threads
+  - 2 x AMD EPYC 7551 @2.55Gz with 64 Cores / 128 Threads 
 - RAM:
   - 2TB (1.8TB) DDR4 @ 3200Mhz
+
