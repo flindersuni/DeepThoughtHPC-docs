@@ -8,9 +8,9 @@ What are the SLURM Partitions?
 ===============================
 There are three at this point: 
 
-* hpc_general 
-* hpc_gpu
-* hpc_melfeu 
+* general 
+* gpu
+* melfeu 
 
 You can omit the 
 
