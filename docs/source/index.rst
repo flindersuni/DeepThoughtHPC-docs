@@ -102,17 +102,6 @@ Table of Contentss
    migration/upgrademigration.rst
    upgrades/updatelog.rst
 
-Citing DeepThoughtHPC
-----------------------
-
-To cite DeepThoughtHPC service, please use following or download `BibTex`_/`EndNote`_ file. Your citation will demonstrate the research impact that DeepThoughtHPC service brings and support ongoing funding efforts for this service.
-
-Flinders University (2021). DeepThought (HPC). Retrieved from https://doi.org/10.25957/FLINDERS.HPC.DEEPTHOUGHT
-
-.. _BibTex: https://raw.githubusercontent.com/flindersuni/DeepThoughtHPC-docs/master/docs/source/flindershpc2021-bibtex.bib
-.. _EndNote: https://raw.githubusercontent.com/flindersuni/DeepThoughtHPC-docs/master/docs/source/flindershpc2021-endnote.xml
-
-
 
 Acknowledgements
 ----------------
@@ -120,6 +109,6 @@ Acknowledgements
 We recognise the respect the trademarks of all third-party providers referenced in this documentation. Please see the respective EULAs for software packages used in configuring your own environment based on this knowledgebase.
 
 License
-=========
+----------
 
 This documentation is released under the `Creative-Commons: Attribution-ShareAlike 4.0 International <http://creativecommons.org/licenses/by-sa/4.0/>`_ license.
