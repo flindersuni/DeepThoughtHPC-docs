@@ -1,11 +1,3 @@
-===============================
-Software Suites on DeepThought
-===============================
-DeepThought has several enterprise grade software suites either isntalled or under active development.  
-These integrations run the gamut from Jupyter Notebooks for quality of life, to desktop integrations to the 
-wider university software ecosystem.  This page give a brief overview on what integrations or suites are installed 
-and their associated access requirements. 
-
 ------------
 Jupyter Hub
 ------------

@@ -8,6 +8,12 @@ Welcome to the DeepThought Documentation
 
 The new Flinder HPC is called DeepThought. This new HPC comprises of AMD EPYC based hardware and next-generation management software, allowing for a dynamic and agile HPC service. 
 
+.. _Upgrade Migration Information: migration/upgrademigration.html
+
+.. warning:: 
+    DeepThought has recently undergone a series of upgrades that require some user intervention when utlising the upgraded cluster
+    Please see `Upgrade Migration Information`_ for actions required.
+
 .. attention::
     This documentation is under active development, meaning that it can
     change over time as we improve it. Please email deepthought@flinders.edu.au if
@@ -46,14 +52,16 @@ The following files are provided for integration into your reference manager of 
 - RIS_
 
 
-Table of Contents
+Table of Contentss
 ====================
 
 .. toctree::
     :maxdepth: 1
     :caption: User Documentation
  
-    Access/GettingAccess.md
+    Access/accessrequest.rst 
+    Access/windows.rst
+    Access/unix.rst
     Storage/storageusage.rst
     dataflow/hpcresearchdataflow.rst
     FileTransfers/FileTransfersIntro.md
@@ -65,6 +73,7 @@ Table of Contents
     :maxdepth: 1 
     :caption: Software Suites
 
+    software/softwaresuitesoverview.rst
     software/ansys.rst
     software/jupyter.rst
     software/singularity.rst
@@ -90,6 +99,7 @@ Table of Contents
 
    policies/fairuse.rst
    policies/accessandpermissions.rst
+   migration/upgrademigration.rst
    upgrades/updatelog.rst
 
 Citing DeepThoughtHPC
