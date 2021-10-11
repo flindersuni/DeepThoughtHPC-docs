@@ -14,8 +14,10 @@ List of Enterprise Software Suites
 .. _Jupyter Hub: jupyter.html
 .. _ANSYS: ansys.html
 .. _Singularity Containers: singularity.html 
+.. _MATLAB: matlab.html
 
 1. `Jupyter Hub`_
 2. `ANSYS`_ 
 3. `Singularity Containers`_ 
+4. `MATLAB`_
 

@@ -1,8 +1,3 @@
-.. DeepThoughtHPC-docs documentation master file, created by
-   sphinx-quickstart on Thu Mar 12 09:21:20 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Welcome to the DeepThought Documentation
 =========================================
 
@@ -11,7 +6,7 @@ The new Flinder HPC is called DeepThought. This new HPC comprises of AMD EPYC ba
 .. _Upgrade Migration Information: migration/upgrademigration.html
 
 .. warning:: 
-    DeepThought has recently undergone a series of upgrades that require some user intervention when utlising the upgraded cluster
+    DeepThought has recently undergone a series of upgrades that require some user intervention when utlising the upgraded cluster.
     Please see `Upgrade Migration Information`_ for actions required.
 
 .. attention::
@@ -77,6 +72,7 @@ Table of Contentss
     software/ansys.rst
     software/jupyter.rst
     software/singularity.rst
+    software/matlab.rst
     
  
 .. toctree::
