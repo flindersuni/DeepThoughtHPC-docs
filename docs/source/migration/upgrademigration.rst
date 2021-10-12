@@ -18,7 +18,7 @@ all operations dealing with modules.
 Action Needed 
 **************
 
-1. If your /home director has a folder called ``.lmod.d/``
+1. If your /home directory has a folder called ``.lmod.d/``
 2. Remove this directory
 
 The old module system would generate a per-user cache, stored locally. Due to changes in the module layout and system 
