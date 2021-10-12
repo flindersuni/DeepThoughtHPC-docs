@@ -210,6 +210,8 @@ The DeepThought HPC will set some additional environment variables to manipulate
 This means that if you leave anything in $TMP or $SHM directories it will be *removed when your job finishes*.
 
 To make that abundantly clear. If the Job creates `/local/jobs/$SLURM_USER/$SLURM_JOB_ID/` it will also **delete that entire directory when the job completes**. Ensure that your last step in any job creation is to _move any data you want to keep to /scratch or /home_.
+
+
 |Variable Name                |   Description                                 | Value |
 |-----------------------------|-----------------------------------------------|----------------------------|
 | $TMP                        | The Linux default 'Temp' file path.           | /local/$SLURM_USER/$SLURM_JOB_ID         |
@@ -220,7 +222,7 @@ To make that abundantly clear. If the Job creates `/local/jobs/$SLURM_USER/$SLUR
 | $TEMP_DIR                   | An alias for $TMP| /local/$SLURM_USER/$SLURM_JOB_ID/ |
 | $SCRATCH_DIR                | A Per-Job Folder on the HPC /scratch mount  | /scratch/users/$SLURM_USER/$SLURM_JOB_ID/ |
 | $SHM_DIR                    | A Per-Job Folder on the Compute Node Shared-Memory / Tempfs Mount | /dev/shm/jobs/$USER/ |
-| $OMP_NUM_THREADS            | The OpenMPI CPU Count Environment Variable | $SLURM_CPUS_PER_TASK |
+| $OMP_NUM_THREADS            | The OpenMP CPU Count Environment Variable | $SLURM_CPUS_PER_TASK |
 
 #### $TMPDIR and SLURM Job-Arrays
 
@@ -332,41 +334,50 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
     # job will be scheduled when attempting to backfill jobs. 
     # 
     # The current cluster-wide limit is 14 Days from Start of Execution.
+    # The timer is only active while your job runs, so if you suspend
+    # or pause the job, it will stop the timer.
     #
     # The command format is as follows: #SBATCH --time=DAYS-HOURS
+    # There are many ways to specify time, see the SchedMD Slurm 
+    # manual pages for more. 
     #SBATCH --time=14=0
     #
     ##################################################################
     # How many tasks is your job going to run? 
     # Unless you are running something that is Parallel / Modular or
     # pipelined, leave this as 1. Think of each task as a 'bucket of
-    # resources' that stand alone. Without MPI / IPC you cant talk to 
+    # resources' that stand alone. Without MPI / IPC you can't talk to 
     # another bucket!
     #
     #SBATCH --ntasks=1
+    #
     # If each task will need more that a single CPU, then alter this 
-    # value. Remeber, this is multiplicative, so if you ask for 
+    # value. Remember, this is multiplicative, so if you ask for 
     # 4 Tasks and 4 CPU's per Task, you will be allocated 16 CPU's 
     #SBATCH --cpus-per-task=1
     ##################################################################
     # Set the memory requirements for the job in MB. Your job will be
     # allocated exclusive access to that amount of RAM. In the case it
-    # overuses that amount, Slurm will kill it. The default value is 
+    # overuses that amount, Slurm will kill the job. The default value is 
     # around 2GB per CPU you ask for.
+    #
     # Note that the lower the requested memory, the higher the
     # chances to get scheduled to 'fill in the gaps' between other
     # jobs. Pick ONE of the below options. They are Mutually Exclusive.
-    # You can ask for X Amount of RAM per CPU (MB by default)
+    # You can ask for X Amount of RAM per CPU (MB by default).
+    # Slurm understands K/M/G/T For Kilo/Mega/Giga/Tera Bytes.
+    #
     #SBATCH --mem-per-cpu=4000
     # Or, you can ask for a 'total amount of RAM'. If you have multiple 
     # tasks and ask for a 'total amount' like below, then SLURM will 
     # split the total amount to each task evenly for you.
     ##SBATCH --mem=12G
     ##################################################################
-    # Change the number of GPU's required and the most GPU's that can be 
+    # Change the number of GPU's required for you job. The most GPU's that can be 
     # requested is 2 per node. As there are limited GPU slots, they are heavily 
     # weighted against for Fairshare Score calculations. 
-    # You can request either a 'tesla:X' or a 'gpu:x'
+    # You can request either a 'gpu:telsa_v100:X' or a 'gpu:x'
+    # 
     # You can either request 0, or omit this line entirely if you 
     # a GPU is not needed. 
     #
@@ -376,9 +387,9 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
     # loading them manually, with a space-separated list, or you can 
     # write multiple lines.
     # You will need to uncomment these.
-    #module add miniconda/3.0 cuda10.0/toolkit/10.0.130 
-    #module add miniconda/3.0 
-    #module add cuda10.0/toolkit/10.0.130 
+    #module load miniconda/3.0 cuda10.0/toolkit/10.0.130 
+    #module load miniconda/3.0 
+    #module load cuda10.0/toolkit/10.0.130 
 
     ##################################################################
     # This example script assumes that you have already moved your 
@@ -391,7 +402,8 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
     # directory as a part of your job script. 
 
     # Example using the HPC Set $TMPDIR Variable 
-    cd $TMPDIR
+    cd /local/ 
+    mkdir $SLURM_JOB_ID/ ; cd $SLURM_JOBID
     cp /scratch/user/<FAN>/dataset ./
 
     # A Manual 'Shared' Data-Set Directory
@@ -414,6 +426,6 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
 
     # Using the example above with a shared dataset directory, your final step 
     # in the script should remove the directory folder 
-    # rm -rf $DATADIR
+    # rm -rf /local/$SLURM_JOBID
 
     ##################################################################

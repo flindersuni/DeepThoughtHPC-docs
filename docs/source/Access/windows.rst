@@ -1,4 +1,4 @@
-Window Connection Guide 
+Windows Connection Guide 
 ========================
 To connect to Deep Thought a SSH client such as PuTTy is required. 
 Below is a short list of the possible programs you can use as a client to connect to the HPC. 
