@@ -2,12 +2,25 @@
 DeepThought Upgrade Migration 
 ===============================
 
-DeepThought has undergone major upgrades. To make it as seamless for our users as possible, we made sure to keep 
-your /home and /scratch directories and import them across to the Upgraded Cluster. 
+The DeepThought HPC has undergone major upgrades. To make it as seamless for our users as possible, we made sure to keep 
+your /home and /scratch directories the same in the new cluster. 
+
+This means that all your files and folders are untouched when you migrate to the new, rebuilt cluster.
 
 The following steps are required for a user to undertake when they migrate across to the new 
 cluster. 
 
+
+Installed Software 
+++++++++++++++++++++++
+The HPC Support Team has removed all software not loaded via the module system in the last 6 months. Every effort was made 
+to ensure we did not remove an actively used piece of software. 
+
+
+Action Needed
+****************
+If your software package is no longer visible in the ``module avail`` list, then please either submit a ServiceOne request 
+for HPC Software, or notify the HPC Support Team via email. 
 
 Module System
 +++++++++++++++
