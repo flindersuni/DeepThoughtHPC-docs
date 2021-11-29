@@ -1,12 +1,13 @@
-.. DeepThoughtHPC-docs documentation master file, created by
-   sphinx-quickstart on Thu Mar 12 09:21:20 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Welcome to the DeepThought Documentation
 =========================================
 
 The new Flinder HPC is called DeepThought. This new HPC comprises of AMD EPYC based hardware and next-generation management software, allowing for a dynamic and agile HPC service. 
+
+.. _Upgrade Migration Information: migration/upgrademigration.html
+
+.. warning::
+    DeepThought has recently undergone a series of upgrades that require some user intervention when utlising the upgraded cluster.
+    Please see `Upgrade Migration Information`_ for actions required.
 
 .. attention::
     This documentation is under active development, meaning that it can
@@ -53,14 +54,26 @@ Table of Contents
     :maxdepth: 1
     :caption: User Documentation
  
-    Access/GettingAccess.md
-    Storage/storageusage.rst
+    Access/accessrequest.rst
+    Access/windows.rst
+    Access/unix.rst
+    storage/storageusage.rst
     dataflow/hpcresearchdataflow.rst
     FileTransfers/FileTransfersIntro.md
     LinuxCommands/LinuxIntro.md
     dataflow/hpcjobdataflow.rst
     SLURM/SLURMIntro.md
     ModuleSystem/LMod.md
+.. toctree:: 
+    :maxdepth: 1 
+    :caption: Software Suites
+
+    software/softwaresuitesoverview.rst
+    software/ansys.rst
+    software/jupyter.rst
+    software/singularity.rst
+    software/matlab.rst
+    
  
 .. toctree::
     :maxdepth: 1
@@ -82,17 +95,8 @@ Table of Contents
 
    policies/fairuse.rst
    policies/accessandpermissions.rst
-
-Citing DeepThoughtHPC
-----------------------
-
-To cite DeepThoughtHPC service, please use following or download `BibTex`_/`EndNote`_ file. Your citation will demonstrate the research impact that DeepThoughtHPC service brings and support ongoing funding efforts for this service.
-
-Flinders University (2021). DeepThought (HPC). Retrieved from https://doi.org/10.25957/FLINDERS.HPC.DEEPTHOUGHT
-
-.. _BibTex: https://raw.githubusercontent.com/flindersuni/DeepThoughtHPC-docs/master/docs/source/flindershpc2021-bibtex.bib
-.. _EndNote: https://raw.githubusercontent.com/flindersuni/DeepThoughtHPC-docs/master/docs/source/flindershpc2021-endnote.xml
-
+   migration/upgrademigration.rst
+   upgrades/updatelog.rst
 
 
 Acknowledgements
@@ -101,6 +105,6 @@ Acknowledgements
 We recognise the respect the trademarks of all third-party providers referenced in this documentation. Please see the respective EULAs for software packages used in configuring your own environment based on this knowledgebase.
 
 License
-=========
+----------
 
 This documentation is released under the `Creative-Commons: Attribution-ShareAlike 4.0 International <http://creativecommons.org/licenses/by-sa/4.0/>`_ license.
