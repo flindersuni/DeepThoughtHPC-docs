@@ -5,7 +5,7 @@ The new Flinder HPC is called DeepThought. This new HPC comprises of AMD EPYC ba
 
 .. _Upgrade Migration Information: migration/upgrademigration.html
 
-.. warning:: 
+.. warning::
     DeepThought has recently undergone a series of upgrades that require some user intervention when utlising the upgraded cluster.
     Please see `Upgrade Migration Information`_ for actions required.
 
@@ -47,14 +47,14 @@ The following files are provided for integration into your reference manager of 
 - RIS_
 
 
-Table of Contentss
+Table of Contents
 ====================
 
 .. toctree::
     :maxdepth: 1
     :caption: User Documentation
  
-    Access/accessrequest.rst 
+    Access/accessrequest.rst
     Access/windows.rst
     Access/unix.rst
     Storage/storageusage.rst

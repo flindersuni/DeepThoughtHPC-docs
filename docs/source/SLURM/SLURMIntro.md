@@ -257,9 +257,9 @@ Notice that the $TMP directories are different for every step in the array? This
 
 To reiterate the warning above - if you leave anything in the $TMP or $SHM Directories, SLURM will delete it at the end of the job, so make sure you move any results out to /scratch or /home.
 
-### Filename Patterns
+### Filename Patterns 
 
-Some commands will take a filename.  The following modifiers will allow you to generate files that are substituted with different variables controlled by SLURM.
+Some commands will take a filename.  THe following modifiers will allow you to generate files that are substituted with different variables controlled by SLURM.
 
 | Symbol            | Substitution |
 |-|-|
@@ -276,6 +276,7 @@ Some commands will take a filename.  The following modifiers will allow you to g
 |%u|User name. |
 |%x|Job name. |
 
+
 ## SLURM: Extras
 
 Here is an assortment of resources that have been passed on to the Support Team as 'Useful to me'. Your mileage may vary on how useful you find them.
@@ -288,7 +289,8 @@ Besides useful commands and ideas, this [FAQ](http://www.ceci-hpc.be/slurm_faq.h
 
 An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_contents/QuickStart/SubmittingJobs/SlurmTutorial.html).
 
-## SLURM: Script Template
+
+## SLURM: Script Template 
 
     #!/bin/bash
     # Please note that you need to adapt this script to your job
@@ -321,8 +323,8 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
     # %j will append the 'Job ID' from SLURM. 
     # %x will append the 'Job Name' from SLURM 
     # %
-    #SBATCH --output=/home/<FAN>/%x-%j.out.txt
-    #SBATCH --error=/home/<FAN>/%x-%j.err.txt
+    #SBATCH --output=/home/$FAN/%x-%j.out.txt
+    #SBATCH --error=/home/$FAN/%x-%j.err.txt
     ##################################################################
     # The default partition is 'general'. 
     # Valid partitions are general, gpu and melfu
@@ -426,6 +428,7 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
 
     # Using the example above with a shared dataset directory, your final step 
     # in the script should remove the directory folder 
-    # rm -rf /local/$SLURM_JOBID
+    # rm -rf $DATADIR
 
     ##################################################################
+    
