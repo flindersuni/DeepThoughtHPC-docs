@@ -17,21 +17,19 @@ Storage Accessibility Overview
 ################################
 As general guide, the following table presents the overall storage for the HPC.
 
-+---------------------+--------------------------+-----------------------+
-| Filesystem Location | Accessible From          | Capacity              |
-+=====================+==========================+=======================+
-| /scratch            |    All Nodes             | ~250TB                |
-+---------------------+--------------------------+-----------------------+
-| /home               | All Nodes                |    ~12TB              |
-+---------------------+--------------------------+-----------------------+
-| /local              | Individual Compute Nodes | ~400GB or ~1.5TB      |
-+---------------------+--------------------------+-----------------------+
-| /r_drive/\<folder>  |               Head Nodes | N/A                   |
-+---------------------+--------------------------+-----------------------+
++-----------------------+--------------------------+-----------------------------+
+| Filesystem Location   | Accessible From          | Capacity                    |
++=======================+==========================+=============================+
+| /scratch              |    All Nodes             | ~250TB                      |
++-----------------------+--------------------------+-----------------------------+
+| /home                 | All Nodes                |    ~12TB                    |
++-----------------------+--------------------------+-----------------------------+
+| /local                | Individual Compute Nodes | ~400GB or ~1.5TB            |
++-----------------------+--------------------------+-----------------------------+
+| /RDrive/\<Share Name> |              Head Nodes  | Share Dependant             |
++-----------------------+--------------------------+-----------------------------+
 
-.. attention:: /The r_drive/ location is NOT the University R:\\ Drive - the ability to move data between R:\\ and the HPC is currently undergoing testing. 
-
-The /r_drive/ locations are data mount points from the now defunct eRSA Project and are slowly being phased out. Any point under /r_drive/ will *auto mount on access*. Just attempt to touch or change to the correct directory under the /r_drive/ path and the HPC will handle this automatically for you. Until you do this, the directory **will be invisible**.
+.. warning:: The HPC is classed as **volatile** storage. Your research data and dataset that you wanted backed up MUST be moved to /RDrive.
 
 #########################
 Usage Guidelines

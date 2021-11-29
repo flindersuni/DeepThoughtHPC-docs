@@ -2,7 +2,7 @@
 
 Transferring files to the HPC will change depending upon your OS. Thankfully, there are some excellent tools that take this from 'potentially-scary' to 'click a button or two'.  
 
-Before we start, ensure that you have read the [Storage Overview & Usage Guidelines](../Storage/storageusage.html).
+Before we start, ensure that you have read the [Storage Overview & Usage Guidelines](../storage/storageusage.html).
 
 ## Transferring Files
 
@@ -19,11 +19,9 @@ There is a critical difference between these two locations. The /scratch area is
 - /home/$FAN
 - /scratch/$FAN
 
-There following location is treated specially as it holds the older eRSA data and is slowly being phased out.
+### Where is the old r_drive? 
 
-- /r_drive/
-
-This location will surface specific mount points on request. If you have access to these locations, they auto-mount **on usage**. That is, simply try and touch or access the correct location that you have access to, and it will be handled automatically for you. For example, if you have access to a mount point called 'molecular_data', then the following command with surface that mount point to you - `cd /r_drive/molecular_data/`.
+The old /r_drive/ mount points where a legacy implementation left over from the eRSA Project. All the data from these drives has been migrated to a /RDrive/ share with the same name, and will appear automatically. 
 
 ### /Home
 

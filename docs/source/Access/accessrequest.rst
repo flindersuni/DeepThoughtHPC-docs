@@ -17,7 +17,7 @@ VPN Requirements
 When **off campus** you must be connected to the Flinders VPN to access the HPC.
 
 
-Flinder Staff / HDR Students 
+Flinders Staff / HDR Students
 -----------------------------
 .. _ServiceOne: https://flindersuni.service-now.com/csp?id=sc_cat_item&sys_id=d95a633cdbf87810062472f5f39619f5 
 .. _(Linux & MacOS/X): unix.html 
@@ -34,7 +34,7 @@ Flinder Staff / HDR Students
     b. `Windows Sub-System For Linux`_
     c. Unix Based Systems `(Linux & MacOS/X)`_  
 
-3. The HPC Team will send you an onboarding email once your HPC account has been provisioned
+3. The HPC Team will send you an on-boarding email once your HPC account has been provisioned
 
 
 .. _HPC Support Team via Email: mailto:deepthought@flinders.edu.au

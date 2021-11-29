@@ -57,7 +57,7 @@ Table of Contents
     Access/accessrequest.rst
     Access/windows.rst
     Access/unix.rst
-    Storage/storageusage.rst
+    storage/storageusage.rst
     dataflow/hpcresearchdataflow.rst
     FileTransfers/FileTransfersIntro.md
     LinuxCommands/LinuxIntro.md

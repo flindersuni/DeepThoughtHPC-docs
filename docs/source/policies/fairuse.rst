@@ -17,7 +17,7 @@ For example, if the HPC had 1000 'shares' that represent its resources, the foll
 * 100 'shares' for General 
 
 
-.. _StorageGuidelines: ../Storage/storageusage.html
+.. _StorageGuidelines: ../storage/storageusage.html
 .. _Module System: ../ModuleSystem/LMod.html
 
 Storage Usage Guidelines
