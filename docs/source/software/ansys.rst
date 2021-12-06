@@ -29,7 +29,7 @@ Quickstart Command Line Guide
 
 To run a job with ANSYS on the HPC you will need the following: 
     - A ANSYS Script file 
-    - Ay reference file(s) (eg, a .db file)
+    - Any reference file(s) (eg, a .db file)
 
 Ensure that the paths to anything in the script file reflect where it lives on the HPC, not your local machine. 
 
