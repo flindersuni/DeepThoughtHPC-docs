@@ -35,7 +35,6 @@ Ensure that the paths to anything in the script file reflect where it lives on t
 
 You can then invoke ANSYS (after loading the ANSYS Module) in 'batch' mode for a single script like so: 
 
-- ansys212 -smp -np <CPUS> -b -s -R PATH_TO_SCRIPT_FILE
 - ansys212 -smp -np <CPUS> -bd <DB File Memory Allocation> -m <SLURM Memory Allocation> -b -s < PATH_TO_SCRIPT_FILE
 
 
