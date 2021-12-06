@@ -70,7 +70,7 @@ The following is a quick list of some of the common CLI options.
 +-------------------+---------------------------------------+
 | -m  <value>       | RAM Allocation for ANSYS.             |
 +-------------------+---------------------------------------+
-| -R /path/         | Script file Path for batch Mode       |
+| < /path/         | Script file Path for batch Mode       |
 +-------------------+---------------------------------------+
 
 
