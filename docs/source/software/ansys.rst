@@ -49,7 +49,7 @@ The following is a quick list of some of the common CLI options.
 +===================+=======================================+
 | -acc nvidia       |  Enable GPU Compute Acceleration      | 
 +-------------------+---------------------------------------+
-| -np               |  Specify the Number of CPU's          |
+| \-np value        |  Specify the Number of CPU's: -np 12  |
 +-------------------+---------------------------------------+
 | -smp              |  Run ANSYS in Single-Node Mode        |
 +-------------------+---------------------------------------+
@@ -67,9 +67,9 @@ The following is a quick list of some of the common CLI options.
 +-------------------+---------------------------------------+
 | -db               | Initial Allocation for the .DB File   |
 +-------------------+---------------------------------------+
-| -m  <value>       | RAM Allocation for ANSYS.             |
+| \-m value         | RAM Allocation for ANSYS.  -m 40000   |
 +-------------------+---------------------------------------+
-| < /path/         | Script file Path for batch Mode       |
+|  \< /path/        | Script file Path for batch Mode       |
 +-------------------+---------------------------------------+
 
 
