@@ -35,7 +35,6 @@ Ensure that the paths to anything in the script file reflect where it lives on t
 
 You can then invoke ANSYS (after loading the ANSYS Module) in 'batch' mode for a single script like so: 
 
-- ansys212 -smp -np <CPUS> -b -s -R PATH_TO_SCRIPT_FILE
 - ansys212 -smp -np <CPUS> -bd <DB File Memory Allocation> -m <SLURM Memory Allocation> -b -s < PATH_TO_SCRIPT_FILE
 
 
@@ -50,7 +49,7 @@ The following is a quick list of some of the common CLI options.
 +===================+=======================================+
 | -acc nvidia       |  Enable GPU Compute Acceleration      | 
 +-------------------+---------------------------------------+
-| -np               |  Specify the Number of CPU's          |
+| \-np value        |  Specify the Number of CPU's: -np 12  |
 +-------------------+---------------------------------------+
 | -smp              |  Run ANSYS in Single-Node Mode        |
 +-------------------+---------------------------------------+
@@ -68,9 +67,9 @@ The following is a quick list of some of the common CLI options.
 +-------------------+---------------------------------------+
 | -db               | Initial Allocation for the .DB File   |
 +-------------------+---------------------------------------+
-| -m  <value>       | RAM Allocation for ANSYS.             |
+| \-m value         | RAM Allocation for ANSYS.  -m 40000   |
 +-------------------+---------------------------------------+
-| -R /path/         | Script file Path for batch Mode       |
+|  \< /path/        | Script file Path for batch Mode       |
 +-------------------+---------------------------------------+
 
 
