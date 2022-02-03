@@ -70,6 +70,7 @@ Table of Contents
 
     software/softwaresuitesoverview.rst
     software/ansys.rst
+    software/lammps.rst
     software/jupyter.rst
     software/singularity.rst
     software/matlab.rst
