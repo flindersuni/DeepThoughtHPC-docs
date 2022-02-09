@@ -4,7 +4,7 @@ Singularity Containers
 =======
 Status
 =======
-Released and available as a module on the HPC.  
+The Singularity Container Engine is available for use on the HPC. 
 
 ==========
 Overview

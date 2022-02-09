@@ -6,7 +6,7 @@ Status
 =======
 LAMMPS was installed from the Development Branch on 7th Jan, 2022. 
 
-There are two versions of LAMMPS installed on DeepThought:
+There are two versions of LAMMPS installed on DeepThought, each with their own modules:
 
 1. A CPU only version, called lmp 
 2. a GPU only version, called lmp_gpu 
