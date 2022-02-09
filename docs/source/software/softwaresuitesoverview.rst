@@ -15,9 +15,17 @@ List of Enterprise Software Suites
 .. _ANSYS: ansys.html
 .. _Singularity Containers: singularity.html 
 .. _MATLAB: matlab.html
+.. _LAMMPS: lammps.html
+.. _GROMACS: gromacs.html 
+.. _VASP: vasp.html
+.. _Delft 3D: delft3d.html
 
-1. `Jupyter Hub`_
-2. `ANSYS`_ 
-3. `Singularity Containers`_ 
-4. `MATLAB`_
+1. `ANSYS`_ 
+2. `Delft 3D`_
+3. `GROMACS`_ 
+4. `Jupyter Hub`_
+5. `LAMMPS`_
+6. `MATLAB`_
+7. `Singularity Containers`_ 
+8. `VASP`_
 
