@@ -54,7 +54,7 @@ The basic premise is - you have:
 
 Then you multiple all three together to get your end priority. So, lets say you ask for 2 GPU's (The current max you can ask for)
 
-A GPU on Deepthought (When this was written) is set to have these parameters:
+A GPU on DeepThought (When this was written) is set to have these parameters:
 
 - Weight: 5
 - Factor: 1000
@@ -75,7 +75,7 @@ To give you an idea of the _initial_ score you would get for consuming an entire
 
 **RAM**: `256 * 0.25 * 1000 = 65,536,000` (Measured Per MB)
 
-**Total**: `‭65,600,000`‬
+**Total**: `65,600,000`
 
 So, its stacks up very quickly, and you really want to write your job to ask for what it needs, and not much more! This is not the number you see and should only be taken as an example.  If you want to read up on exactly how Fairshare works, then head on over to [here](https://slurm.schedmd.com/priority_multifactor.html).
 
@@ -87,7 +87,7 @@ Slurm has also produced the [Rosetta Stone](_static/SLURMRosettaStone.pdf) - a d
 
 ### Job submission
 
-Once the slurm script is modified and ready to run, go to the location you have saved it and run the command:
+Once the Slurm script is modified and ready to run, go to the location you have saved it and run the command:
 
     sbatch <name of script>.sh
 
@@ -205,7 +205,7 @@ The following variables are set per job, and can be access from your SLURM Scrip
 
 #### DeepThought Set Environment Variables
 
-The DeepThought HPC will set some additional environment variables to manipulate some of the  Operating system functions. These directories are set at job creation time and then are removed when a job completes, crashes or otherwise exists.
+The DeepThought HPC will set some additional environment variables to manipulate some of the Operating system functions. These directories are set at job creation time and then are removed when a job completes, crashes or otherwise exists.
 
 This means that if you leave anything in $TMP or $SHM directories it will be *removed when your job finishes*.
 
@@ -342,7 +342,7 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
     # The command format is as follows: #SBATCH --time=DAYS-HOURS
     # There are many ways to specify time, see the SchedMD Slurm 
     # manual pages for more. 
-    #SBATCH --time=14=0
+    #SBATCH --time=14-0
     #
     ##################################################################
     # How many tasks is your job going to run? 
@@ -421,7 +421,7 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
 
     ##################################################################
     # Once you job has finished its processing, copy back your results 
-    # and ONLY the results to /scratch, then cleanup the temporary 
+    # and ONLY the results to /scratch, then clean-up the temporary 
     # working directory
 
     cp -r /$TMPDIR/<OUTPUT_FOLDER> /scratch/user/<FAN>/<JOB_RESULT_FOLDER>

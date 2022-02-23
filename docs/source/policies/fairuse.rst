@@ -59,9 +59,9 @@ Holds the most used packages on the HPC. The HPC Team monitors the loading and u
 As an example, some of the most used program on the HPC are: 
 
 * R 
-* Python 3.8 
+* Python 3.9 
 * RGDAL
-* CUDA 10.1 Toolkit
+* CUDA 11.2 Toolkit
 
 While not an exhaustive list of the common software, it does allow the team to focus our efforts and provide more in-depth support for these programs. 
 This means they are usually first to be updated and have a wider range of tooling attached to them by default.

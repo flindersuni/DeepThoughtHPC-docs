@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'DeepThought Documentation'
+project = 'DeepThought HPC'
 copyright = '2021, Flinders University'
 author = 'Flinders University'
 

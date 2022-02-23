@@ -70,7 +70,7 @@ Here is a rough guide as to what should live in your /scratch/$FAN directory. In
 /Local
 =========
 
-Local is the per-node, high speed flash storage that is specific to each node. When running a job, you want to run your data-sets on /local if at all possible - its the quickest storage location on the HPC. You MUST cleanup /local once you are done.
+Local is the per-node, high speed flash storage that is specific to each node. When running a job, you want to run your data-sets on /local if at all possible - its the quickest storage location on the HPC. You MUST clean-up /local once you are done.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 What to Store in /local

@@ -12,7 +12,7 @@ All file-transfers are done via Secure File Transfer Protocol (SFTP), or Secure 
 
 The HPC is a little different that your desktop at home when it comes to storage, not just computing power. It's a shared resource, so we cant store everybody's data for all time - there just isn't enough space.
 
-On DeepThought, are two main storage tiers, with a smaller pool for your documents and scripts. Firstly our bulk storage (approx 250TB) is the 'Scratch' area (located at /scratch/user/$FAN) - and is slower, spinning Hard-Disk Drives (HDD's). The smaller, hyper-fast NVMe Solid-State Drives (located at /local) are roughly 400GB on the 'standard' nodes (1-16) and 1.5TB on the 'high-capacity' nodes (19-21).
+On DeepThought, are two main storage tiers, with a smaller pool for your documents and scripts. Firstly our bulk storage (approx. 250TB) is the 'Scratch' area (located at /scratch/user/$FAN) - and is slower, spinning Hard-Disk Drives (HDD's). The smaller, hyper-fast NVMe Solid-State Drives (located at /local) are roughly 400GB on the 'standard' nodes (1-16) and 1.5TB on the 'high-capacity' nodes (19-21).
 
 There is a critical difference between these two locations. The /scratch area is a common storage area. You can access it from all of the login, management and compute nodes on the HPC. This is not the same as /local, which is only available on each compute node.  That is - if you job is running on Node001, the /local only exists on that particular node - you cannot access it anywhere else on the HPC.
 
@@ -27,7 +27,7 @@ The old /r_drive/ mount points where a legacy implementation left over from the 
 
 Your 'home' directories. This is a small amount of storage (~11TB total) to store your small bits and pieces. This is the analogous to the Windows 'Documents' folder.
 
-At a command promp, your home directory usually gets shortened to ~/.
+At a command prompt, your home directory usually gets shortened to ~/.
 
 #### What to store in /home
 
@@ -71,8 +71,8 @@ Enter your password when prompted. This will put the file in your home directory
 
 To download files from DeepThought, you simply need to invert that command to point to either:
 
-- A name of a Computer that Deepthough 'knows' about.
-- An IP Address that Deepthought can reach.
+- A name of a Computer that DeepThought 'knows' about.
+- An IP Address that DeepThought can reach.
 
 ### Transfers By Computer Name
 
