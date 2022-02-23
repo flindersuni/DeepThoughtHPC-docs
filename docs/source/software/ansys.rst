@@ -28,15 +28,23 @@ Ensure that the paths to anything in the script file reflect where it lives on t
 Replace all <OPTIONS> to suit your requirements. 
 
 1. Shared-Memory Parallel (Single-Node)
+
+
 ``ansys212 -smp -np $SLURM_NTASKS -db <DB File Memory Allocation> -m <SLURM Memory Allocation> -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE``
 
 2. Distributed Mode (Multi-Node) 
+
+
 ``ansys212 -dis -np $SLURM_NTASKS -db <DB FILE Memory Allocation> -m <SLURM Memory Allocation> -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE``
 
 3. Hybrid Distributed Mode (Multi-Node Shared-Memory Parallel)
+
+
 ``ansys212 -dis -np $SLURM_NTASKS -nt $SLURM_CPUS_PER_TASK -db <DB FILE Memory Allocation> -m <SLURM Memory Allocation> -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE``
 
 4. GPU Hybrid Distributed Mode (Multi-Node Shared-Memory Parallel with GPU Acceleration)
+
+
 ``ansys212 -dis -np $SLURM_NTASKS -nt $SLURM_CPUS_PER_TASK -acc nvidia -na <GPU_COUNT> -db <DB FILE Memory Allocation> -m <SLURM Memory Allocation> -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE`` 
 
 +++++++++++++++++++++++
@@ -68,9 +76,9 @@ The following is a quick list of some of the common CLI options.
 +-------------------+--------------------------------------------------------------------------------------------------------------------+
 | -o                | Full Output File Path                                                                                              |
 +-------------------+--------------------------------------------------------------------------------------------------------------------+
-| -s                | Read the Ansys Start-up Script                                                                                      |
+| -s                | Read the Ansys Start-up Script                                                                                     |
 +-------------------+--------------------------------------------------------------------------------------------------------------------+
-| -dir /path        | The Working Directory of ANSYS                                                                                      |
+| -dir /path        | The Working Directory of ANSYS                                                                                     |
 +-------------------+--------------------------------------------------------------------------------------------------------------------+
 | -db               | Initial Allocation for the ANSYS .db file. Can be omitted.                                                         |
 +-------------------+--------------------------------------------------------------------------------------------------------------------+
