@@ -2,7 +2,7 @@ HPC Etiquette
 ==================
 The HPC is a shared resource, and to help make sure everybody can 
 continue to use the HPC together, the following provides some expected
-behavior. 
+behaviour. 
 
 Head / Login / Management Nodes
 --------------------------------
@@ -83,5 +83,5 @@ If you break these rules the HPC Team may take any or all of these actions:
 
 1. Cancellation of running tasks/jobs
 2. Removal problematic files and/or programs
-3. Warning of expected behaviors
+3. Warning of expected behaviours
 4. Revocation of HPC Access

@@ -8,8 +8,8 @@ LAMMPS was installed from the Development Branch on 7th Jan, 2022.
 
 There are two versions of LAMMPS installed on DeepThought, each with their own modules:
 
-1. A CPU only version, called lmp 
-2. a GPU only version, called lmp_gpu 
+1. A CPU only version, with the program called called lmp 
+2. a GPU only version, with the program called lmp_gpu 
 
 *You cannot run the GPU enabled version without access to a GPU, as it will cause errors.*
 
@@ -21,7 +21,7 @@ Overview
 =================
 From LAMMPS_:
 
-LAMMPS is a classical molecular dynamics code with a focus on materials modeling. It's an acronym for Large-scale Atomic/Molecular Massively Parallel Simulator. LAMMPS has 
+LAMMPS is a classical molecular dynamics code with a focus on materials modelling. It's an acronym for Large-scale Atomic/Molecular Massively Parallel Simulator. LAMMPS has 
 potentials for solid-state materials (metals, semiconductors) and soft matter (biomolecules, polymers) and coarse-grained or mesoscopic systems. It can be used to model 
 atoms or, more generically, as a parallel particle simulator at the atomic, meso, or continuum scale.
 

@@ -11,7 +11,7 @@ Generally speaking, we can install almost all Linux/CentOS bounded software/appl
 1. Are people other than just me going to use this software?
 2. If yes, create a [ServiceOne](https://flindersuni.service-now.com) Ticket, and the HPC Support Team will assess the request.
 
-Otherwise, there is nothing stopping you installing the program locally for yourself! If you run into issues installing software then open [ServiceOne](https://flindersuni.service-now.com) ticket, or contact the HPC Support team at their [email](mailto:deepthought@flinders.edu.au).
+Otherwise, there is nothing stopping you installing the program locally for yourself! If you run into issues installing software then open a [ServiceOne](https://flindersuni.service-now.com) ticket, or contact the HPC Support team at their [email](mailto:deepthought@flinders.edu.au).
 
 ## How Do I Install Software?
 

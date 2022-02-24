@@ -23,7 +23,7 @@ GROMACS supports all the usual algorithms you expect from a modern molecular dyn
 Quickstart Command Line Guide
 ================================
 
-Gromacs uses UCX and will require a custom mpirun invocation. The module system will warn you of this when you load the module. The following is a known good starting point:
+GROMACS uses UCX and will require a custom mpirun invocation. The module system will warn you of this when you load the module. The following is a known good starting point:
 
 
 ``mpirun -mca pml ucx --mca btl ^vader,tcp,uct -x UCX_NET_DEVICES=bond0 <program> <options>``

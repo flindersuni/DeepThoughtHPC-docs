@@ -10,7 +10,7 @@ The SLURM Scheduler as the notion of 'Job Queue' or 'Partitions'.  These manage 
 |---------------|   -------         |   ------                             | -----          |
 |general    |   17              | General Usage Pool                   | 14 Days      |
 |gpu        |   3               | GPU Access Pool                      | 14 Days      |
-|melfeu     |   2               | Molecular Biology Lab   | 14 Days      |  
+|melfu     |   2               | Molecular Biology Lab   | 14 Days      |  
 
 ## Storage Layout
 

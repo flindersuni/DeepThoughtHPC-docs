@@ -12,7 +12,7 @@ Released and accessible to all HPC USers at the correct URLs.
 =========
 Overview
 =========
-The `Jupyter Enterprise Gateway`_ is a multi-user environment for JupyterNotebooks. DeepThought has integrated 
+The `Jupyter Enterprise Gateway`_ is a multi-user environment for Jupyter Notebooks. DeepThought has integrated 
 the Jupyter Gateway to allow users to run jobs on the cluster via the native Web Interface.  
 
 If you have access to the HPC, you automatically have access to the Jupyter Lab. You can the JupyterLab Instance 
