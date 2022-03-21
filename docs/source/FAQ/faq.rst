@@ -4,6 +4,16 @@ FAQ
 
 Below are some of the common steps that the team has been asked to resolve more than once, so we put them here to (hopefully) answer your questions before you have to wait in the Ticket Queue! 
 
+Host Not Found 
+===============
+
+When attemtping to connect to the HPC, you receive a message that says 'Could not find deepthought.flinders.edu.au'. 
+
+1. If you are on campus, contact ServiceDesk via ServiceOne or Phone.
+2. If you are off campus or working remotely, connect to the VPN and retry.
+
+
+
 What are the SLURM Partitions? 
 ===============================
 There are three at this point: 
@@ -17,7 +27,7 @@ You can omit the
 * #SBATCH partition=<name> directive
     
 
-as the sane-default for you is the hpc_general partition. If you need access to the GPU's you **must** user the hpc_gpu queue.
+as the sane-default for you is the general partition. If you need access to the GPU's you **must** use the gpu queue.
 
 SLURM - Tasks & OpenMPI/MPI
 ===========================
