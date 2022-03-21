@@ -209,7 +209,7 @@ The DeepThought HPC will set some additional environment variables to manipulate
 
 This means that if you leave anything in $TMP or $SHM directories it will be *removed when your job finishes*.
 
-To make that abundantly clear. If the Job creates `/local/jobs/$SLURM_USER/$SLURM_JOB_ID/` it will also **delete that entire directory when the job completes**. Ensure that your last step in any job creation is to _move any data you want to keep to /scratch or /home_.
+To make that abundantly clear. If the Job creates `/cluster/jobs/$SLURM_JOB_USER/$SLURM_JOB_ID` it will also **delete that entire directory when the job completes**. Ensure that your last step in any job creation is to _move any data you want to keep to /scratch or /home_.
 
 
 |Variable Name                |   Description                                 | Value |
@@ -220,7 +220,9 @@ To make that abundantly clear. If the Job creates `/local/jobs/$SLURM_USER/$SLUR
 | $TEMP                       | An alias for $TMP| /local/$SLURM_USER/$SLURM_JOB_ID/ |
 | $TEMPDIR                    | An alias for $TMP| /local/$SLURM_USER/$SLURM_JOB_ID/ |
 | $TEMP_DIR                   | An alias for $TMP| /local/$SLURM_USER/$SLURM_JOB_ID/ |
-| $SCRATCH_DIR                | A Per-Job Folder on the HPC /scratch mount  | /scratch/users/$SLURM_USER/$SLURM_JOB_ID/ |
+| $BGFS                       | The writable folder in /cluster for you job | /cluster/jobs/$SLURM_JOB_USER/$SLURM_JOB_ID| 
+| $BGFS_DIR                   | An alias for $BGFS | /cluster/jobs/$SLURM_JOB_USER/$SLURM_JOB_ID |
+| $BGFSDIR                    | An alias for $BGFS | /cluster/jobs/$SLURM_JOB_USER/$SLURM_JOB_ID|
 | $SHM_DIR                    | A Per-Job Folder on the Compute Node Shared-Memory / Tempfs Mount | /dev/shm/jobs/$USER/ |
 | $OMP_NUM_THREADS            | The OpenMP CPU Count Environment Variable | $SLURM_CPUS_PER_TASK |
 
