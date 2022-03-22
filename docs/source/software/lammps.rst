@@ -1,9 +1,10 @@
 ------------------
 LAMMPS
 ------------------
-=======
-Status
-=======
+==============
+LAMMPS Status
+==============
+
 LAMMPS was installed from the Development Branch on 7th Jan, 2022. 
 
 There are two versions of LAMMPS installed on DeepThought, each with their own modules:
@@ -17,7 +18,7 @@ There are two versions of LAMMPS installed on DeepThought, each with their own m
 
 
 =================
-Overview 
+LAMMPS Overview 
 =================
 From LAMMPS_:
 
