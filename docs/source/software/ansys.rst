@@ -1,23 +1,23 @@
 -------------------------
 ANSYS Engineering Suite 
 -------------------------
-=======
-Status
-=======
+=============
+ANSYS Status
+=============
 ANSYS 2021R2 is the current version of the ANSYS Suite installed on the HPC. Both Single-Node (-smp) and Multi-Node (-dis) execution is supported as well as GPU acceleration.
 
 
 .. _ANSYS: https://www.ansys.com/
 
-==========
-Overview 
-========== 
+===============
+ANSYS Overview 
+=============== 
 The ANSYS Engineering Suite is a comprehensive software suite for engineering simulation. More information on can be found on the `ANSYS`_ website.
 
 
-================================
-Quickstart Command Line Guide
-================================
+====================================
+ANSYS Quickstart Command Line Guide
+====================================
 
 To run a job with ANSYS on the HPC you will need the following: 
     - An ANSYS Script file 
