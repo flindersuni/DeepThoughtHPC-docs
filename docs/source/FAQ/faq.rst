@@ -7,7 +7,7 @@ Below are some of the common steps that the team has been asked to resolve more 
 Host Not Found 
 ===============
 
-When attemtping to connect to the HPC, you receive a message that says 'Could not find deepthought.flinders.edu.au'. 
+When attempting to connect to the HPC, you receive a message that says 'Could not find deepthought.flinders.edu.au'. 
 
 1. If you are on campus, contact ServiceDesk via ServiceOne or Phone.
 2. If you are off campus or working remotely, connect to the VPN and retry.
@@ -74,7 +74,7 @@ Only thing you will need to decide is 'where you want to store my environment' y
 To get you up and running (anywhere it says FAN, please substitute yours):
 
 * module load miniconda/3.0
-* conda create -p /home/FAN/isoseq3 python=3.7
+* conda create -p /home/FAN/isoseq3 python=3.9
 * source activate /home/FAN/isoseq3
 * You may get a warning saying 'your shell is not setup to use conda/anaconda correctly' - let it do its auto-configuration. Then Issue
 

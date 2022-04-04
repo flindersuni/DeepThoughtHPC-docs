@@ -20,19 +20,19 @@ Storage Accessibility Overview
 ################################
 As general guide, the following table presents the overall storage for the HPC.
 
-+-----------------------+--------------------------+------------------+
-| Filesystem Location   | Accessible From          | Capacity         |
-+=======================+==========================+==================+
-| /scratch              | All Nodes                | ~250TB           |
-+-----------------------+--------------------------+------------------+
-| /cluster              | All Nodes                | ~45TB            |
-+-----------------------+--------------------------+------------------+
-| /home                 | All Nodes                | ~12TB            |
-+-----------------------+--------------------------+------------------+
-| /local                | Individual Compute Nodes | ~400GB or ~1.5TB |
-+-----------------------+--------------------------+------------------+
-| /RDrive/\<Share Name> | Head Nodes               | Share Dependant  |
-+-----------------------+--------------------------+------------------+
++-----------------------+--------------------------+-------------------------+
+| Filesystem Location   | Accessible From          | Capacity                |
++=======================+==========================+=========================+
+| /scratch              | All Nodes                | ~250TB                  |
++-----------------------+--------------------------+-------------------------+
+| /cluster              | All Nodes                | ~41TB                   |
++-----------------------+--------------------------+-------------------------+
+| /home                 | All Nodes                | ~12TB                   |
++-----------------------+--------------------------+-------------------------+
+| /local                | Individual Compute Nodes | ~1TB (400GB on Node019) |
++-----------------------+--------------------------+-------------------------+
+| /RDrive/\<Share Name> | Head Nodes               | Share Dependant         |
++-----------------------+--------------------------+-------------------------+
 
 .. warning:: The HPC is classed as **volatile** storage. Your research data and dataset that you wanted backed up MUST be moved to /RDrive.
 
@@ -67,7 +67,16 @@ The directories tyou can write to in /cluster are controller by SLURM.  When you
 creates directories for you to use on this filesystem. See the environment variables sections of the SLURM guide for more information. 
 
 Once you job completes, is cancelled, or errors out, SLURM removes then entire directory of your job. That means, *if you do not move your data from the /cluster 
-filesystem, you will lose all of it*. This is by design, and the HPC Team cannot recover any data lost this way.
+filesystem, you will lose all of it*. This is by design, and the HPC Team cannot recover any data lost this way. 
+
+Each college is also limited to a **hard limit** on storage that mirrors their HPC SLURM allocation. This is currently
+
+1. 45% CSE, ~18TB 
+2. 45% CMPH, ~18TB 
+3. 10% Other, ~5TB 
+
+When this quota is exeeded, no more files can be written, so be mindful of your and others usage. The HPC Team is activly monitoring and 
+improving the quota system and the above may change without warning. 
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

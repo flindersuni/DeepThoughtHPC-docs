@@ -6,8 +6,8 @@ The new Flinders University HPC is called DeepThought. This new HPC comprises of
 .. _BeeGFS Section of Storage & Usage Guidelines: storage/storageusage.html
 
 .. attention:: 
-    The new BeeGFS Parallel Filesystem mounted at /cluster has just been deployed. For instructions on the restrictions and how to
-    take advantage of the performance increase this filesystem brings, please read the `BeeGFS Section of Storage & Usage Guidelines`_.
+    The new BeeGFS Parallel Filesystem mounted at /cluster has just been deployed, but is *not yet ready for usage*. It will appear in any disk 
+    usage listings on the HPC. For further information and to prepare for when this filesystem is fully released, please read the `BeeGFS Section of Storage & Usage Guidelines`_.
 
 .. attention::
     This documentation is under active development, meaning that it can
