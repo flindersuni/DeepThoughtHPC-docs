@@ -7,3 +7,4 @@ docs/source/_build
 # Files used by Visual Code
 .vscode/settings.json
 *.code-workspace
+.venv
