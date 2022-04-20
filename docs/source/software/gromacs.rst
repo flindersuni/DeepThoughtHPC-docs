@@ -1,15 +1,18 @@
 --------
 GROMACS 
 --------
-=======
-Status
-=======
+===============
+GROMACS Status
+===============
+
 GROMACS version 2021.5 is installed and available for use on the HPC.  
 
 .. _GROMACS: https://www.gromacs.org/
-==========
-Overview 
-========== 
+
+=================
+GROMACS Overview 
+=================
+
 From `GROMACS`_: 
 
 GROMACS is a versatile package to perform molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles.
@@ -19,9 +22,9 @@ It is primarily designed for biochemical molecules like proteins, lipids and nuc
 GROMACS supports all the usual algorithms you expect from a modern molecular dynamics implementation.
 
 
-================================
-Quickstart Command Line Guide
-================================
+======================================
+GROMACS Quickstart Command Line Guide
+=======================================
 
 GROMACS uses UCX and will require a custom mpirun invocation. The module system will warn you of this when you load the module. The following is a known good starting point:
 
@@ -29,9 +32,9 @@ GROMACS uses UCX and will require a custom mpirun invocation. The module system 
 ``mpirun -mca pml ucx --mca btl ^vader,tcp,uct -x UCX_NET_DEVICES=bond0 <program> <options>``
 
 
-+++++++++++++++++++++++++
++++++++++++++++++++++++++++
 GROMACS Program Quick List
-+++++++++++++++++++++++++
++++++++++++++++++++++++++++
 
 Below is a quick reference list of the different programs that make up the GROMACS suite.
 

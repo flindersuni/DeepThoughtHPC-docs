@@ -1,9 +1,10 @@
 ------------------
 Mathworks MATLAB 
 ------------------
-=======
-Status
-=======
+===============
+MATLAB Status
+===============
+
 Matlab 2020b is the currently installed version on the HPC. 
 
 investigation is under way to enable tighter GUI integration and better workload management. 
@@ -13,7 +14,7 @@ investigation is under way to enable tighter GUI integration and better workload
 
 
 =================
-Overview 
+MATLAB Overview 
 =================
 `Mathworks MATLAB`_ is a leading mathematical analysis suite.  Coupled with their 
 Parallel Server, the new MATLAB Integration will enable the full power of DeepThought 
