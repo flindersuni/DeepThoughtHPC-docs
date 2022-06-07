@@ -1,30 +1,33 @@
 -------------------------
 Delft3D 
 -------------------------
-=======
-Status
-=======
+=====================
+Delft3D Status
+=====================
+
 Delft3D 4, Revision 65936 is installed and available for use on the HPC.
 
-.. Delft3D: 
-==========
-Overview 
-========== 
+.. _Delft3D: https://oss.deltares.nl/web/delft3d
+
+====================
+Delft3D Overview 
+====================
+
 From `Delft3D`_: 
 
 Delft3D is Open Source Software and facilitates the hydrodynamic (Delft3D-FLOW module), morphodynamic (Delft3D-MOR module), waves (Delft3D-WAVE module), water quality (Delft3D-WAQ module including the DELWAQ kernel) and particle (Delft3D-PART module) modelling
 
 
 ================================
-Known Issues
+Delft3D Known Issues
 ================================
 
-Delft3D does **not** currently support Multi-Node Execution.  The binary swan_mpi.exe will _not work and immediately crash with errors_.
+Delft3D does **not** currently support Multi-Node Execution.  The binary swan_mpi.exe will *not* work and immediately crash with errors.
 
 
-+++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++
 Delft3D Program Quick List
-+++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Below are two main binaries that are used as part of the Delft3D Suite
 

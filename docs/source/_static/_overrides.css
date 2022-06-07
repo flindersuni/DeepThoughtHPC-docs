@@ -4,3 +4,16 @@
     height: 100% !important;
     max-width: 100% !important;  
 }
+
+.wy-side-nav-search {
+    background-color: #FFD300;
+    
+}
+
+.wy-side-nav-search>a {
+    color:  #002F60;
+} 
+
+.wy-menu-vertical {
+    color:  #002F60;
+} 

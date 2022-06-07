@@ -22,7 +22,7 @@ Attribution
 If you use the HPC to form a part of your research, you should attribute your usage. 
 Flinders has minted a DOI that points to this documentation, specific for the HPC Service. It will also allow for tracking the research outputs that the HPC has contributed to.  
 
-Text Citation
+Text Citation 
 ++++++++++++++
 
 .. _ARDC Data Citation: https://ardc.edu.au/resources/working-with-data/citation-identifiers/data-citation/

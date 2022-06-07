@@ -28,7 +28,7 @@ When using a *NIX based system, using the terminal is the fastest way to upload 
 Substitute your filename, FAN and Password, type scp FILENAME FAN@deepthought.flinders.edu.au:/home/FAN then hit enter.
 Enter your password when prompted. This will put the file in your home directory on DeepThought. It looks (when substituted accordingly) similar to:
 
-![](../_static/SCPExampleImage.png)
+`scp /path/to/local/file fan@deepthought.flinders.edu.au:/path/on/deepthought/hpc/`
 
 ### The Longer Version
 
