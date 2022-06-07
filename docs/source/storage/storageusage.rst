@@ -63,7 +63,7 @@ Here is a rough guide as to what should live in your /scratch/$FAN directory. In
 
 Cluster is the new, high speed parallel filesystem for DeepThought, deployed with BeeGFS. **Please read this section carefully**. 
 
-The directories tyou can write to in /cluster are controller by SLURM.  When you job starts, SLURM sets multiple environment variables and 
+The directories you can write to in /cluster are controller by SLURM.  When you job starts, SLURM sets multiple environment variables and 
 creates directories for you to use on this filesystem. See the environment variables sections of the SLURM guide for more information. 
 
 Once you job completes, is cancelled, or errors out, SLURM removes then entire directory of your job. That means, *if you do not move your data from the /cluster 

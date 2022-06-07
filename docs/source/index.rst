@@ -78,6 +78,7 @@ Table of Contents
     software/matlab.rst
     software/singularity.rst
     software/vasp.rst
+    software/opendatacube.rst
     
  
 .. toctree::

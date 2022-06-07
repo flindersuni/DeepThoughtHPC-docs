@@ -19,6 +19,7 @@ List of Enterprise Software Suites
 .. _GROMACS: gromacs.html 
 .. _VASP: vasp.html
 .. _Delft 3D: delft3d.html
+.. _Open Data Cube: opendatacube.html
 
 1. `ANSYS`_ 
 2. `Delft 3D`_
@@ -28,4 +29,5 @@ List of Enterprise Software Suites
 6. `MATLAB`_
 7. `Singularity Containers`_ 
 8. `VASP`_
+9. `Open Data Cube`_
 
