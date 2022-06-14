@@ -17,6 +17,9 @@ The Vienna Ab initio Simulation Package (VASP) is a computer program for atomic 
 
 VASP computes an approximate solution to the many-body Schrödinger equation, either within density functional theory (DFT), solving the Kohn-Sham equations, or within the Hartree-Fock (HF) approximation, solving the Roothaan equations. Hybrid functionals that mix the Hartree-Fock approach with density functional theory are implemented as well. Furthermore, Green’s functions methods (GW quasiparticles, and ACFDT-RPA) and many-body perturbation theory (2nd-order Møller-Plesset) are available in VASP.
 
+=====================================
+VAPS Quickstart Command Line Guide
+=====================================
 
 ================================================================
 VASP Quickstart Command Line Guide

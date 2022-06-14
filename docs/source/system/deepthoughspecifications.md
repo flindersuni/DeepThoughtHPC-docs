@@ -16,7 +16,9 @@ The SLURM Scheduler as the notion of 'Job Queue' or 'Partitions'.  These manage 
 
 Scratch: ~240TB of scratch disk, mounted on all nodes
 
-Per node /local: ~400GB to 3.2TB, depending on node layout
+Cluster: 41TB of High-Speed Paralllel Fileystem Storage, mounted on all nodes
+
+Per node /local: ~400GB to 1TB, depending on node layout
 
 ## Node Breakdown
 
@@ -36,7 +38,7 @@ There are 17 General Purpose nodes, each with:
 
 ### GPU Nodes
 
-There are 3 dedicated GPU nodes. They comprise of 2 'Standard' and One 'Light' Node:
+There are 3 dedicated GPU nodes. They comprise of two 'Standard' and One 'Light' Node:
 
 #### Standard GPU Nodes
 - CPU:

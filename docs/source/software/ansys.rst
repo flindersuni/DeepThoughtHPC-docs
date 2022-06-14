@@ -1,51 +1,55 @@
 -------------------------
 ANSYS Engineering Suite 
 -------------------------
-==============
+
+=============
 ANSYS Status
-==============
+=============
+
 ANSYS 2021R2 is the current version of the ANSYS Suite installed on the HPC. Both Single-Node (-smp) and Multi-Node (-dis) execution is supported as well as GPU acceleration.
 
 
 .. _ANSYS: https://www.ansys.com/
 
-=================
+===============
 ANSYS Overview 
-=================
+===============
 The ANSYS Engineering Suite is a comprehensive software suite for engineering simulation. More information on can be found on the `ANSYS`_ website.
 
 
-================================================================
+====================================
 ANSYS Quickstart Command Line Guide
-================================================================
+====================================
 
 To run a job with ANSYS on the HPC you will need the following: 
     - An ANSYS Script file 
     - Any reference file(s) (eg, a .db file)
 
-Ensure that the paths to anything in the script file reflect where it lives on the HPC, not your local machine. Below are some exmaple command-line examples to get you started. 
+Ensure that the paths to anything in the script file reflect where it lives on the HPC, not your local machine. When running with the ``-dis`` option, you must 
+use a distributed filesystem like /scratch (or /cluster, when available) as all nodes will need to the the files, and /local is *not* visible between individual nodes. 
+Below are some example command-line examples to get you started. 
 
-Replace all <OPTIONS> to suit your requirements. 
+Replace all <OPTIONS> to suit your requirements. You can omit the > PATH_TO_OUTPUT_FILE, and SLURM will capture the ANSYS output and write it to your ``#SBATCH --output=/path/to/file.out``. 
 
 1. Shared-Memory Parallel (Single-Node)
 
 
-``ansys212 -smp -np $SLURM_NTASKS -db <DB File Memory Allocation> -m <SLURM Memory Allocation> -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE``
+``ansys212 -smp -np $SLURM_NTASKS -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE``
 
 2. Distributed Mode (Multi-Node) 
 
 
-``ansys212 -dis -np $SLURM_NTASKS -db <DB FILE Memory Allocation> -m <SLURM Memory Allocation> -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE``
+``ansys212 -dis -np $SLURM_NTASKS -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE``
 
 3. Hybrid Distributed Mode (Multi-Node Shared-Memory Parallel)
 
 
-``ansys212 -dis -np $SLURM_NTASKS -nt $SLURM_CPUS_PER_TASK -db <DB FILE Memory Allocation> -m <SLURM Memory Allocation> -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE``
+``ansys212 -dis -np $SLURM_NTASKS -nt $SLURM_CPUS_PER_TASK <SLURM Memory Allocation> -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE``
 
 4. GPU Hybrid Distributed Mode (Multi-Node Shared-Memory Parallel with GPU Acceleration)
 
 
-``ansys212 -dis -np $SLURM_NTASKS -nt $SLURM_CPUS_PER_TASK -acc nvidia -na <GPU_COUNT> -db <DB FILE Memory Allocation> -m <SLURM Memory Allocation> -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE`` 
+``ansys212 -dis -np $SLURM_NTASKS -nt $SLURM_CPUS_PER_TASK -acc nvidia -na <GPU_COUNT_PER_NODE> -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE`` 
 
 +++++++++++++++++++++++
 ANSYS CLI Quick List

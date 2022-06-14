@@ -6,7 +6,8 @@ GROMACS Status
 =======================================
 GROMACS version 2021.5 is installed and available for use on the HPC.  
 
-.. _GROMACS: https://www.gromacs.org/\
+.. _GROMACS: https://www.gromacs.org/
+
 
 ==========================================
 GROMACS Overview 
