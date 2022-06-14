@@ -44,7 +44,7 @@ Which will allow for greater details of how your score was calculated.
 
 ### Calculating Priority
 
-SLURM tracks 'Resources'. This can be nearly anything on the HPC - CPU's, Power, GPU's, Memory, Storage, Licenses, anything that people share and could use really.
+SLURM tracks 'Resources'. This can be nearly anything on the HPC - CPU's, Power, GPU's, Memory, Storage, Licenses, anything that the HPC needs to track usage and allocation.
 
 The basic premise is - you have:
 
@@ -54,7 +54,7 @@ The basic premise is - you have:
 
 Then you multiple all three together to get your end priority. So, lets say you ask for 2 GPU's (The current max you can ask for)
 
-A GPU on DeepThought (When this was written) is set to have these parameters:
+A GPU on DeepThought (when this was written) is set to have these parameters:
 
 - Weight: 5
 - Factor: 1000
@@ -73,9 +73,9 @@ To give you an idea of the _initial_ score you would get for consuming an entire
 
 **CPU**: `64 * 1 * 1000 = 64,000` (Measure Per CPU Core)
 
-**RAM**: `256 * 0.25 * 1000 = 65,536,000` (Measured Per MB)
+**RAM**: `256 * 0.25 * 1000 = 64,000` (Measured Per GB)
 
-**Total**: `65,600,000`
+**Total**: `128,000`
 
 So, its stacks up very quickly, and you really want to write your job to ask for what it needs, and not much more! This is not the number you see and should only be taken as an example.  If you want to read up on exactly how Fairshare works, then head on over to [here](https://slurm.schedmd.com/priority_multifactor.html).
 
@@ -207,9 +207,9 @@ The following variables are set per job, and can be access from your SLURM Scrip
 
 The DeepThought HPC will set some additional environment variables to manipulate some of the Operating system functions. These directories are set at job creation time and then are removed when a job completes, crashes or otherwise exists.
 
-This means that if you leave anything in $TMP or $SHM directories it will be *removed when your job finishes*.
+This means that if you leave anything in $TMP, $BGFS or $SHM directories it will be *removed when your job finishes*.
 
-To make that abundantly clear. If the Job creates `/cluster/jobs/$SLURM_JOB_USER/$SLURM_JOB_ID` it will also **delete that entire directory when the job completes**. Ensure that your last step in any job creation is to _move any data you want to keep to /scratch or /home_.
+To make that abundantly clear. If the Job creates `/cluster/jobs/$SLURM_JOB_USER/$SLURM_JOB_ID` (the $BGFS location) it will also **delete that entire directory when the job completes**. Ensure that your last step in any job creation is to _move any data you want to keep to /scratch or /home_.
 
 
 |Variable Name                |   Description                                 | Value |
@@ -261,7 +261,7 @@ To reiterate the warning above - if you leave anything in the $TMP or $SHM Direc
 
 ### Filename Patterns 
 
-Some commands will take a filename.  THe following modifiers will allow you to generate files that are substituted with different variables controlled by SLURM.
+Some commands will take a filename.  The following modifiers will allow you to generate files that are substituted with different variables controlled by SLURM.
 
 | Symbol            | Substitution |
 |-|-|
