@@ -8,3 +8,6 @@ docs/source/_build
 .vscode/settings.json
 *.code-workspace
 .venv
+.vscode/targets.log
+.vscode/dryrun.log
+.vscode/configurationCache.log

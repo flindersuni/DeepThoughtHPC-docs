@@ -34,7 +34,7 @@ As general guide, the following table presents the overall storage for the HPC.
 | /RDrive/\<Share Name> | Head Nodes               | Share Dependant         |
 +-----------------------+--------------------------+-------------------------+
 
-.. warning:: The HPC is classed as **volatile** storage. Your research data and dataset that you wanted backed up MUST be moved to /RDrive.
+.. warning:: The HPC is classed as **volatile** storage. Your research data and datasets that you wanted backed up MUST be moved to /RDrive, or off the HPC.
 
 #########################
 Usage Guidelines
@@ -60,11 +60,12 @@ Here is a rough guide as to what should live in your /scratch/$FAN directory. In
 ===========
 /cluster 
 ===========
+.. _SLURM Guide: ../SLURM/SLURMIntro.html
 
-Cluster is the new, high speed parallel filesystem for DeepThought, deployed with BeeGFS. **Please read this section carefully**. 
+Cluster is the new, high speed parallel filesystem for DeepThought, deployed using BeeGFS. It is highly recommended that you take advantage of high speeds available to reduce the I/O times associated with /scratch - so **please read this section carefully**. 
 
-The directories tyou can write to in /cluster are controller by SLURM.  When you job starts, SLURM sets multiple environment variables and 
-creates directories for you to use on this filesystem. See the environment variables sections of the SLURM guide for more information. 
+The directories you can write to in /cluster are controller by SLURM.  When you job starts, SLURM sets multiple environment variables and 
+creates directories for you to use on this filesystem. See the environment variables sections of the `SLURM Guide`_ for more information. 
 
 Once you job completes, is cancelled, or errors out, SLURM removes then entire directory of your job. That means, *if you do not move your data from the /cluster 
 filesystem, you will lose all of it*. This is by design, and the HPC Team cannot recover any data lost this way. 
@@ -75,7 +76,7 @@ Each college is also limited to a **hard limit** on storage that mirrors their H
 2. 45% CMPH, ~18TB 
 3. 10% Other, ~5TB 
 
-When this quota is exeeded, no more files can be written, so be mindful of your and others usage. The HPC Team is activly monitoring and 
+When this quota is exceeded, no more files can be written, so be mindful of your and others usage. The HPC Team is actively monitoring and 
 improving the quota system and the above may change without warning. 
 
 
@@ -90,7 +91,7 @@ What to store in /cluster?
 =======
 /Home
 =======
-Your 'home' directories. This is a small amount of storage to store your small bits and pieces. This is the analogous to the Windows 'Documents' folder. At a command promp, your home directory will be shortened to ~/.
+Your 'home' directories. This is a small amount of storage to store your small bits and pieces. This is the analogous to the Windows 'Documents' folder. At a command prompt, your home directory will be shortened to ~/.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^
 What to store in /home

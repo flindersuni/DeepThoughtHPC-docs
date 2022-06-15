@@ -4,3 +4,35 @@
     height: 100% !important;
     max-width: 100% !important;  
 }
+
+.wy-side-nav-search {
+    background-color: #FFD300;
+}
+.wy-side-nav-search>a {
+    color: #002F60;
+}
+
+.wy-menu-vertical {
+    background-color:  #002F60;
+}
+
+.wy-nav-side {
+    background:  #002F60;
+    color: #002F60;
+}
+
+.wy-menu-vertical header, .wy-menu-vertical p.caption {
+    color: #F6EEE1;
+}
+
+.wy-menu-vertical a:hover {
+    background-color: #21509F;
+}
+
+a {
+    color: #002F60;
+}
+
+.wy-menu-vertical a {
+    color: #b7B7b7;
+}

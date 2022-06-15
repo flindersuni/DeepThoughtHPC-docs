@@ -3,11 +3,11 @@ Welcome to the DeepThought HPC
 
 The new Flinders University HPC is called DeepThought. This new HPC comprises of AMD EPYC based hardware and next-generation management software, allowing for a dynamic and agile HPC service. 
 
-.. _BeeGFS Section of Storage & Usage Guidelines: storage/storageusage.html
+.. _/cluster: storage/storageusage.html
 
 .. attention:: 
-    The new BeeGFS Parallel Filesystem mounted at /cluster has just been deployed, but is *not yet ready for usage*. It will appear in any disk 
-    usage listings on the HPC. For further information and to prepare for when this filesystem is fully released, please read the `BeeGFS Section of Storage & Usage Guidelines`_.
+    The new BeeGFS Parallel Filesystem mounted at /cluster has just been deployed, and is **now ready for usage**. It will appear in any disk 
+    usage listings on the HPC. For further information please read the `/cluster`_ section of the Storage Usage & Guidelines.
 
 .. attention::
     This documentation is under active development, meaning that it can
@@ -22,7 +22,7 @@ Attribution
 If you use the HPC to form a part of your research, you should attribute your usage. 
 Flinders has minted a DOI that points to this documentation, specific for the HPC Service. It will also allow for tracking the research outputs that the HPC has contributed to.  
 
-Text Citation
+Text Citation 
 ++++++++++++++
 
 .. _ARDC Data Citation: https://ardc.edu.au/resources/working-with-data/citation-identifiers/data-citation/
@@ -78,6 +78,7 @@ Table of Contents
     software/matlab.rst
     software/singularity.rst
     software/vasp.rst
+    software/opendatacube.rst
     
  
 .. toctree::
