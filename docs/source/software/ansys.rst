@@ -55,8 +55,6 @@ Replace all <OPTIONS> to suit your requirements. You can omit the > PATH_TO_OUTP
 ++++++++++++++++++++++++++++++++++++++++++++++
 ANSYS APDL CLI Quick List
 ++++++++++++++++++++++++++++++++++++++++++++++
-The following is a quick list of some of the common CLI options.
-
 
 +-------------------+--------------------------------------------------------------------------------------------------------------------+
 | CLI Option        | Description                                                                                                        |
@@ -103,26 +101,51 @@ To run a job using ANSYS Fluent you will need:
     - Shape Files 
     - Mesh Files 
 
-As with APDL, Ensure that the paths to anything in the script file reflect where it lives on the HPC, 
+As with APDL, ensure that the paths to anything in the script file reflect where it lives on the HPC, 
 not your local machine. When running with the -dis option, you must use a distributed filesystem like 
 /scratch (or $BGFS) as all nodes will need to the the files, and /local is not visible between individual nodes. 
 Below are some example command-line examples to get you started.
 
 There are less modes of operation than ANSYS APDL. You must specify the solver type along with any options. 
 
-1. Single-Node Parallel, 3-Dimensional, Double-Precision Solver, No GUI or Graphics, Hidden Mesh, 62 Processes, CPU Only
+1. Single-Node Parallel, 3-Dimensional, Double-Precision Solver, No GUI or Graphics, Hidden Mesh, 64 Processes, CPU Only
 
-``fluent 3ddp -g -nm -t 62 -mpi=openmpi -i /path/to/TUI/journal/file``
+``fluent 3ddp -g -nm -t 64 -mpi=openmpi -i /path/to/TUI/journal/file``
 
-2. Single-Node Parallel, 3-Dimensional, Single-Precision Solver, No GUI or Graphics, Hidden Mesh, 62 Processes, 2 GPU's per Compute Node
+2. Single-Node Parallel, 3-Dimensional, Single-Precision Solver, No GUI or Graphics, Hidden Mesh, 64 Processes, 2 GPU's per Compute Node
 
-``fluent 3d -g -nm -t 62 -mpi=openmpi -gpgpu=2 -i /path/to/TUI/journal/file``
+``fluent 3d -g -nm -t 64 -mpi=openmpi -gpgpu=2 -i /path/to/TUI/journal/file``
 
         Important Note: **gpugpu=X** must be divisible evenly with **-t <X>**, or GPU Acceleration will be **disabled**. 
+
+========================================================================
+SLURM Task Layout and CLI Requirements 
+========================================================================
+
+When designing your SLURM scripts, you must follow the these guidelines, due to how ANSYS Fluent structures its MPI Calls. If you do no, your Fluent 
+run will not run with the expected core-count! 
+
+1. Do **NOT** force a node constraint on SLURM via #SBATCH -N 1 or #SBATCH --nodes=1, unless you know *exactly* what you are doing
+
+    ``GPU Acceleration may require this, contact the HPC Team for assitance if you are unsure``
+
+
+2. You **MUST** use #SBATCH --ntasks=X and #SBATCH --cpus-per-task=1 to allocate CPUS, *not* #SBATCH --ntasks=1 --cpus-per-task=X 
+
+    ``#SBATCH --ntasks=64 and #SBATCH --cpus-per-task=1 will get you 64 CPUS, in 64 Tasks``
+
+3. You **MUST** use #SBATCH --mem-per-cpu instead of#SBATCH  --mem= to prevent unintended memory allocation layouts
+   
+    ``#SBATCH --mem-per-cpu=3G``
+
+4. You **MUST** use the -mpi=openmpi flag when running fluent. The Default IntelMPI will not work, and hand indefinitely. 
+
+
 
 ++++++++++++++++++++++++++++++++++++++++++++++
 ANSYS Fluent CLI Solver List 
 ++++++++++++++++++++++++++++++++++++++++++++++
+
 +------------+----------------------------------------+
 | CLI Option | Description                            |
 +============+========================================+
@@ -186,7 +209,7 @@ ANSYS Fluent CLI Quick List
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 ANSYS CLI Program Quick List
 ++++++++++++++++++++++++++++++++++++++++++++++++++
-The following table lists the ANSYS programs and their associated CLI command.
+The following table lists the Global ANSYS programs and their associated CLI command.
 
 
 +-----------------+-----------------------+
