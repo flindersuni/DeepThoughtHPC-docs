@@ -143,7 +143,7 @@ run will not run with the expected core-count!
 5. You **MUST** Create your Journal File in TUI Mode, via the Command-Line or it *will not work*.
 6. You **MUST** alter all paths in the TUI Journal File to use ``/`` instead of ``\``, or it *will not work* 
 7. You **MUST** alter all paths in the TUI Journal File to be ``/absolute/path/to/your/file``,  or it *will not work*
-8. You **MUST** replace the final command of ``/close-fluent`` with ``exit Y`` or your *job will hand until it times out and SLURM kills it*
+8. You **MUST** replace the final command of ``/close-fluent`` with ``/exit Y`` or your *job will hang until it times out and SLURM kills it*
 
 
 ++++++++++++++++++++++++++++++++++++++++++++++
