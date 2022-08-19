@@ -6,22 +6,23 @@ ANSYS Engineering Suite
 ANSYS Status
 =============
 
-ANSYS 2021R2 is the current version of the ANSYS Suite installed on the HPC. Both Single-Node (-smp) and Multi-Node (-dis) execution is supported as well as GPU acceleration.
-
+ANSYS 2021R2 is the current version of the ANSYS Suite installed on the HPC. Both Single-Node (-smp) and Multi-Node (-dis) execution is supported as well as GPU acceleration. 
 
 .. _ANSYS: https://www.ansys.com/
 
-===============
-ANSYS Overview 
-===============
-The ANSYS Engineering Suite is a comprehensive software suite for engineering simulation. More information on can be found on the `ANSYS`_ website.
+==============================
+Before You Start
+==============================
+
+APDL, Fluent and the EM Suite / HFSS all have a common requirement. All script, journal or run files **must** have been generated in *TUI* Mode. This means that all command must been created, and saved via the 
+programs' Command Line Interface. An example of this is - in Fluent, you **cannot** use the "Journal Recording" function via the GUI. When running the job, the GUI will not be available and Fluent **will fail**. 
 
 
-====================================
-ANSYS Quickstart Command Line Guide
-====================================
+========================================================================
+ANSYS APDL Quickstart Command Line Guide
+========================================================================
 
-To run a job with ANSYS on the HPC you will need the following: 
+To run a job with ANSYS APDL on the HPC you will need the following: 
     - An ANSYS Script file 
     - Any reference file(s) (eg, a .db file)
 
@@ -51,11 +52,9 @@ Replace all <OPTIONS> to suit your requirements. You can omit the > PATH_TO_OUTP
 
 ``ansys212 -dis -np $SLURM_NTASKS -nt $SLURM_CPUS_PER_TASK -acc nvidia -na <GPU_COUNT_PER_NODE> -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE`` 
 
-+++++++++++++++++++++++
-ANSYS CLI Quick List
-+++++++++++++++++++++++
-The following is a quick list of some of the common CLI options.
-
+++++++++++++++++++++++++++++++++++++++++++++++
+ANSYS APDL CLI Quick List
+++++++++++++++++++++++++++++++++++++++++++++++
 
 +-------------------+--------------------------------------------------------------------------------------------------------------------+
 | CLI Option        | Description                                                                                                        |
@@ -93,11 +92,124 @@ The following is a quick list of some of the common CLI options.
 | \> /path/file.out | Path to store ANSYS Output to file                                                                                 |
 +-------------------+--------------------------------------------------------------------------------------------------------------------+
 
+========================================================================
+ANSYS Fluent Quickstart Command Line Guide
+========================================================================
 
-+++++++++++++++++++++++++
-ANSYS Program Quick List
-+++++++++++++++++++++++++
-The following table lists the ANSYS programs and their associated CLI command.
+To run a job using ANSYS Fluent you will need: 
+    - Journal File(s) (TUI Mode *only*)
+    - Shape Files 
+    - Mesh Files 
+
+As with APDL, ensure that the paths to anything in the script file reflect where it lives on the HPC, 
+not your local machine. When running with the -dis option, you must use a distributed filesystem like 
+/scratch (or $BGFS) as all nodes will need to the the files, and /local is not visible between individual nodes. 
+Below are some example command-line examples to get you started.
+
+There are less modes of operation than ANSYS APDL. You must specify the solver type along with any options. 
+
+1. Single-Node Parallel, 3-Dimensional, Double-Precision Solver, No GUI or Graphics, Hidden Mesh, 64 Processes, CPU Only
+
+``fluent 3ddp -g -nm -t 64 -mpi=openmpi -i /path/to/TUI/journal/file``
+
+2. Single-Node Parallel, 3-Dimensional, Single-Precision Solver, No GUI or Graphics, Hidden Mesh, 64 Processes, 2 GPU's per Compute Node
+
+``fluent 3d -g -nm -t 64 -mpi=openmpi -gpgpu=2 -i /path/to/TUI/journal/file``
+
+        Important Note: **gpugpu=X** must be divisible evenly with **-t <X>**, or GPU Acceleration will be **disabled**. 
+
+========================================================================
+SLURM Task Layout and CLI Requirements 
+========================================================================
+
+When designing your SLURM scripts, you must follow the these guidelines, due to how ANSYS Fluent structures its MPI Calls. If you do no, your Fluent 
+run will not run with the expected core-count! 
+
+1. Do **NOT** force a node constraint on SLURM via #SBATCH -N 1 or #SBATCH --nodes=1, unless you know *exactly* what you are doing
+
+    ``GPU Acceleration may require this, contact the HPC Team for assitance if you are unsure``
+
+
+2. You **MUST** use #SBATCH --ntasks=X and #SBATCH --cpus-per-task=1 to allocate CPUS, *not* #SBATCH --ntasks=1 --cpus-per-task=X 
+
+    ``#SBATCH --ntasks=64 and #SBATCH --cpus-per-task=1 will get you 64 CPUS, in 64 Tasks``
+
+3. You **MUST** use #SBATCH --mem-per-cpu instead of#SBATCH  --mem= to prevent unintended memory allocation layouts
+   
+    ``#SBATCH --mem-per-cpu=3G``
+
+4. You **MUST** use the -mpi=openmpi flag when running fluent. The Default IntelMPI will not work, and hand indefinitely. 
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++
+ANSYS Fluent CLI Solver List 
+++++++++++++++++++++++++++++++++++++++++++++++
+
++------------+----------------------------------------+
+| CLI Option | Description                            |
++============+========================================+
+| 3ddp       | 3-Dimensional, Double Precision Solver |
++------------+----------------------------------------+
+| 3d         | 3-Dimensional, Single Precision Solver |
++------------+----------------------------------------+
+| 2ddp       | 2-Dimensional, Double Precision Solver |
++------------+----------------------------------------+
+| 2d         | 2-Dimensional, Single Precision Solver |
++------------+----------------------------------------+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++
+ANSYS Fluent CLI Quick List 
+++++++++++++++++++++++++++++++++++++++++++++++
+
++---------------------------------+-----------------------------------------------------------------+
+| CLI Option                      | Description                                                     |
++=================================+=================================================================+
+| -aas                            | Start Fluent in 'Server' Mode                                   |
++---------------------------------+-----------------------------------------------------------------+
+| -affinity=<core or sock or off> | Override the automatic process affinity settings                |
++---------------------------------+-----------------------------------------------------------------+
+| -app=                           | Load the specified app                                          |
++---------------------------------+-----------------------------------------------------------------+
+| -cflush                         | Clear the System RAM by asking the OS to flush the File-Buffers |
++---------------------------------+-----------------------------------------------------------------+
+| -driver=<opengl or x11 or null> | Override the automatic driver detection for Graphics            |
++---------------------------------+-----------------------------------------------------------------+
+| -g                              | Run without GUI or Graphics                                     |
++---------------------------------+-----------------------------------------------------------------+
+| -gpgpu=<X>                      | Specify the Number of GPU's per Node (Max 2)                    |
++---------------------------------+-----------------------------------------------------------------+
+| -gr                             | Run without Graphics                                            |
++---------------------------------+-----------------------------------------------------------------+
+| -gu                             | Run without the GUI                                             |
++---------------------------------+-----------------------------------------------------------------+
+| -i /path/to/journal/file        | Read and Execute the specified Journal File                     |
++---------------------------------+-----------------------------------------------------------------+
+| -mpi=openmpi                    | Must be set to OpenMPI. IntelMPI will not work                  |
++---------------------------------+-----------------------------------------------------------------+
+| -nm                             | Do not display mesh after reading                               |
++---------------------------------+-----------------------------------------------------------------+
+| -post                           | Run post-processing only                                        |
++---------------------------------+-----------------------------------------------------------------+
+| -prepost                        | Run pre-post only                                               |
++---------------------------------+-----------------------------------------------------------------+
+| -r                              | List all releases/program                                       |
++---------------------------------+-----------------------------------------------------------------+
+| -r<V>                           | Use the specified version                                       |
++---------------------------------+-----------------------------------------------------------------+
+| -t <X>                          | Specify the number of Processors                                |
++---------------------------------+-----------------------------------------------------------------+
+| -tm                             | Specify the number of Processes for Meshing                     |
++---------------------------------+-----------------------------------------------------------------+
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+ANSYS CLI Program Quick List
+++++++++++++++++++++++++++++++++++++++++++++++++++
+The following table lists the Global ANSYS programs and their associated CLI command.
 
 
 +-----------------+-----------------------+
@@ -105,7 +217,7 @@ The following table lists the ANSYS programs and their associated CLI command.
 +=================+=======================+
 | Mechanical ADPL | ansys212, ansys2021R2 |
 +-----------------+-----------------------+
-| Workbench       | runwb2                |
+| ANSYS Workbench | runwb2                |
 +-----------------+-----------------------+
 | CFX             | cfx5                  |
 +-----------------+-----------------------+
