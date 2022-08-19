@@ -148,6 +148,9 @@ run will not run with the expected core-count!
 ANSYS Fluent CLI Solver List 
 ++++++++++++++++++++++++++++++++++++++++++++++
 
+You must match the solver mode to the mode you created the mesh with.  If you attempt to solve a Double-Precision Mesh with a Single-Precision solver, 
+Fluent will crash.
+
 +------------+----------------------------------------+
 | CLI Option | Description                            |
 +============+========================================+
