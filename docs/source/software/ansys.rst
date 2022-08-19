@@ -129,18 +129,16 @@ run will not run with the expected core-count!
 
     ``GPU Acceleration may require this, contact the HPC Team for assitance if you are unsure``
 
-
 2. You **MUST** use #SBATCH --ntasks=X and #SBATCH --cpus-per-task=1 to allocate CPUS, *not* #SBATCH --ntasks=1 --cpus-per-task=X 
 
     ``#SBATCH --ntasks=64 and #SBATCH --cpus-per-task=1 will get you 64 CPUS, in 64 Tasks``
 
-3. You **MUST** use #SBATCH --mem-per-cpu instead of#SBATCH  --mem= to prevent unintended memory allocation layouts
+3. You **MUST** use #SBATCH --mem-per-cpu= instead of #SBATCH --mem= to prevent unintended memory allocation layouts
    
     ``#SBATCH --mem-per-cpu=3G``
 
 4. You **MUST** use the -mpi=openmpi flag when running fluent. The Default IntelMPI *will not work*, and hangs indefinitely 
-
-5. You **MUST** Create your Journal File in TUI Mode, via the Command-Line or it *will not work*.
+5. When recording your Journal File, you **MUST** input the commands via the Command-Line or it *will not work*.
 6. You **MUST** alter all paths in the TUI Journal File to use ``/`` instead of ``\``, or it *will not work* 
 7. You **MUST** alter all paths in the TUI Journal File to be ``/absolute/path/to/your/file``,  or it *will not work*
 8. You **MUST** replace the final command of ``/close-fluent`` with ``/exit Y`` or your *job will hang until it times out and SLURM kills it*
