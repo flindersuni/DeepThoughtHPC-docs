@@ -40,17 +40,17 @@ Replace all <OPTIONS> to suit your requirements. You can omit the > PATH_TO_OUTP
 2. Distributed Mode (Multi-Node) 
 
 
-``ansys212 -dis -np $SLURM_NTASKS -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE``
+``ansys212 -dis -mpi openmpi -np $SLURM_NTASKS -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE``
 
 3. Hybrid Distributed Mode (Multi-Node Shared-Memory Parallel)
 
 
-``ansys212 -dis -np $SLURM_NTASKS -nt $SLURM_CPUS_PER_TASK <SLURM Memory Allocation> -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE``
+``ansys212 -dis -mpi openmpi -np $SLURM_NTASKS -nt $SLURM_CPUS_PER_TASK <SLURM Memory Allocation> -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE``
 
 4. GPU Hybrid Distributed Mode (Multi-Node Shared-Memory Parallel with GPU Acceleration)
 
 
-``ansys212 -dis -np $SLURM_NTASKS -nt $SLURM_CPUS_PER_TASK -acc nvidia -na <GPU_COUNT_PER_NODE> -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE`` 
+``ansys212 -dis -mpi openmpi -np $SLURM_NTASKS -nt $SLURM_CPUS_PER_TASK -acc nvidia -na <GPU_COUNT_PER_NODE> -b -s < PATH_TO_SCRIPT_FILE > PATH_TO_OUTPUT_FILE`` 
 
 ++++++++++++++++++++++++++++++++++++++++++++++
 ANSYS APDL CLI Quick List
