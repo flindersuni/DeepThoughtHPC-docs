@@ -59,7 +59,7 @@ Open Data Cube Advanced Installation Guide
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 As the Open Data Cube is quite complicated, sometimes Conda can have trouble resolving the dependencies. In this case, we can manually install many of them, before we install the Data Cube itself. 
 
-1. 1. If you have not performed an initial ``conda init bash``, issue ``module load Miniconda3`` followed by ``conda init bash``, then log-out and log-in the HPC.
+1. 1. If you have not performed an initial ``conda init bash``, issue ``module load Miniconda3`` followed by ``conda init bash``, then log-out and log back in to the HPC.
 2. ``conda create --name=odc python=3.9``
 3. ``conda activate odc``
 4. ``conda config --add channels conda-forge``
