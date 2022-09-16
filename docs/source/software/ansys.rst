@@ -14,7 +14,7 @@ ANSYS 2021R2 is the current version of the ANSYS Suite installed on the HPC. Bot
 Before You Start
 ==============================
 
-APDL, Fluent and the EM Suite / HFSS all have a common requirement. All script, journal or run files **must** have been generated in *TUI* Mode. This means that all command must been created, and saved via the 
+APDL, Fluent and the EM Suite / HFSS all have a common requirement. All script, journal or run files **must** have been generated in *TUI* Mode. This means that all commands must been created, and saved via the 
 programs' Command Line Interface. An example of this is - in Fluent, you **cannot** use the "Journal Recording" function via the GUI. When running the job, the GUI will not be available and Fluent **will fail**. 
 
 

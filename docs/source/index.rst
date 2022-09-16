@@ -3,11 +3,10 @@ Welcome to the DeepThought HPC
 
 The new Flinders University HPC is called DeepThought. This new HPC comprises of AMD EPYC based hardware and next-generation management software, allowing for a dynamic and agile HPC service. 
 
-.. _/cluster: storage/storageusage.html
-
 .. attention:: 
-    The new BeeGFS Parallel Filesystem mounted at /cluster has just been deployed, and is **now ready for usage**. It will appear in any disk 
-    usage listings on the HPC. For further information please read the `/cluster`_ section of the Storage Usage & Guidelines.
+    The new HPC Dashboard has been released. The default, 2-Week Window 'Quick View' can be accessed at https://deepweb.flinders.edu.au/,
+    https://deepweb.flinders.edu.au/public-dashboards/9f967160b3d0441c8fe9c7eee9f231c5, or https://deepweb.flinders.edu.au/dtdash/. 
+    Be advised the the 'full' version ('/dtdash') will be removed in the future. 
 
 .. attention::
     This documentation is under active development, meaning that it can
@@ -47,6 +46,37 @@ The following files are provided for integration into your reference manager of 
 - RIS_
 
 
+
+.. _Default URL: https://deepweb.flinders.edu.au/
+.. _Public Dashboard: https://deepweb.flinders.edu.au/public-dashboards/9f967160b3d0441c8fe9c7eee9f231c5
+.. _Full Version: https://deepweb.flinders.edu.au/dtdash
+
+
+HPC Visual Dashboard
++++++++++++++++++++++++++++
+DeepThought has a time-series based visual statistics dashboard that be viewed via a web-browser while on campus.  
+
+THe 'Default' and 'Public' URL's are using an *Alpha Release* feature set, and may not display correctly. In that case, please use the 
+'Full Version' link, and any display strangeness will be resolved. 
+
+The following URLS all link to the dashboard. 
+
+1. `Default URL`_ 
+2. `Public Dashboard`_ 
+3. `Full Version`_  
+
+
+The 'Full Version' has the capability to change the time-period viewed, and will be removed when the 'Public' and 'Default' feature set reach 
+maturity. 
+
+A screen shot of a small portion of the Dashboard is below.
+
+.. figure:: _static/GrafanaDashSnapshot.png
+    :align: center
+    :alt: HPC Visual Statistics Dashboard
+
+
+
 Table of Contents
 ====================
 
@@ -71,6 +101,7 @@ Table of Contents
 
     software/softwaresuitesoverview.rst
     software/ansys.rst
+    software/cststudio.rst
     software/delft3d.rst 
     software/gromacs.rst
     software/jupyter.rst
