@@ -27,7 +27,7 @@ To run a job with ANSYS APDL on the HPC you will need the following:
     - Any reference file(s) (eg, a .db file)
 
 Ensure that the paths to anything in the script file reflect where it lives on the HPC, not your local machine. When running with the ``-dis`` option, you must 
-use a distributed filesystem like /scratch (or /cluster, when available) as all nodes will need to the the files, and /local is *not* visible between individual nodes. 
+use a distributed filesystem like /scratch or /cluster, as all nodes will need to the the files, and /local is *not* visible between individual nodes. 
 Below are some example command-line examples to get you started. 
 
 Replace all <OPTIONS> to suit your requirements. You can omit the > PATH_TO_OUTPUT_FILE, and SLURM will capture the ANSYS output and write it to your ``#SBATCH --output=/path/to/file.out``. 
@@ -127,15 +127,15 @@ run will not run with the expected core-count!
 
 1. Do **NOT** force a node constraint on SLURM via #SBATCH -N 1 or #SBATCH --nodes=1, unless you know *exactly* what you are doing
 
-    ``GPU Acceleration may require this, contact the HPC Team for assitance if you are unsure``
+``GPU Acceleration may require this, contact the HPC Team for assitance if you are unsure``
 
 2. You **MUST** use #SBATCH --ntasks=X and #SBATCH --cpus-per-task=1 to allocate CPUS, *not* #SBATCH --ntasks=1 --cpus-per-task=X 
 
-    ``#SBATCH --ntasks=64 and #SBATCH --cpus-per-task=1 will get you 64 CPUS, in 64 Tasks``
+``#SBATCH --ntasks=64 and #SBATCH --cpus-per-task=1 will get you 64 CPUS, in 64 Tasks``
 
 3. You **MUST** use #SBATCH --mem-per-cpu= instead of #SBATCH --mem= to prevent unintended memory allocation layouts
    
-    ``#SBATCH --mem-per-cpu=3G``
+``#SBATCH --mem-per-cpu=3G``
 
 4. You **MUST** use the -mpi=openmpi flag when running fluent. The Default IntelMPI *will not work*, and hangs indefinitely 
 5. When recording your Journal File, you **MUST** input the commands via the Command-Line or it *will not work*.
@@ -241,4 +241,55 @@ The following table lists the Global ANSYS programs and their associated CLI com
 | AUTODYN         | autodyn212            |
 +-----------------+-----------------------+
 
+
+========================================================================
+ANSYS EDT (Formerly, HFSS) Quickstart Command Line Guide
+========================================================================
+
+To run a job with ANSYS Electronics Desktop (Formerly, HFSS) on the HPC you will need the following: 
+    - Your .aedt File
+
+Ensure that the paths to anything in the script file reflect where it lives on the HPC, not your local machine. 
+Below are some example command-line examples to get you started. 
+
+1. The general format of a ANSYS EDT Command is: 
+
+``ansysedt <options> <run command> <project name/script name>``
+
+2. Single-Node Execution, No GPU 
+
+``ansysedt -ng -batchsolve -Distributed -machinelist list="$SLURM_NODELIST:$SLURM_NTASKS:$SLURM_CPUS_PER_TASK -monitor /path/to/project.aedt"``
+
+3. Single-Node Execution, GPU Enabled 
+
+``ansysedt -ng -batchsolve -Distributed --achinelist list="$SLURM_NODELIST:$SLURM_NTASKS:$SLURM_CPUS_PER_TASK -monitor -batchoptions "EnbleGPU=1"  /path/to/project.aedt``
+
+
+1. Multi-Node
+
+``Under Testing``
+
+++++++++++++++++++++++++++++++++++++++++++++++
+ANSYS EDT CLI Quick List 
+++++++++++++++++++++++++++++++++++++++++++++++
+
+All of these options have expanded options for specific use cases. If you need the options, please contact the HPC Team. 
+
++---------------------------------------+------------------------------------------------------------------------------------+
+| CLI Option                            | Description                                                                        |
++=======================================+====================================================================================+
+| -batchsolve                           | Enable Batch Solving                                                               |
++---------------------------------------+------------------------------------------------------------------------------------+
+| -ng                                   | Disable GUI, Required for SLURM Jobs                                               |
++---------------------------------------+------------------------------------------------------------------------------------+
+| -Local / -Remote / -Distributed       | Solver distribution Type, prefer -Distributed                                      |
++---------------------------------------+------------------------------------------------------------------------------------+
+| -machinelist list="host:tasks:cpus"   | Define the Machine List for Distributed tasks. Required for -Distributed           |
++---------------------------------------+------------------------------------------------------------------------------------+
+| -machinelist file="/path/to/file"     | Instead of a CLI option, define a file to use as the Machine list for -Distributed |
++---------------------------------------+------------------------------------------------------------------------------------+
+| -batchoptions="option1=value,options" | Specific batch options. A useful one: EnableGPU=1                                  |
++---------------------------------------+------------------------------------------------------------------------------------+
+| -monitor                              | Print progress to STDOUT                                                           |
++---------------------------------------+------------------------------------------------------------------------------------+
 
