@@ -43,23 +43,24 @@ Python 3.10 *will* **not** *work*, due to dependency incompatibility. Specifical
 Conda Environment Preparation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Ensure you have a named Conda environment that is loadable by ``conda activate <ENVIRONMENT_NAME>``
-2. Ensure that the python version used by the environment is Python 3.9 or less.'
-3. Log onto the HPC via SSH and activate your Conda environment ``conda activate <ENVIRONMENT_NAME>`` (You can also use the JupyterHub 'Terminal' to do this)
-4. Execute the following commands: 
-    a. ``python3 -m pip install cm-jupyter-eg-kernel-wlm`` 
+1. If you have not performed an initial ``conda init bash``, issue ``module load Miniconda3`` followed by ``conda init bash``, the log-out and log-in the HPC.
+2. Ensure you have a named Conda environment that is loadable by ``conda activate <ENVIRONMENT_NAME>``
+3. Ensure that the python version used by the environment is Python 3.9 or less.'
+4. Log onto the HPC via SSH and activate your Conda environment ``conda activate <ENVIRONMENT_NAME>`` (You can also use the JupyterHub 'Terminal' to do this)
+5. Execute the following commands: 
+    a. ``python3 -m pip install cm-jupyter-eg-kernel-wlm bash-kernel`` 
     b. ``conda install ipython ipython_genutils``
-5. Log into Jupyter Hub with your FAN and password at the `Jupyter URL`_
-6. Using the bar on the Left-hand side, select small green symbol
-7. Create a new Kernel based on the 'CONDA via SLURM' template. 
+6. Log into Jupyter Hub with your FAN and password at the `Jupyter URL`_
+7. Using the bar on the Left-hand side, select small green symbol
+8.  Create a new Kernel based on the 'CONDA via SLURM' template. 
     a. Ensure you select any additional modules you need, like GDAL 
     b. Ensure that you select the correct Conda environment to initialise 
-8. Use the Kernel in your Jupyter Notebooks
+9.  Use the Kernel in your Jupyter Notebooks
 
 For Reference, the below image shows the Kernel Template Screen. 
 
 .. figure:: ../_static/jupyter-kernel-template.png
-    :align: left
+    :align: center
     :alt: Jupyter Hub Kernel Template Screen
     
 

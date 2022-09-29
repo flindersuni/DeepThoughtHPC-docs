@@ -50,7 +50,7 @@ The Open Data Cube is best installed into a Conda Environment, allowing you to u
 1. Follow the Jupyter Conda Setup, if you wish to use the ODC via the JupyterHub instance
 2. ``conda install datacube``. If this step hangs for more that 5 minutes, then follow the 'Advanced Installation Guide' further down this page to get split the install into smaller parts
 3. Raise a ServiceOne request for 'Access to the Open Data Cube'
-4. Place the provided configuration file in the following location on the HPC /home/<FAN>/.datacube.conf 
+4. Place the provided configuration file in the following location on the HPC: ``/home/<FAN>/.datacube.conf``
 5. Activate your Conda environment, and run ``datacube system check`` to verify that your ODC connects correctly
 
 
@@ -59,13 +59,15 @@ Open Data Cube Advanced Installation Guide
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 As the Open Data Cube is quite complicated, sometimes Conda can have trouble resolving the dependencies. In this case, we can manually install many of them, before we install the Data Cube itself. 
 
-1. ``conda create --name=odc python=3.9``
-2. ``conda install affine pyproj shapely cachetools click``
-3. ``conda install cloudpickle dask[array] distributed jsonschema netcdf4``
-4. ``conda install numpy psycopg2 lark-parser pandas python-dateutil``
-5. ``conda install pyyaml rasterio sqlalchemy toolz xarray\``
-6. ``conda install datacube``
-7. Raise a ServiceOne request for 'Access to the Open Data Cube'
-8. Place the provided configuration file in the following location on the HPC /home/<FAN>/.datacube.conf 
-9. Activate your Conda environment, and run ``datacube system check`` to verify that your ODC connects correctly 
-10. 
+1. 1. If you have not performed an initial ``conda init bash``, issue ``module load Miniconda3`` followed by ``conda init bash``, then log-out and log back in to the HPC.
+2. ``conda create --name=odc python=3.9``
+3. ``conda activate odc``
+4. ``conda config --add channels conda-forge``
+5. ``conda install affine pyproj shapely cachetools click``
+6. ``conda install cloudpickle dask[array] distributed jsonschema netcdf4``
+7. ``conda install numpy psycopg2 lark-parser pandas python-dateutil``
+8. ``conda install pyyaml rasterio sqlalchemy toolz xarray``
+9. ``conda install datacube``
+10. Raise a ServiceOne request for 'Access to the Open Data Cube'
+11. Place the provided configuration file in the following location on the HPC /home/<FAN>/.datacube.conf 
+12. Activate your Conda environment, and run ``datacube system check`` to verify that your ODC connects correctly 
