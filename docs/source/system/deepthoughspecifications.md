@@ -34,7 +34,7 @@ There are 17 General Purpose nodes, each with:
 - RAM:
   - 256GB DDR4 @ 2666Mhz
 - Local Storage
-  - ~3.2TB of NVMe SSD's
+  - 1TB of NVMe SSD's
 
 ### GPU Nodes
 
@@ -48,7 +48,7 @@ There are 3 dedicated GPU nodes. They comprise of two 'Standard' and One 'Light'
 - GPU:
   - 2 x TESLA V100 w/ 32GB VRAM
 - Local Storage
-  - 3.2TB of NVMe
+  - 1TB of NVMe
 
 #### Light GPU Node
 - CPU:
@@ -58,7 +58,7 @@ There are 3 dedicated GPU nodes. They comprise of two 'Standard' and One 'Light'
 - GPU:
   - 1 x TESLA V100 w/ 32GB VRAM
 - Local Storage
-  - 1.5TB of NVMe
+  - 1TB of NVMe
 
 ### High Capacity Node
 
@@ -69,7 +69,7 @@ There is are 3 High-Capacity nodes with:
 - RAM:
   - 2TB (1.8TB) DDR4 @ 3200Mhz
 - Local Storage
-  - 2.6TB of NVMe
+  - 1TB of NVMe
 
 ### Private Nodes
 

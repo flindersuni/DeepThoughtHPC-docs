@@ -262,7 +262,7 @@ Below are some example command-line examples to get you started.
 
 3. Single-Node Execution, GPU Enabled 
 
-``ansysedt -ng -batchsolve -Distributed --achinelist list="$SLURM_NODELIST:$SLURM_NTASKS:$SLURM_CPUS_PER_TASK -monitor -batchoptions "EnbleGPU=1"  /path/to/project.aedt``
+``ansysedt -ng -batchsolve -Distributed --machinelist list="$SLURM_NODELIST:$SLURM_NTASKS:$SLURM_CPUS_PER_TASK -monitor -batchoptions "EnbleGPU=1"  /path/to/project.aedt``
 
 
 1. Multi-Node

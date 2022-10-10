@@ -56,7 +56,7 @@ HPC Visual Dashboard
 +++++++++++++++++++++++++++
 DeepThought has a time-series based visual statistics dashboard that be viewed via a web-browser while on campus.  
 
-THe 'Default' and 'Public' URL's are using an *Alpha Release* feature set, and may not display correctly. In that case, please use the 
+The 'Default' and 'Public' URL's are using an *Alpha Release* feature set, and may not display correctly. In that case, please use the 
 'Full Version' link, and any display strangeness will be resolved. 
 
 The following URLS all link to the dashboard. 
