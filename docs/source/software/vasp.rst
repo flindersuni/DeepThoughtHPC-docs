@@ -4,7 +4,7 @@ VASP
 =======================================
 VASP Status
 =======================================
-VASP: The Vienna Ab initio Simulation Package version 6.2.0 is operational with OpenACC GPU support on the HPC for the Standard, Gamma Ponit and Non-Collinear versions of the program. 
+VASP: The Vienna Ab initio Simulation Package version 6.2.0 is operational with OpenACC GPU support on the HPC for the Standard, Gamma Ponit and Non-Collinear versions. 
 
 .. _VASP: https://www.vasp.at/
 

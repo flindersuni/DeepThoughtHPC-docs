@@ -405,17 +405,9 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
     # data on /local, you will need to manually cleanup that 
     # directory as a part of your job script. 
 
-    # Example using the HPC Set $TMPDIR Variable 
-    cd /local/ 
-    mkdir $SLURM_JOB_ID/ ; cd $SLURM_JOBID
+    # Example using the SLURM $BGFS Variable (the Parallel Filesystem)
+    cd $BGFS
     cp /scratch/user/<FAN>/dataset ./
-
-    # A Manual 'Shared' Data-Set Directory
-    # DATADIR=/local/$SLURM_USER/dataset/
-    # mkdir -p $DATADIR
-    # cd $DATADIR 
-    # cp -r /scratch/users/$USER/dataset/ ./ 
-
 
     ##################################################################
     # Enter the command-line arguments that you job needs to run. 
@@ -425,12 +417,12 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
     # Once you job has finished its processing, copy back your results 
     # and ONLY the results to /scratch, then clean-up the temporary 
     # working directory
+    # This command assumes that the destination exists
 
-    cp -r /$TMPDIR/<OUTPUT_FOLDER> /scratch/user/<FAN>/<JOB_RESULT_FOLDER>
+    cp -r /$BGFS/<OUTPUT_FOLDER> /scratch/user/<FAN>/<JOB_RESULT_FOLDER>
 
-    # Using the example above with a shared dataset directory, your final step 
-    # in the script should remove the directory folder 
-    # rm -rf $DATADIR
+    # No need to cleanup $BGFS, SLURM handles the cleanup for you. 
+    # Just dont forget to copy out your results, or you will lose them!
 
     ##################################################################
     
