@@ -405,7 +405,7 @@ An excellent guide to [submitting jobs](https://support.ceci-hpc.be/doc/_content
     # data on /local, you will need to manually cleanup that 
     # directory as a part of your job script. 
 
-    # Example using the HPC Set $BGFS Variable, Parallel Filesystem
+    # Example using the SLURM $BGFS Variable (the Parallel Filesystem)
     cd $BGFS
     cp /scratch/user/<FAN>/dataset ./
 
