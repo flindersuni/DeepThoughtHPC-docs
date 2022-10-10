@@ -104,6 +104,7 @@ Table of Contents
     software/cststudio.rst
     software/delft3d.rst 
     software/gromacs.rst
+    software/gaussian16.rst
     software/jupyter.rst
     software/lammps.rst
     software/matlab.rst
