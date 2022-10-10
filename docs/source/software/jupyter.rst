@@ -76,13 +76,13 @@ Conda Environment & Tensorflow Install
 It possible to use the GPU nodes and access the GPU's via the JupyterHub Interface. In this example, Tensorflow is used as the GPU-Enabled package of choice. To access the GPUs
 from your Conda environment and use Tensorflow, perform the following steps: 
 
-1. Follow the 'Conda Environement Preparation' steps up to step 4.
+1. Follow the 'Conda Environment Preparation' steps up to step 4.
 2. Run the following commands to install Tensorflow. **DO NOT** use ``conda install tensorflow``, as it has issues with GPU detection. You *must* use pip.
     a. ``python3 -m pip install tensorflow`` 
 
 There are a few known issues that can occur here, however the main on is solved below:
 
-1. An error about HTML has not attribute 'parser' or similar. This is usually resolved by upgrade pip. 
+1. An error about HTML has not attribute 'parser' or similar. This is usually resolved by upgrading pip. 
     a. ``python3 -m pip install --upgrade pip`` 
 
 Try and re-install Tensorflow as above. If it still fails, upgrade the rest of the installation tooling for python:

@@ -4,8 +4,8 @@ FAQ
 
 Below are some of the common steps that the team has been asked to resolve more than once, so we put them here to (hopefully) answer your questions before you have to wait in the Ticket Queue! 
 
-Host Not Found 
-===============
+When Connecting, Host Not Found? 
+================================
 
 When attempting to connect to the HPC, you receive a message that says 'Could not find deepthought.flinders.edu.au'. 
 
@@ -48,14 +48,14 @@ Running the Job
 There are several ways to correctly start OpenMPI/MPI based programs. SLURM does an excellent job of integrating with OpenMPI/MPI, so usually it will 'Just Work'.  Its highly dependant upon how the program is structured and written.  Here are some options that can help you boot things when they do not go to plan.
 
 * mpirun - bootstraps a program under MPI.  Best tested under a manual allocation via salloc.
-* srun - Acts nearly the same as 'sbatch' but runs immediacy via SLURM, instead of submitting the job for later execution.
+* srun - Acts nearly the same as 'sbatch' but runs immediately via SLURM, instead of submitting the job for later execution.
 
 OOM Killer
 -----------
-Remember, that each 'task' is its own little bucket - which means that SLURM tracks it individually! If a single task goes over its resource allocation, SLURM will kill it, and usually that causes a cascade failure with the rest of your program, as you suddenly have a process missing.
+Remember, that each 'task' is its own little bucket - which means that SLURM tracks it individually! If a single task goes over its resource allocation, SLURM will kill it, and usually that causes a cascade failure of your program, as you suddenly have a process missing.
 
 
-Issues Installed ISoSeq3 
+Installing ISoSeq3 
 =====================
 
 IsoSeq3, from Pacific Bio Sciences has install instructions that won't get you all the way on DeepThought.  There are some missing packages and some commands that must be altered to get you up and running.
