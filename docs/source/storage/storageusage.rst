@@ -64,17 +64,15 @@ Here is a rough guide as to what should live in your /scratch/$FAN directory. In
 
 Cluster is the new, high speed parallel filesystem for DeepThought, deployed using BeeGFS. It is highly recommended that you take advantage of high speeds available to reduce the I/O times associated with /scratch - so **please read this section carefully**. 
 
-The directories you can write to in /cluster are controller by SLURM.  When you job starts, SLURM sets multiple environment variables and 
+When performing parallel jobs, to prevent congestion, its best to have a random back-off to your job-scripts. This will take you stage-in times down from up to 30 *minutes* to less than 3 *minutes*. An example of this random backoff is below:
+
+``sleep $(echo $RANDOM%30 | bc)`` 
+
+The directories you can write to in /cluster are controlled by SLURM.  When your job starts, SLURM sets multiple environment variables and 
 creates directories for you to use on this filesystem. See the environment variables sections of the `SLURM Guide`_ for more information. 
 
 Once you job completes, is cancelled, or errors out, SLURM removes then entire directory of your job. That means, *if you do not move your data from the /cluster 
 filesystem, you will lose all of it*. This is by design, and the HPC Team cannot recover any data lost this way. 
-
-Each college is also limited to a **soft limit** on storage that mirrors their HPC SLURM allocation. This is currently
-
-1. 45% CSE, ~18TB 
-2. 45% CMPH, ~18TB 
-3. 10% Other, ~5TB 
 
 When this quota is exceeded, files can still be written, but the HPC Team is notified of the user and their associated usage.
 
@@ -105,10 +103,13 @@ Here is a rough guide as to what should live in your /home/$FAN directory. In ge
 /Local
 =========
 
-Local is the per-node, high speed flash storage that is specific to each node. When running a job, you want to run your data-sets on /local if at all possible - its the quickest storage location on the HPC. You MUST clean-up /local once you are done.
+Local is the per-node, high speed flash storage that is specific to each node. 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 What to Store in /local
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Only *transient files* should live on /local. Anything that your job is currently working on can be on /local. Once your job has finished with these files, they should be copied (or moved) to /scratch. The directory you were working in on /local should then cleaned, removing all files from your job.
+Only *transient files* should live on /local. Anything that your job is currently working on can be on /local. 
+Once your job has finished with these files, they should be copied (or moved) to /scratch. 
+The directory you were working in on /local should then cleaned, removing all files from your job - is you use the automatic
+SLURM created directories, then this is done for you. 
