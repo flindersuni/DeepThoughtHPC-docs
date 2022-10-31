@@ -24,6 +24,6 @@ and none imposes any artificial limitations on calculations other than your comp
 Gaussian Program Quick List
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The main binary for Gaussian is ``gau16``.
+The main binary for Gaussian is ``g16``.
 
 
