@@ -22,7 +22,40 @@ Delft3D is Open Source Software and facilitates the hydrodynamic (Delft3D-FLOW m
 Delft3D Known Issues
 ================================
 
-Delft3D does **not** currently support Multi-Node Execution.  The binary swan_mpi.exe will *not* work and immediately crash with errors.
+1. Delft3D does **not** currently support Multi-Node Execution.  The binary swan_mpi.exe will *not* work and immediately crash with errors.
+
+2. The ``.mdw`` file **CANNOT** start with a capital letter, or ``wave`` will crash with the error below: 
+
+.. code-block:: sh
+
+
+    terminate called after throwing an instance of 'char const*'
+
+    Program received signal SIGABRT: Process abort signal.
+
+    Backtrace for this error:
+    #0  0x15555344cb1f in ???
+    #1  0x15555344ca9f in ???
+    #2  0x15555341fe04 in ???
+    #3  0x155553d8edb4 in _ZN9__gnu_cxx27__verbose_terminate_handlerEv
+        at ../../../../libstdc++-v3/libsupc++/vterminate.cc:95
+    #4  0x155553d8cb85 in _ZN10__cxxabiv111__terminateEPFvvE
+        at ../../../../libstdc++-v3/libsupc++/eh_terminate.cc:47
+    #5  0x155553d8cbd0 in _ZSt9terminatev
+        at ../../../../libstdc++-v3/libsupc++/eh_terminate.cc:57
+    #6  0x155553d8ce13 in __cxa_throw
+        at ../../../../libstdc++-v3/libsupc++/eh_throw.cc:93
+    #7  0x4ee0b8 in throwexception_
+        at /local/delf3d/delft3d4_65936/src/utils_lgpl/deltares_common/packages/deltares_common_c/src/throwexception.cpp:35
+    #8  0x411889 in wave_init_
+        at /local/delf3d/delft3d4_65936/src/engines_gpl/wave/packages/kernel/src/wave_init.f90:66
+    #9  0x404f6d in waves_main
+        at /local/delf3d/delft3d4_65936/src/engines_gpl/wave/packages/wave/src/wave_exe.f90:130
+    #10  0x404a7c in main
+        at /local/delf3d/delft3d4_65936/src/engines_gpl/wave/packages/wave/src/wave_exe.f90:35
+    /cm/local/apps/slurm/var/spool/job1447072/slurm_script: line 104: 811018 Aborted                 (core dumped) wave S3.mdw
+
+
 
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
