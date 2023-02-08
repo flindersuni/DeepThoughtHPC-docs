@@ -24,7 +24,7 @@ Storage Usage Guidelines
 ============================
 See the page at: `StorageGuidelines`_, for details on what storage is present and other details. A general reminder for HPC Storage: 
 
-- All storage is *volatile* and no backup systems are in place
+- All storage is *volatile* and no guaranteed backup systems are in place
 - Cleanup you /home and /scratch regularly 
 - Cleanup and /local storage you used at the end of each job
 
@@ -33,7 +33,9 @@ Software Support Guidelines
 ====================================
 
 HPC Users are encouraged to compile and install their own software when they are comfortable to do so.  
-This can be done freely on the head node(s). 
+This can be done freely on the *compute nodes*. The HPC Head-Node is a differnet hardware architecture to 
+the compute nodes. You will most likely encounter **SIG4, Illegal Instruction** if you attempt to compile 
+programs on the head-node for usage on the compute-nodes.  
 
 The HPC Support team cannot maintain and provide active support for every piece of software that users of the HPC may need. 
 The following guidelines are an excerpt from our HPC Software Support Policy to summarise the key points. 
