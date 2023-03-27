@@ -25,11 +25,18 @@ GROMACS supports all the usual algorithms you expect from a modern molecular dyn
 GROMACS Quickstart Command Line Guide
 ================================================================
 
-GROMACS uses UCX and will require a custom mpirun invocation. The module system will warn you of this when you load the module. The following is a known good starting point:
+When running on a single node (--ntasks=1 in SLURM )
+
+- ``gmx make_ndx <OPTIONS>`` 
+- ``gmx grompp <OPTIONS>``
+- ``gmx mdrun <OPTIONS>`` 
 
 
-``mpirun -mca pml ucx --mca btl ^vader,tcp,uct -x UCX_NET_DEVICES=bond0 <program> <options>``
+When running on more than one node (--ntasks>1 in SLURM)
 
+- ``mpirun -np $SLURM_NTASKS gmx_mpi make_ndx``
+- ``mpirun -np $SLURM_NTASKS gmx_mpi grompp``
+- ``mpirun -np $SLURM_NTASKS gmx_mpi mdrun``
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 GROMACS Program Quick List
@@ -40,7 +47,7 @@ Below is a quick reference list of the different programs that make up the GROMA
 +------------+-------------------------------------+
 | CLI Option | Description                         |
 +============+=====================================+
-| gmx        | A Wrapper that calls gmx_mpi        |
+| gmx        | The Single-Node Only Binary         |
 +------------+-------------------------------------+
 | gmx_mpi    | The main MPI Enabled GROMACS binary |
 +------------+-------------------------------------+
