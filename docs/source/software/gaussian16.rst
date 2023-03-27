@@ -42,9 +42,9 @@ The below options are known to work well as a starting point for general options
 
 
 
--------------------------
++++++++++++++++++++++++++++++++++++++++
 Single-Node Parallelism 
--------------------------
++++++++++++++++++++++++++++++++++++++++
 
 The ``-c`` CLI Option or the GAUSS_CDEF="" environment variable are what must be set for Gaussian to use >1 CPU Core.
 
@@ -58,9 +58,9 @@ You can then either:
 - g16 -c=$CPUS_ALLOCATED 
 
 
---------------------------------------
++++++++++++++++++++++++++++++++++++++++
 Multi-Node Parallelism: Linda Workers
---------------------------------------
++++++++++++++++++++++++++++++++++++++++
 
 Linda is the mechanism for Multi-Node parallelism for Gaussian. As **not all algorithms in Gaussian scale well beyond a single node**, 
 each job will need testing to identify if MPI-Enabled jobs gain you any significant speedup. 
