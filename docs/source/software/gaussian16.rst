@@ -38,7 +38,7 @@ The below options are known to work well as a starting point for general options
 
 - export GAUSS_SCRDIR=$BGFS 
 - export GAUSS_RDEF="Maxdisk=-1" 
-- export GAUSS_MDEF="$(($SLURM_CPUS_PER_TASK*$SLURM_MEM_PER_CPU-1000))MB"
+- export GAUSS_MDEF=$(($SLURM_CPUS_PER_TASK*$SLURM_MEM_PER_CPU-512))MB
 
 
 

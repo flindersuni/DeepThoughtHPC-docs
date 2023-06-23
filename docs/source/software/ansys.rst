@@ -207,8 +207,30 @@ ANSYS Fluent CLI Quick List
 +---------------------------------+-----------------------------------------------------------------+
 | -tm                             | Specify the number of Processes for Meshing                     |
 +---------------------------------+-----------------------------------------------------------------+
+| -cnf                            | A MPI Hosts file for Distributed Shared Memory Parallel         |
++---------------------------------+-----------------------------------------------------------------+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Fluent Shared-Memory Parallel  / Distributed Mode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Fluent MPI / Distributed Mode needs a 'Hosts' file to tell it what machines to use. Use the below snippet 
+generate a file that can be used as the ``-cnf=`` parameter to ensure the Distributed shared-memory parallel
+works correctly. 
+
+    # Write Number of Procs/Host to Temp File in /home/<USER>/
+    HOST_FILE=~/$SLURM_JOBID.fluent.hosts.txt
+    T_HOSTS=~./T_HOSTS
+    mpirun hostname | sort | uniq -c > $T_HOSTS
+
+    # reformat to a 'HOSTS' file format that FLUENT likes
+    cat ~/T_HOSTS | while read line; do
+            echo $line | awk '{print $2":"$1}' >> $HOST_FILE
+    done
 
 
+You can then invoke Fluent like so, assuming you use the snippet: 
+
+``fluent 3ddp -g -nm -cnf=$HOST_FILE -mpi=openmpi -i /path/to/TUI/journal/file``
 
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -293,3 +315,86 @@ All of these options have expanded options for specific use cases. If you need t
 | -monitor                              | Print progress to STDOUT                                                           |
 +---------------------------------------+------------------------------------------------------------------------------------+
 
+====================================
+ANSYS RSM: Remote Solve Manager
+====================================
+
+Last, but certainly not least - the GUI based, fire-and-forget Remote Solve Manger. 
+
+There are a few hoops that you must jump through to get it all setup to work with DeepThought. RSM is hard-locked per version of the application. 
+
+Currently, only 2021R2 is supported. 
+
+You will need to the following installed: 
+
+1. ANSYS RSM Configuration 2021R2 
+2. ANSYS Workbench
+3. Fluent / Mechanical / Electrical App 
+
+All of the above assumes that already have access to DeepThought. If not, then you will need to ask for access to the HPC.
+
+++++++++++++++++++++++++++++++++++++++++++++++++
+Setting Up ANSYS RSM 2021R2 for DeepThought
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+Below is a checklist for getting ANSYS RSM online. 99% of this checklist is initial setup, and after its all set, you `do not` need to do it again!
+
+1. Open ANSY RSM Configuration
+
+2. Add a 'New HPC Resource'
+
+3. Set the 'Name' field to a name you want to refer to this configuration as 
+
+4. Set the 'HPC Type' to to 'SLURM'
+
+5. Set the 'Submit Host' to hpc-head01.deept.flinders.edu.au 
+
+6. Remember the SLURM 'Job Submission Arguments'. Take a stab at how much RAM per CPU you want, and add --mem-per-cpu=3G etc, to this line. If submitting to the `high-capacity` queue, you will also need to add --qos=hc-concurrent-jobs to this field as well!
+
+7. Ensure that 'User SSH protocol for Inter and intra-node communications is Ticked'
+
+8. 'How Does the Client communicate with SLURM is 'Able to Directly Submit Jobs'
+
+9. Click to the 'File Management' Tab 
+
+10. 'Client to HPC File Management' is 'RSM Internal File Transfer Mechanism'
+
+11. 'Staging Directory on the HPC Cluster', is a directory of your choice on /scratch. For example ``/scratch/user/<FAN>/ANSYS_STAGE_IN/``
+
+12. 'HPC Side File-Management' is set to 'Scratch directory local to the execution node(s)'
+
+13. 'HPC Scratch directory' is set to ``$TEMPDIR``. This is a HPC Admin team managed variable, so it will `just work`. 
+
+14. Click to the 'Queues' Tab
+
+15. Use the Autodiscover Options to get RSM to fill out the Queues for you. 
+
+16. Use your FAN + Password to allow RSM to log into the HPC on your behalf
+
+17. Close the RSM Configuration for now. Open your Project in your ANSYS App (Mechanical/Fluent etc.)
+
+18. Find the 'Solve Process Settings', and open it. 
+
+19. Create a new entry, and point it at the RSM Queue you want to use. RSM Queues are the same as the HPC Queues.
+
+20. Set this new RSM as the 'Default' for your program if you `always` want to use RSM via the HPC to solve things.
+
+21. Open Workbench. For each project that you want to use RSM for, select the 'Solution Properties'
+
+22. Set the 'Solution Process' to 'Submit to Remote Solve Manager'
+
+23. Set the 'Solve Process Setting' to the new setting you just made in Mechanical/Fluent etc. 
+
+24. Leave Workbench open for now, SSH into the HPC. 
+
+25. Edit your ~/.bashrc file. Right at the end, add the following ``module load intel-compilers``. ANSYS has a nice hidden call to ``ifort`` for user-added functions, so you MUST auto-load the intel-compilers for your user account, or it will fail. 
+
+26. Back to Workbench, and now we can hit 'Solve'.
+
+27. Watch the HPC queue, you should see job appearing 
+
+28. You can also open the RSM Job Monitor program, and watch your jobs there. 
+
+30. DONE! The only alterations would be to the 'Job Submission Arguments' to tweak your --mem-per-cpu= parameter. 
+
+Happy Solving!
