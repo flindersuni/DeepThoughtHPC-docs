@@ -393,8 +393,6 @@ Below is a checklist for getting ANSYS RSM online. 99% of this checklist is init
 
 27. Watch the HPC queue, you should see job appearing 
 
-28. You can also open the RSM Job Monitor program, and watch your jobs there. 
+28. You can also open the RSM Job Monitor program, and watch your jobs there.
 
-30. DONE! The only alterations would be to the 'Job Submission Arguments' to tweak your --mem-per-cpu= parameter. 
-
-Happy Solving!
+29. DONE! The only alterations would be to the 'Job Submission Arguments' to tweak your --mem-per-cpu= parameter, or if submitting to the high-capacity queue, adding --qos=hc-concurrent-jobs
