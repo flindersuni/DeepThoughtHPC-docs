@@ -7,8 +7,13 @@ MATLAB Status
 
 Matlab 2020b is the currently installed version on the HPC. 
 
-investigation is under way to enable tighter GUI integration and better workload management. 
+Flinders has also licenced MATLAB for usage at NCI on Gadi. You will need to join the **matlab_flinders** group via 'My NCI'. Once membership is approved by the HPC Team, then you will be able to run MATLAB at GADI. Please see the NCI Wiki for any help running MATLAB on NCI computing resources. 
 
+The HPC Team has updated the licencing and capabilities of MATLAB on DeepThought. You can now use Parallel Server via SLURM and the Parallel Computing Toolbox to run MATLAB in a distributed manner on DeepThought.
+
+.. _MATLAB Running Code on Clusters and Clouds: https://au.mathworks.com/help/matlab-parallel-server/running-at-scale.html
+
+Please see the MATLAB help as a starting point to use MATLAB Parallel Server via SLURM or the Parallel Computing Toolkit `MATLAB Running Code on Clusters and Clouds`_ is a good starting point. 
 
 .. _MathWorks MATLAB: https://au.mathworks.com/
 
