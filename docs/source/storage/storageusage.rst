@@ -31,8 +31,13 @@ As general guide, the following table presents the overall storage for the HPC.
 +-----------------------+--------------------------+-------------------------+
 | /local                | Individual Compute Nodes | ~1TB (400GB on Node019) |
 +-----------------------+--------------------------+-------------------------+
-| /RDrive/\<Share Name> | Head Nodes               | Share Dependant         |
+| /RDrive/\<Share Name> | Head Node               | Share Dependant          |
 +-----------------------+--------------------------+-------------------------+
+
+.. attention:: 
+    Due to an Upstream Kernel Bug, R-Drive integration is currently unavailable. 
+    Please use your file transfer program of choice from a wired desktop to move files from the HPC to R-Drive in a single operation.
+    The HPC Team is activly working on rebuilding the integration.
 
 .. warning:: The HPC is classed as **volatile** storage. Your research data and datasets that you wanted backed up MUST be moved to /RDrive, or off the HPC.
 
