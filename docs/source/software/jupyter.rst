@@ -65,24 +65,24 @@ For Reference, the below image shows the Kernel Template Screen.
     
 
 +++++++++++++++++++++++++++++++++
-But it still Doesnt work?
+Additional Troubleshooting Steps
 +++++++++++++++++++++++++++++++++
 If you get it wrong, the integration will be mangled for *all* of your Conda Environments, and **will not work correctly**. 
 
-If you still get a HTTP 599 or 500 error on job launcher, then perform the following: 
+If you still get a HTTP 599 or 500 errors on job launch, then perform the following: 
 
 1. Activate your conda environment
 2. ``python --version`` and ``python3 --version``
     a. They MUST be 3.9 or less.
 3. Start a Python Interpreter Session via ``python3`` 
     a. Attempt to load the Bash-kernel module
-    b. ``from bash_kernel.kernl import BashKernel`` 
-    c. NO Error messages should appear 
+    b. ``from bash_kernel.kernel import BashKernel`` 
+    c. No Error Messages
 4. Force a re-installation of the Bash Kerlel Layer 
     a. ``python3 -m pip install --user --upgrade --force-reinstall bash-kernel``
 5. If you are Submitting to short, and *did not change the max runtime of the Kernel* it wil also **not work**. This is usually pin-pointanable by an IMMEDIATE error, without any type of delay.
     a. The Default Runtime is set to ``1-0``, which is 24 Hours. Short has a **maxiumum** of 12 Hours
-    b. Delete the Kernel Template, and recreate it wil a *valid runtime*. ``12:00:00`` is the *maximum amount possibe against short*
+    b. To Fix this, *delete* the Kernel Template, and recreate it wil a *valid runtime* (and resource specification). ``12:00:00`` is the *maximum amount possibe against short*
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Tensorflow / GPU Usage via Jupyter Hub
