@@ -55,7 +55,7 @@ The script is as follows::
             
     setup_g16_env() {
             # Do the memory first.
-            ALLOWED_MEM=`cat /sys/fs/cgroup/memory/slurm/uid_257470/job_2287794/memory.limit_in_bytes | numfmt --to-unit=M`
+            ALLOWED_MEM=`cat /sys/fs/cgroup/memory/slurm/uid_$UID/job_$SLURM_JOB_ID/memory.limit_in_bytes | numfmt --to-unit=M`
             BUFFER_MEM=`echo $(( $ALLOWED_MEM - 512 ))`
             export GAUSS_MDEF=`echo $BUFFER_MEM"MB"`
             echo "GAUSS_MDEF set to $GAUSS_MDEF, from a SLURM Maximum of $ALLOWED_MEM"
