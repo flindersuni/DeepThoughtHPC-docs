@@ -34,7 +34,7 @@ Running Gaussian SLURM Jobs
 Gaussian can be somewhat tricky to ensure that it runs in parallel under SLURM. Below are some starting points for you to fine-tune your Guassian runs.  Please remember that 
 not all Gaussian algorithms scale well across *multiple nodes*. There are also several variables to you will want to set, or your job will almost certainly crash!
 
-The below bash function will setup G16 to run correctly, no matter if you asked for GPU or CPU on a single node. There are two ways you can use this script: 
+The below bash function will setup G16 to run correctly, no matter if you asked for GPU or CPU on a single node. There are several ways you can use this script: 
 
 #. Copy and past the method body (everything between { and } ) ``inline`` *before* you start ``g16``. 
 #. Copy the entire snippet, then call the setup method as ``setup_g16_env`` *before* you start ``g16``
@@ -47,11 +47,12 @@ The script is as follows::
     # Version: 1.0
     # Reason: Gaussian16 just... doesn't do auto-detection. This script sets up the CDEF, GDEF, MDEF, MDisk and SCRDir correctly to allow for gaussian to function in parallel without stomping all over SLURM.
     # Notes: Abuses the fact that SLURM will quite nicely set affinity for us, so we can do a limited amount of parsing
-    #        Also does GAUSS_MDEF while we are at it.
-    #        We do split out the working CPU set, just for 'verification', but G16 still need to the 'GPU Controller' CPU's in its main 'CPU' List
-    #        Or it will complain about 'CPUID not bounf to thread' and then die in a fire. Hence, the stangra dance of lazy awk sub() calls, but not actually
-    #        using the list that gets created.
+    #        We do split out the working CPU set, just for 'verification', but G16 still needs the 'GPU Controller' CPU's in its main 'CPU' List
+    #        Or it will complain about 'CPUID not bound to thread' and then die in a fire. Hence, the stange dance of lazy awk sub() calls, but not actually
+    #        using the list that gets created as the CDEF= option.
     #        
+    #        A known limitation: Only up to 2 GPUs. Thats the max we have per node on DeepThought, so thats what we can deal with. 
+            
     setup_g16_env() {
             # Do the memory first.
             ALLOWED_MEM=`cat /sys/fs/cgroup/memory/slurm/uid_257470/job_2287794/memory.limit_in_bytes | numfmt --to-unit=M`
@@ -62,8 +63,8 @@ The script is as follows::
             export GAUSS_SCRDIR=$BGFS 
             export GAUSS_RDEF="Maxdisk=-1"
             export CPUS_ALLOCATED=`cat /sys/fs/cgroup/cpuset/slurm/uid_$UID/job_$SLURM_JOB_ID/cpuset.cpus`
-            # Check to see if we got a STRAIGHT run of cpus, eg, 12,13,15,61 or 64-72.
-            # FYI needs further testing to handle the possiblity of 1,2,3,5-22 in the list.
+            # Check to see if we got a list or a run of cpus, e.g., 12,13,15,61 vs. 64-72.
+            # FYI needs further testing to handle the possibility of 1,2,3,5-22 in the list.
             if [[ "$CPUS_ALLOCATED" == *"-"* ]]; then
                     echo "Found Sequential CPU list of $CPUS_ALLOCATED, converting to individual core ID's...."
                     START_SEQ=`echo $CPUS_ALLOCATED | awk '{split($0,a,"-");print a[1]}'`
