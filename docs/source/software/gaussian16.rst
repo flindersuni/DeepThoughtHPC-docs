@@ -34,28 +34,93 @@ Running Gaussian SLURM Jobs
 Gaussian can be somewhat tricky to ensure that it runs in parallel under SLURM. Below are some starting points for you to fine-tune your Guassian runs.  Please remember that 
 not all Gaussian algorithms scale well across *multiple nodes*. There are also several variables to you will want to set, or your job will almost certainly crash!
 
-The below options are known to work well as a starting point for general options. These must be before the call to ``g16``: 
+The below bash function will setup G16 to run correctly, no matter if you asked for GPU or CPU on a single node. There are several ways you can use this script: 
 
-- export GAUSS_SCRDIR=$BGFS 
-- export GAUSS_RDEF="Maxdisk=-1" 
-- export GAUSS_MDEF=$(($SLURM_CPUS_PER_TASK*$SLURM_MEM_PER_CPU-512))MB
+#. Copy and past the method body (everything between { and } ) ``inline`` *before* you start ``g16``. 
+#. Copy the entire snippet, then call the setup method as ``setup_g16_env`` *before* you start ``g16``
+#. Store it somewhere, and call it as either ``. /path/to/env/setup/script.sh`` or ``source /path/to/env/setup/script``, again, *before* you start ``g16``. 
 
+The script is as follows::
 
+    #!/bin/bash
+    # Author: Scott Anderson
+    # Version: 1.0
+    # Reason: Gaussian16 just... doesn't do auto-detection. This script sets up the CDEF, GDEF, MDEF, MDisk and SCRDir correctly to allow for gaussian to function in parallel without stomping all over SLURM.
+    # Notes: Abuses the fact that SLURM will quite nicely set affinity for us, so we can do a limited amount of parsing
+    #        We do split out the working CPU set, just for 'verification', but G16 still needs the 'GPU Controller' CPU's in its main 'CPU' List
+    #        Or it will complain about 'CPUID not bound to thread' and then die in a fire. Hence, the stange dance of lazy awk sub() calls, but not actually
+    #        using the list that gets created as the CDEF= option.
+    #        
+    #        A known limitation: Only up to 2 GPUs. Thats the max we have per node on DeepThought, so thats what we can deal with. 
+            
+    setup_g16_env() {
+            # Do the memory first.
+            ALLOWED_MEM=`cat /sys/fs/cgroup/memory/slurm/uid_257470/job_2287794/memory.limit_in_bytes | numfmt --to-unit=M`
+            BUFFER_MEM=`echo $(( $ALLOWED_MEM - 512 ))`
+            export GAUSS_MDEF=`echo $BUFFER_MEM"MB"`
+            echo "GAUSS_MDEF set to $GAUSS_MDEF, from a SLURM Maximum of $ALLOWED_MEM"
+            # Scratch Disk & Max Disk Read/Write 
+            export GAUSS_SCRDIR=$BGFS 
+            export GAUSS_RDEF="Maxdisk=-1"
+            export CPUS_ALLOCATED=`cat /sys/fs/cgroup/cpuset/slurm/uid_$UID/job_$SLURM_JOB_ID/cpuset.cpus`
+            # Check to see if we got a list or a run of cpus, e.g., 12,13,15,61 vs. 64-72.
+            # FYI needs further testing to handle the possibility of 1,2,3,5-22 in the list.
+            if [[ "$CPUS_ALLOCATED" == *"-"* ]]; then
+                    echo "Found Sequential CPU list of $CPUS_ALLOCATED, converting to individual core ID's...."
+                    START_SEQ=`echo $CPUS_ALLOCATED | awk '{split($0,a,"-");print a[1]}'`
+                    END_SEQ=`echo $CPUS_ALLOCATED | awk '{split($0,a,"-");print a[2]}'`
+                    echo "Start: $START_SEQ End: $END_SEQ"
+                    if [[ $START_SEQ && $END_SEQ ]]; then
+                            export CPUS_ALLOCATED=`seq -s ',' $START_SEQ $END_SEQ`
+                            echo "CPUs set to $CPUS_ALLOCATED..."
+                    else
+                            echo "FOUND SEQUENCE, BUT UNABLE TO FIGURE OUT START AND END OF LISTS. CANNOT SETUP GAUSSIAN, JOB EXITING!"
+                            exit 99
+                    fi
+            fi
+            if [[ -z $CUDA_VISIBLE_DEVICES ]]; then
+                    echo "No Allocated or visible GPU devices. Not exporting GAUS_GDEF="
+                    export GAUSS_CDEF=$CPUS_ALLOCATED
+                    echo "GAUSS_CDEF set to $CPUS_ALLOCATED"
+                    return
+            else
+                    echo "Found CUDA Visible Devices: $CUDA_VISIBLE_DEVICES"
+                    # Are we >1 GPU?
+                    IFS="," read -r -a array <<< $CUDA_VISIBLE_DEVICES;
+                    if [[ ${#array[@]} -eq 2 ]]; then
+                            echo "Found 2 GPUs..."
+                            export C_CPU_1=`echo $CPUS_ALLOCATED | awk '{split($0,a,","); print a[1]}'`
+                            export C_CPU_2=`echo $CPUS_ALLOCATED | awk '{split($0,a,","); print a[2]}'`
+                            echo "GPU Control CPUs: $C_CPU_1 $C_CPU_2"
+                            export WORK_CPUS=`echo $CPUS_ALLOCATED | awk '{split($0,a,","); sub(a[1]",", "", $0); sub(a[2]",","",$0); print $0}'`
+                            echo "Work CPUS: $WORK_CPUS"
+                            export GAUSS_GDEF="$CUDA_VISIBLE_DEVICES=$C_CPU_1,$C_CPU_2"
+                            echo "GAUSS_GDEF set to: $GAUSS_GDEF"
+                            export GAUSS_CDEF=$CPUS_ALLOCATED
+                            echo "GAUSS_CDEF set to: $CPUS_ALLOCATED"
+                            return
+                    elif [[ ${#array[@]} -eq 1 ]]; then
+                            echo "Found a Single GPU..."
+                            export C_CPU_1=`echo $CPUS_ALLOCATED | awk '{split($0,a,","); print a[1]}'`
+                            export WORK_CPUS=`echo $CPUS_ALLOCATED | awk '{split($0,a,","); sub(a[1]",", "", $0);  print $0}'`
+                            echo "Work CPUS: $WORK_CPUS"
+                            export GAUSS_GDEF="$CUDA_VISIBLE_DEVICES=$C_CPU_1"
+                            echo "GAUSS_GDEF set to: $GAUSS_GDEF"
+                            export GAUSS_CDEF=$CPUS_ALLOCTED
+                            echo "GAUSS_CDEF set to: $CPUS_ALLOCATED"
+                            return
 
-+++++++++++++++++++++++++++++++++++++++
-Single-Node Parallelism 
-+++++++++++++++++++++++++++++++++++++++
-
-The ``-c`` CLI Option or the GAUSS_CDEF="" environment variable are what must be set for Gaussian to use >1 CPU Core.
-
-Gaussian expects a list of hardware CPU ID's. You can obtain this within any job launched via SLURM with the following: 
-
-``CPUS_ALLOCATED=`cat /sys/fs/cgroup/cpuset/slurm/uid_$UID/job_$SLURM_JOB_ID/cpuset.cpus``
-
-You can then either: 
-
-- export GAUSS_CDEF=$CPUS_ALLOCATED; # Must be before your call to ``g16``
-- g16 -c=$CPUS_ALLOCATED 
+                    else
+                            echo "CRITICAL ERROR! WE CAN SEE $CUDA_VISIBLE_DEVICES as NOT EMPTY, BUT UNABLE TO EXTRA GPU ID's NEEDED"
+                            echo "SETTING GAUSSING TO CPU ONLY MODE!"
+                            export GAUSS_CDEF=$CPUS_ALLOCATED
+                            echo "GAUSS_CDEF set to $CPUS_ALLOCATED"
+                            return
+                    fi
+            fi
+        }
+    # Call method as named
+    setup_g16_env 
 
 
 +++++++++++++++++++++++++++++++++++++++
@@ -64,6 +129,8 @@ Multi-Node Parallelism: Linda Workers
 
 Linda is the mechanism for Multi-Node parallelism for Gaussian. As **not all algorithms in Gaussian scale well beyond a single node**, 
 each job will need testing to identify if MPI-Enabled jobs gain you any significant speedup. 
+
+Do not attempt to mix this with the above script for single-node setup, as it WILL almost certainly fail.
 
 
 The following SLURM Snippet is a starting point for Multi-Node execution of Gaussian16::

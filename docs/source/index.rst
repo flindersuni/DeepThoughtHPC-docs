@@ -3,11 +3,6 @@ Welcome to the DeepThought HPC
 
 The new Flinders University HPC is called DeepThought. This new HPC comprises of AMD EPYC based hardware and next-generation management software, allowing for a dynamic and agile HPC service. 
 
-.. attention:: 
-    The new HPC Dashboard has been released. The default, 2-Week Window 'Quick View' can be accessed at https://deepweb.flinders.edu.au/,
-    https://deepweb.flinders.edu.au/public-dashboards/9f967160b3d0441c8fe9c7eee9f231c5, or https://deepweb.flinders.edu.au/dtdash/. 
-    Be advised the the 'full' version ('/dtdash') will be removed in the future. 
-
 .. attention::
     This documentation is under active development, meaning that it can
     change over time as we improve it. Please email deepthought@flinders.edu.au if
