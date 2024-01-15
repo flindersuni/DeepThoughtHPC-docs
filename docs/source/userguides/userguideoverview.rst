@@ -7,8 +7,19 @@ This is the landing page where we keep track of who has contributed guide direct
 .. _FAME: https://fame.flinders.edu.au/
 .. _FAME Tutorials: fame-tutorials.html
 
+.. toctree::
+    :maxdepth: 1
+    :caption: Guide Quick List 
+
+    compression.rst  
+
+
+
+
 -----------------------------
 Centre Contributors
 -----------------------------
-The Flinders Accelerator for Microbiome Exploration has graciously allowed to the HPC Team to mirror their excellent tutorial series on 
+The Flinders Accelerator for Microbiome Exploration has some an excellent tutorial series on 
 conda and microbiology python packages. The original content can be found on the `FAME`_ homepage. 
+
+
