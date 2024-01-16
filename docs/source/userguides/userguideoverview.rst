@@ -1,7 +1,7 @@
------------------------------
+************************
 User Guides
------------------------------
-The HPC Team does its best to write as much as possible on how to use the HPC, we welcome anything that has been written by out users.  
+************************
+The HPC Team does its best to write as much as possible on how to use the HPC, we welcome anything that has been written by our users.  
 This is the landing page where we keep track of who has contributed guide directly, or graciously allowed us to tweak existing content. 
 
 .. _FAME: https://fame.flinders.edu.au/
@@ -9,12 +9,8 @@ This is the landing page where we keep track of who has contributed guide direct
 
 .. toctree::
     :maxdepth: 2
-    :caption: Guide Quick List 
 
-    compression.rst  
-
-
-
+    compression.rst   
 
 ========================
 Centre Contributors

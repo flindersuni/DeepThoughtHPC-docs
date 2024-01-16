@@ -50,12 +50,11 @@ The following files are provided for integration into your reference manager of 
 How-To Guides  
 ++++++++++++++
 By popular demand, the HPC Team has started putting together some 101's for common pain-points that we spend time training people on. 
-You can find them below, and please, let us know if you would like a guide for something!  PLease see the links below for a quick list. 
+You can find them below, and please, let us know if you would like a guide for something!
 
-.. toctree:: 
-    :maxdepth: 1
+.. _User Guides ToC: userguides/userguideoverview.html
 
-    userguides/userguideoverview.rst
+Scroll down the page  'How-To' Table of Contents, head over to the `User Guides Toc`_.
 
 
 
@@ -101,7 +100,13 @@ Table of Contents
     dataflow/hpcjobdataflow.rst
     SLURM/SLURMIntro.md
     ModuleSystem/LMod.md
-    
+
+.. toctree:: 
+    :maxdepth: 2
+    :caption: How-To 
+
+    userguides/userguideoverview.rst 
+
 .. toctree:: 
     :maxdepth: 1 
     :caption: Software Suites
@@ -128,7 +133,7 @@ Table of Contents
 .. toctree::
     :maxdepth: 1
     :caption: FAQ & Known Issues
- 
+    
     FAQ/faq.rst
     FAQ/knownissues.rst
  
