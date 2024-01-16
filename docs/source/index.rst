@@ -47,6 +47,18 @@ The following files are provided for integration into your reference manager of 
 .. _Full Version: https://deepweb.flinders.edu.au/dtdash
 
 
+How-To Guides  
+++++++++++++++
+By popular demand, the HPC Team has started putting together some 101's for common pain-points that we spend time training people on. 
+You can find them below, and please, let us know if you would like a guide for something!  PLease see the links below for a quick list. 
+
+.. toctree:: 
+    :maxdepth: 1
+
+    userguides/userguideoverview.rst
+
+
+
 HPC Visual Dashboard
 +++++++++++++++++++++++++++
 DeepThought has a time-series based visual statistics dashboard that be viewed via a web-browser while on campus.  
@@ -106,7 +118,6 @@ Table of Contents
     software/singularity.rst
     software/vasp.rst
     software/opendatacube.rst
-    
  
 .. toctree::
     :maxdepth: 1
@@ -128,8 +139,6 @@ Table of Contents
 
    policies/fairuse.rst
    policies/accessandpermissions.rst
-   migration/upgrademigration.rst
-   upgrades/updatelog.rst
 
 
 Acknowledgements
