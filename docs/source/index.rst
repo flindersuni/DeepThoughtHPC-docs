@@ -54,7 +54,7 @@ You can find them below, and please, let us know if you would like a guide for s
 
 .. _User Guides ToC: userguides/userguideoverview.html
 
-Scroll down to the 'FAQ' Table of Contents, head over to the `User Guides Toc`_.
+Scroll down the page  'How-To' Table of Contents, head over to the `User Guides Toc`_.
 
 
 
@@ -105,8 +105,8 @@ Table of Contents
     :maxdepth: 2
     :caption: How-To 
 
-    
-    
+    userguides/userguideoverview.rst 
+
 .. toctree:: 
     :maxdepth: 1 
     :caption: Software Suites
@@ -134,7 +134,6 @@ Table of Contents
     :maxdepth: 1
     :caption: FAQ & Known Issues
     
-    userguides/userguideoverview.rst
     FAQ/faq.rst
     FAQ/knownissues.rst
  
